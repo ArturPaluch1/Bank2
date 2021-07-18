@@ -1,8 +1,4 @@
-﻿
-using Bank2.Model;
-using Bank2.Navigators;
-using Bank2.View.Pages;
-using Bank2.ViewModel;
+﻿using Bank2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,23 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Bank2
+namespace Bank2.View.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PracownikPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PracownikPage : Page
     {
-        public MainWindow()
+        public PracownikPage()
         {
             InitializeComponent();
-         //   DataContext = new VMMainWindow();
-            
+           // DataContext = new VMPracownik(INavigator navigator);
         }
-
-        
-       
-
-     
     }
 }

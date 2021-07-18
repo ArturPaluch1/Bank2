@@ -3,10 +3,76 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Bank2"
+        xmlns:local="clr-namespace:Bank2.View.Pages" xmlns:viewmodel="clr-namespace:Bank2.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:VMMainWindow}"
+        xmlns:viewModels="clr-namespace:Bank2.ViewModel"
+        xmlns:views ="clr-namespace:Bank2.View.Pages"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+         Background="LightGray"
+        Title="Bank" Name="mainwindow" Height="auto" Width="auto"
+        WindowState="Normal"
+        BorderThickness="3" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
+      
+        >
+    <Frame Content="{Binding CurrentViewModel}" NavigationUIVisibility="Hidden">
+        <Frame.Resources>
 
-    </Grid>
+
+            <DataTemplate DataType="{x:Type viewModels:VMLogowanie}">
+            <views:LogowaniePage/>
+        </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:VMDodajPracownika}">
+                <views:DodajPracownikaPage/>
+            </DataTemplate>
+        </Frame.Resources>
+    </Frame>
+
+  
+
+    <!--<Frame Content="{Binding CurrentViewModel}">
+        <Frame.Resources>
+            <DataTemplate DataType="{x:Type viewModels:VMLogowanie}">
+                <views:LogowaniePage/>
+            </DataTemplate>
+        </Frame.Resources>
+    </Frame>-->
+
+
+    <!--<Frame DataContext="{Binding Navigator}">
+        <Frame.Resources>
+            <DataTemplate DataType="{x:Type viewModels:VMLogowanie}">
+                <views:LogowaniePage/>
+            </DataTemplate>
+        </Frame.Resources>
+    </Frame>-->
+    
+    <!--<StackPanel>
+        <Frame DataContext="{Binding Navigator}"/>
+        <ContentControl Content="{Binding Navigator.CurrentViewModel}"/>
+    </StackPanel>-->
+
+    
+
+
+
+
+
+
+
+    <!--  <mw:VMMainWindow/>-->
+   
+   
+   
+    <!--  <local:LogowaniePage />-->
+
+
+    <!--<Page>
+        <Viewbox Stretch="Fill" Margin="15">
+            <Frame Height="800" Width="1280" Content="{Binding CurrentView}"/>
+        </Viewbox>
+    </Page>-->
+
+
+
+
 </Window>
