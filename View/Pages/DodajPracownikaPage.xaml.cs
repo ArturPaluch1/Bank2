@@ -24,5 +24,7 @@ namespace Bank2.View.Pages
         {
             InitializeComponent();
         }
+
+      
     }
 }

@@ -13,9 +13,9 @@
         BorderThickness="3" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
       
         >
-    <Frame Content="{Binding CurrentViewModel}" NavigationUIVisibility="Hidden">
+ 
+    <Frame Content="{Binding CurrentViewModel}" NavigationUIVisibility="Hidden" >
         <Frame.Resources>
-
 
             <DataTemplate DataType="{x:Type viewModels:VMLogowanie}">
             <views:LogowaniePage/>
@@ -25,9 +25,10 @@
                 <views:DodajPracownikaPage/>
             </DataTemplate>
         </Frame.Resources>
+       
     </Frame>
-
   
+
 
     <!--<Frame Content="{Binding CurrentViewModel}">
         <Frame.Resources>

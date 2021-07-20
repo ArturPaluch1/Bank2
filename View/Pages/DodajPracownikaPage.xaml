@@ -4,13 +4,15 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:components="clr-namespace:Bank2.Components"
-      xmlns:local="clr-namespace:Bank2.View.Pages"
+      xmlns:local="clr-namespace:Bank2.View.Pages" xmlns:viewmodel="clr-namespace:Bank2.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:VMDodajPracownika}"
+
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DodajPracownikaPage">
 
 
     <Page.Resources>
+      
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Height" Value="25"/>
@@ -118,10 +120,10 @@
       
 
         <TextBox x:Name="textBoxPESEL" Text="{Binding Pesel, Mode=TwoWay}" Grid.Column="3" Grid.Row="1" TextWrapping="Wrap"   Grid.ColumnSpan="2" />
-        <TextBox x:Name="textBoxTelefon" Text="{Binding Telefon, Mode=TwoWay}" Grid.Column="3" Grid.Row="2" TextWrapping="Wrap"    Grid.ColumnSpan="2"  />
-        <TextBox x:Name="textBoxWynagrodzenie" Text="{Binding Wynagrodzenie, Mode=TwoWay}" Grid.Column="3" Grid.Row="3"  TextWrapping="Wrap" Grid.ColumnSpan="2"   />
-
-        <Button x:Name="dodaj" Content="Dodaj" Command="{Binding Dodaj}" Grid.Column="2" Grid.Row="5"  HorizontalAlignment="Center" />
+        <TextBox x:Name="textBoxTelefon" Text="{Binding Telefon, Mode=TwoWay, StringFormat={}{:}}"  Grid.Column="3" Grid.Row="2" TextWrapping="Wrap"    Grid.ColumnSpan="2"  />
+        <TextBox x:Name="textBoxWynagrodzenie" Text="{Binding Wynagrodzenie, Mode=TwoWay, StringFormat={}{:}}" Grid.Column="3" Grid.Row="3"  TextWrapping="Wrap" Grid.ColumnSpan="2"   />
+       
+        <Button x:Name="dodaj" Content="Dodaj" Command="{Binding Dodaj}"  Grid.Column="2" Grid.Row="5"  HorizontalAlignment="Center" CommandParameter="{Binding Mode=OneWay}"  />
         <Button x:Name="anuluj" Content="Anuluj" Command="{Binding Anuluj}" Grid.Column="3" Grid.Row="5"  HorizontalAlignment="Center" />
 
     </Grid>

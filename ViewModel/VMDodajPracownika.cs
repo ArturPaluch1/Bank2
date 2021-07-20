@@ -14,11 +14,14 @@ namespace Bank2.ViewModel
     class VMDodajPracownika : ViewModelBase, INotifyPropertyChanged//, ICommand
     {
         private string _password;
+       //rivate string _wynagrodzenieString;
+        private decimal _wynagrodzenie;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
         private ICommand _dodaj;
+        
        public  ICommand Dodaj
         {
             get
@@ -43,7 +46,7 @@ namespace Bank2.ViewModel
             set
             {
                 _password = value;
-                OnPropertyChanged(nameof(Password));
+                //OnPropertyChanged(nameof(Password));
             }
         }
 
@@ -53,7 +56,7 @@ namespace Bank2.ViewModel
         {
             get { return _imie; }
             set { _imie = value;
-                OnPropertyChanged(nameof(Imie));
+            //    OnPropertyChanged(nameof(Imie));
             }
         }
 
@@ -61,11 +64,12 @@ namespace Bank2.ViewModel
         public string Pesel { get; set; }
         public int Telefon { get; set; }
         public decimal Wynagrodzenie { get; set; }
-        private void OnPropertyChanged(string v)
+
+        /*private void OnPropertyChanged(string v)
         {
             //    _password=
           
-        }
+        }*/
 
 
 

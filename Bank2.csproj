@@ -15,6 +15,7 @@
   <ItemGroup>
     <None Remove="Bank.ldf" />
     <None Remove="Bank.mdf" />
+    <None Remove="image.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +32,12 @@
 
   <ItemGroup>
     <Folder Include="View\Controls\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

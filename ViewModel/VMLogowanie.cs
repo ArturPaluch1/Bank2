@@ -1,18 +1,7 @@
 ﻿using Bank2.Commands;
-using Bank2.Model;
 using Bank2.Navigators;
-using Bank2.View;
-using Bank2.View.Pages;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Navigation;
 
 namespace Bank2.ViewModel
 {
@@ -29,6 +18,7 @@ namespace Bank2.ViewModel
         //private Baza model = new Baza();
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand Zarejestruj { get; set; }
+
 
         //bool zalogowany = false;
 
@@ -72,6 +62,7 @@ namespace Bank2.ViewModel
                Zarejestruj = new UpdateCurrentViewModelCommand<VMDodajPracownika>(navigator, ()=>new VMDodajPracownika(navigator));
 
             //    Zaloguj = new RelayCommand(new Action<object>(ShowMessage));
+
 
             //   _navigationService = navigationService;
             //      _ea = ea;
