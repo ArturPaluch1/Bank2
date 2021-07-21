@@ -46,7 +46,7 @@ namespace Bank2.ViewModel
             set
             {
                 _password = value;
-                //OnPropertyChanged(nameof(Password));
+              //  OnPropertyChanged(nameof(Password));
             }
         }
 

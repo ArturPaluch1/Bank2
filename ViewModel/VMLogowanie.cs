@@ -1,5 +1,6 @@
 ﻿using Bank2.Commands;
 using Bank2.Navigators;
+using System;
 using System.ComponentModel;
 using System.Windows.Input;
 
@@ -9,16 +10,28 @@ namespace Bank2.ViewModel
     {
         // private NavigationService _navigationService;
 
-      //  private IEventAggregator _ea;
+        //  private IEventAggregator _ea;
 
+        private string _imie;
+        public string Imie { get
+            {
+                return _imie;
+            }
+            set
+            {
+                _imie = value;
+            //    OnPropertyChanged(nameof(Imie));
+            }
+        }
 
-
+        public string Nazwisko { get; set; }
+        public string Password { get; set; }
 
 
         //private Baza model = new Baza();
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand Zarejestruj { get; set; }
-
+        public ICommand Zaloguj { get; set; }
 
         //bool zalogowany = false;
 
@@ -60,6 +73,8 @@ namespace Bank2.ViewModel
         public VMLogowanie(INavigator navigator)//IEventAggregator ea)//NavigationService navigationService)
         {
                Zarejestruj = new UpdateCurrentViewModelCommand<VMDodajPracownika>(navigator, ()=>new VMDodajPracownika(navigator));
+            //  Zaloguj = new UpdateCurrentViewModelCommand<VMPracownikLayout>(navigator, () => new VMPracownikLayout(navigator));
+            Zaloguj = new ZalogujPracownikaCommand<VMPracownikLayout>(navigator, () => new VMPracownikLayout(navigator));
 
             //    Zaloguj = new RelayCommand(new Action<object>(ShowMessage));
 

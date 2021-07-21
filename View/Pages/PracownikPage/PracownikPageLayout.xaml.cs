@@ -14,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Bank2.View.Pages
+namespace Bank2.View.Pages.PracownikPage
 {
     /// <summary>
     /// Interaction logic for PracownikPage.xaml
     /// </summary>
-    public partial class PracownikPage : Page
+    public partial class PracownikPageLayout : Page
     {
-        public PracownikPage()
+        public PracownikPageLayout()
         {
             InitializeComponent();
            // DataContext = new VMPracownik(INavigator navigator);

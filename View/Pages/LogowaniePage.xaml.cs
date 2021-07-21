@@ -1,4 +1,7 @@
-﻿using Bank2.Model;
+﻿using Bank2.Commands;
+using Bank2.Model;
+using Bank2.Navigators;
+using Bank2.View.Pages.PracownikPage;
 using Bank2.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -22,64 +25,77 @@ namespace Bank2.View.Pages
     /// </summary>
     public partial class LogowaniePage: Page
     {
+        private INavigator _navigator;
         public LogowaniePage()
         {
             InitializeComponent();
           //  DataContext = new VMLogowanie();
             
         }
+        public LogowaniePage(INavigator navigator)
+        {
+            _navigator = navigator;
+          
+        }
         private void OnClickZaloguj(object sender, RoutedEventArgs e)
         {
-            bool zalogowany = false;
+            /*  bool zalogowany = false;
 
-            if (textBoxImie.Text.Length > 0 && textBoxNazwisko.Text.Length > 0 && PasswordBox.Password.Length > 0)
-            {
+              if (textBoxImie.Text.Length > 0 && textBoxNazwisko.Text.Length > 0 && PasswordBox.Password.Length > 0)
+              {
 
-                try
-                {
-                    Baza db = new Baza();
-
-
-                    foreach (var item in db.Pracownicy)
-                    {
-                        if (
-                            textBoxImie.Text == item.Imię_pracownika.TrimEnd()
-                            && textBoxNazwisko.Text == item.Nazwisko_pracownika.TrimEnd()
-                            && PasswordBox.Password == item.Password.TrimEnd())
-                        {
-                            zalogowany = true;
-                            break;
-                        }
+                  try
+                  {
+                      Baza db = new Baza();
 
 
-                    }
-                    if (zalogowany == true)
-                    {
-                        MessageBox.Show("Dobre dane logowania");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Złe dane logowania");
-                    }
+                      foreach (var item in db.Pracownicy)
+                      {
+                          if (
+                              textBoxImie.Text == item.Imię_pracownika.TrimEnd()
+                              && textBoxNazwisko.Text == item.Nazwisko_pracownika.TrimEnd()
+                              && PasswordBox.Password == item.Password.TrimEnd())
+                          {
+                              zalogowany = true;
+                              break;
+                          }
 
 
-
-                }
-                catch
-                {
-                    MessageBox.Show("Błąd logowania do bazy danych.");
-                }
+                      }
+                      if (zalogowany == true)
+                      {
+                          MessageBox.Show("Dobre dane logowania");
+                      }
+                      else
+                      {
+                          MessageBox.Show("Złe dane logowania");
+                      }
 
 
 
-            }
-            else
-            {
-                MessageBox.Show("Uzupełnij wszystkie pola");
-            }
+                  }
+                  catch
+                  {
+                      MessageBox.Show("Błąd logowania do bazy danych.");
+                  }
+
+
+
+              }
+              else
+              {
+                  MessageBox.Show("Uzupełnij wszystkie pola");
+              }*/
+            _navigator.CurrentViewModel =  new VMPracownikLayout(_navigator);
+            //_navigator.CurrentViewModelChanged+=
+           // Zaloguj = new UpdateCurrentViewModelCommand<VMPracownikLayout>(_navigator, () => new VMPracownikLayout(_navigator));
+
         }
-        PracownikPage page = new PracownikPage();
 
-       
+
+
+
+
+
     }
 }

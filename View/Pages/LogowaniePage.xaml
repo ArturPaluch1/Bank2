@@ -8,7 +8,7 @@
       xmlns:nav="clr-namespace:Bank2.Navigators"
       
       xmlns:Bank2="clr-namespace:Bank2" x:Class="Bank2.View.Pages.LogowaniePage"
-      
+      xmlns:components="clr-namespace:Bank2.Components"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LogowaniePage"
@@ -82,11 +82,11 @@
             <Label x:Name="LabelImie" Content="Imię" Grid.Row="2"  Grid.Column="1"  HorizontalAlignment="Left"  VerticalAlignment="Center" />
             <Label x:Name="LabelNazwisko" Content="Nazwisko" Grid.Row="3"  Grid.Column="1"  HorizontalAlignment="Left"  VerticalAlignment="Center" />
             <Label x:Name="LabelHaslo" Content="Hasło" Grid.Row="4"  Grid.Column="1"  HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox x:Name="textBoxImie" Text="{Binding Imie}" Grid.Row="2"  Grid.Column="2"  HorizontalAlignment="Left"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="120" />
-            <TextBox x:Name="textBoxNazwisko" Text="{Binding Nazwisko}" Grid.Row="3"  Grid.Column="2"  HorizontalAlignment="Left"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"  />
-            <PasswordBox x:Name="PasswordBox"  Grid.Row="4"  Grid.Column="2"  HorizontalAlignment="Left"     VerticalAlignment="Center" Width="120"  />
+            <TextBox x:Name="textBoxImie" Text="{Binding Imie, Mode=TwoWay}" Grid.Row="2"  Grid.Column="2"  HorizontalAlignment="Left"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="120" />
+            <TextBox x:Name="textBoxNazwisko" Text="{Binding Nazwisko, Mode=TwoWay}" Grid.Row="3"  Grid.Column="2"  HorizontalAlignment="Left"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"  />
+            <components:BindablePasswordBox Password="{Binding Password, Mode=TwoWay}" x:Name="PasswordBox"  Grid.Row="4"  Grid.Column="2"  HorizontalAlignment="Left"     VerticalAlignment="Center" Width="120"  />
             <Button x:Name="Zarejestruj" Command="{Binding Zarejestruj}"  Grid.Row="6"  Grid.Column="1"  Content="Zarejestruj" HorizontalAlignment="left"  VerticalAlignment="Center" Width="100"   />
-            <Button x:Name="Zaloguj" Command="{Binding Zaloguj}" Grid.Row="6"  Grid.Column="3"  Content="Zaloguj" HorizontalAlignment="right"  VerticalAlignment="Center" Width="100"  Click="OnClickZaloguj" />
+            <Button x:Name="Zaloguj" Command="{Binding Zaloguj}" Grid.Row="6"  Grid.Column="3"  Content="Zaloguj" HorizontalAlignment="right"  VerticalAlignment="Center" Width="100"   />
             <Image Grid.Row="2"  Grid.Column="3" Grid.RowSpan="3" HorizontalAlignment="Center" Source="/image.jpg" />
 
 
