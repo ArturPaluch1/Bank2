@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
-    internal class DodajCommand : ICommand
+    internal class DodajPracownikaCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -30,7 +30,7 @@ namespace Bank2.ViewModel
             //     dodaj(parameter);
 
         }
-        public DodajCommand(VMDodajPracownika vm )
+        public DodajPracownikaCommand(VMDodajPracownika vm )
         {
           //  _vm = vm;
             _vm = vm;

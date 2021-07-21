@@ -76,8 +76,8 @@ namespace Bank2.ViewModel
         public VMDodajPracownika(INavigator navigator)
         {
             //Dodaj = new RelayCommand(new Action(ShowMessage));
-            Dodaj = new DodajCommand(this);
-            Anuluj = new AnulujCommand();
+            Dodaj = new DodajPracownikaCommand(this);
+            Anuluj = new UpdateCurrentViewModelCommand<VMLogowanie>(navigator, () => new VMLogowanie(navigator));
         }
 
        
