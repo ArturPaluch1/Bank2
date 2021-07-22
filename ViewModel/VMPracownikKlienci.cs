@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Bank2.ViewModel
 {
-    class VMPracownikLayout:ViewModelBase
+    class VMPracownikKlienci:ViewModelBase
     {
-
         private INavigator _navigator;
-        public VMPracownikLayout(INavigator navigator) 
+        public VMPracownikKlienci(INavigator navigator)
         {
             _navigator = navigator;
+
         }
     }
 }

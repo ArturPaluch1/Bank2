@@ -1,7 +1,7 @@
 ﻿using Bank2.Commands;
 using Bank2.Model;
 using Bank2.Navigators;
-using Bank2.View.Pages.PracownikPage;
+using Bank2.View.Pages;
 using Bank2.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -86,7 +86,7 @@ namespace Bank2.View.Pages
               {
                   MessageBox.Show("Uzupełnij wszystkie pola");
               }*/
-            _navigator.CurrentViewModel =  new VMPracownikLayout(_navigator);
+            _navigator.CurrentViewModel =  new VMPracownikKlienci(_navigator);
             //_navigator.CurrentViewModelChanged+=
            // Zaloguj = new UpdateCurrentViewModelCommand<VMPracownikLayout>(_navigator, () => new VMPracownikLayout(_navigator));
 

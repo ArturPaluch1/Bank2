@@ -74,7 +74,7 @@ namespace Bank2.ViewModel
         {
                Zarejestruj = new UpdateCurrentViewModelCommand<VMDodajPracownika>(navigator, ()=>new VMDodajPracownika(navigator));
             //  Zaloguj = new UpdateCurrentViewModelCommand<VMPracownikLayout>(navigator, () => new VMPracownikLayout(navigator));
-            Zaloguj = new ZalogujPracownikaCommand<VMPracownikLayout>(navigator, () => new VMPracownikLayout(navigator));
+            Zaloguj = new ZalogujPracownikaCommand<VMPracownikKlienci>(navigator, () => new VMPracownikKlienci(navigator));
 
             //    Zaloguj = new RelayCommand(new Action<object>(ShowMessage));
 

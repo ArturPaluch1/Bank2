@@ -1,5 +1,4 @@
-﻿using Bank2.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Bank2.View.Pages.PracownikPage
+namespace Bank2.Components
 {
     /// <summary>
-    /// Interaction logic for PracownikPage.xaml
+    /// Interaction logic for PracownikNavigationBar.xaml
     /// </summary>
-    public partial class PracownikPageLayout : Page
+    public partial class PracownikNavigationBar : UserControl
     {
-        public PracownikPageLayout()
+        public PracownikNavigationBar()
         {
             InitializeComponent();
-           // DataContext = new VMPracownik(INavigator navigator);
         }
     }
 }
