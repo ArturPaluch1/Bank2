@@ -1,6 +1,4 @@
-﻿using Bank2.Navigators;
-using Bank2.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,16 +16,13 @@ using System.Windows.Shapes;
 namespace Bank2.View.Pages
 {
     /// <summary>
-    /// Interaction logic for PracownikKlienciPage.xaml
+    /// Interaction logic for PracownikNavigationBarPage.xaml
     /// </summary>
-    public partial class PracownikKlienciPage :Page
-    { 
-        public PracownikKlienciPage()
+    public partial class PracownikNavigationBarPage : Page
+    {
+        public PracownikNavigationBarPage()
         {
-            
             InitializeComponent();
-           
-            //DataContext = new VMPracownikKlienci(navigator);
         }
     }
 }

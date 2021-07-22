@@ -40,4 +40,19 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="View\Pages\test - Copy %282%29.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>test.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="View\Pages\test - Copy - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>test - Copy.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="View\Pages\test - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>test.xaml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

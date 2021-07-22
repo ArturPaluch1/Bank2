@@ -24,8 +24,8 @@
             <DataTemplate DataType="{x:Type viewModels:VMDodajPracownika}">
                 <views:DodajPracownikaPage/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModels:VMPracownikKlienci}">
-                <views:PracownikKlienciPage/>
+            <DataTemplate DataType="{x:Type viewModels:VMPracownikNavigationBar}">
+                <views:PracownikNavigationBarPage/>
             </DataTemplate>
             <!--<DataTemplate DataType="{x:Type viewModels:VMDodajPracownika}">
                 <views:DodajPracownikaPage/>

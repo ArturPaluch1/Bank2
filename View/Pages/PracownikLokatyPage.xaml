@@ -1,23 +1,14 @@
-﻿<Page x:Class="Bank2.View.Pages.PracownikKlienciPage"
+﻿<Page x:Class="Bank2.View.Pages.PracownikLokatyPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bank2.View.Pages"
-      xmlns:components="clr-namespace:Bank2.Components"
-      xmlns:viewModel="clr-namespace:Bank2.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PracownikKlienciPage">
+      Title="PracownikLokatyPage">
 
-    <!--<components:PracownikNavigationBar 
-    d:DataContext="{d:DesignInstance Type=viewModel:VMPracownikNavigationBar}"/>-->
-
-    <Button>1</Button>
-    
-    
-    
-    
-    
-    
+    <Grid>
+        <Button>3</Button>
+    </Grid>
 </Page>

@@ -10,9 +10,14 @@ namespace Bank2.ViewModel
     class VMPracownikKlienci:ViewModelBase
     {
         private INavigator _navigator;
+        //VMPracownikNavigationBar dcnav
+           
         public VMPracownikKlienci(INavigator navigator)
         {
+         //   dcnav = new VMPracownikNavigationBar(navigator);
             _navigator = navigator;
+
+
 
         }
     }
