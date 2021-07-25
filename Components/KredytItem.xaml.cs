@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Bank2.Components
 {
     /// <summary>
-    /// Interaction logic for PracownikNavigationBar.xaml
+    /// Interaction logic for KredytItem.xaml
     /// </summary>
-    public partial class PracownikNavigationBar : UserControl
+    public partial class KredytItem : UserControl
     {
-        public PracownikNavigationBar()
+        public KredytItem()
         {
             InitializeComponent();
         }

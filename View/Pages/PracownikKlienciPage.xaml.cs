@@ -24,10 +24,11 @@ namespace Bank2.View.Pages
     { 
         public PracownikKlienciPage()
         {
-            
+ 
             InitializeComponent();
-           
-            //DataContext = new VMPracownikKlienci(navigator);
+
+          
+           // DataContext = new VMPracownikKlienci(navigator);
         }
     }
 }

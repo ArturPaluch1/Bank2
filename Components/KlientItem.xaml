@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Bank2.Components.KlientItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bank2.Components"
+             xmlns:ViewModel ="clr-namespace:Bank2.ViewModel"
+             mc:Ignorable="d" 
+            
+    
+             
+           >
+    <StackPanel Background="red" Orientation="Horizontal">
+        <CheckBox/>
+        <TextBlock Text="{Binding Id_klienta}"  />
+        <TextBlock Text="{Binding Imię}" />
+        <TextBlock Text="{Binding Nazwisko}" />
+        <TextBlock Text="{Binding Numer_rachunku}" />
+        <TextBlock Text="{Binding Data_założenia , StringFormat=Date: {0:dddd, MMMM dd}}" />
+        <TextBlock Text="{Binding Telefon}" />
+        <TextBlock Text="{Binding Miasto}" />
+        <TextBlock Text="{Binding Ulica}" />
+        <TextBlock Text="{Binding Środki}" />
+        
+    </StackPanel>
+</UserControl>

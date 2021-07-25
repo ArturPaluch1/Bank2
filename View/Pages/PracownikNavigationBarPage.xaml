@@ -6,9 +6,12 @@
       xmlns:local="clr-namespace:Bank2.View.Pages"
       xmlns:views="clr-namespace:Bank2.View.Pages"
       xmlns:vm="clr-namespace:Bank2.ViewModel"
+       d:DataContext="{d:DesignInstance Type=vm:VMPracownikNavigationBar}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PracownikNavigationBarPage">
+      Title="PracownikNavigationBarPage"
+      
+      >
 
     <Page.Resources>
 
@@ -84,9 +87,7 @@
 
         </Style>
 
-        <DataTemplate DataType="{x:Type vm:VMLogowanie}">
-            <views:LogowaniePage/>
-        </DataTemplate>
+       
     </Page.Resources>
     <Page.Content>
     <DockPanel  >
@@ -98,44 +99,45 @@
         </StackPanel>
 
 
-        <TabControl   DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" FontSize="20" >
+            <TabControl   DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" FontSize="20" >
             <!--ItemsSource="{Binding TabItems}"-->
             <!--<TabItem Header="Klienci" Tag="TabKlienci" Width="150" >
 
                 <Button Content="{Binding nav, Mode=TwoWay}"/>
             </TabItem>-->
 
-            <TabItem Header="Klienci">
-                <Frame>
-                    <Frame.Content>
-                        <views:PracownikKlienciPage></views:PracownikKlienciPage>
-                    </Frame.Content>
-                </Frame>
-               
-            </TabItem>
+            <TabItem Header="Klienci" >
+                    <Frame  Content="{Binding KlienciPage }" >
+
+
+
+                       
+
+                    </Frame>
+                </TabItem>
             <TabItem Header="Pracownicy">
-                <Frame>
-                    <Frame.Content>
+                    <Frame Content="{Binding PracownicyPage  }">
+                    <!--<Frame.Content>
                         <views:PracownikPracownicyPage></views:PracownikPracownicyPage>
-                    </Frame.Content>
+                    </Frame.Content>-->
                 </Frame>
                
             </TabItem>
             <TabItem Header="Kredyty">
-                <Frame>
-                    <Frame.Content>
-                        <views:PracownikKredytyPage></views:PracownikKredytyPage>
+                <Frame Content="{Binding KredytyPage}">
+                    <!--<Frame.Content>-->
+                        <!--<views:PracownikKredytyPage></views:PracownikKredytyPage>
 
-                    </Frame.Content>
+                    </Frame.Content>-->
 
                 </Frame>
             </TabItem>
             <TabItem Header="Lokaty">
-                <Frame>
-                    <Frame.Content>
-                            <views:PracownikLokatyPage></views:PracownikLokatyPage>
+                <Frame Content="{Binding LokatyPage}">
+                    <!--<Frame.Content>-->
+                            <!--<views:PracownikLokatyPage></views:PracownikLokatyPage>
 
-                    </Frame.Content>
+                    </Frame.Content>-->
 
                 </Frame>
             </TabItem>
@@ -153,7 +155,7 @@
 
 
         </TabControl>
-
-    </DockPanel>
+            <!--<Button Command="{Binding bb}"/>-->
+        </DockPanel>
     </Page.Content>
 </Page>

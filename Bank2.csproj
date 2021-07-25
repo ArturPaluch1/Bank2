@@ -55,4 +55,13 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="CodeTemplates\EFModelFromDatabase\Context.cs.t4">
+      <Generator></Generator>
+    </None>
+    <None Update="CodeTemplates\EFModelFromDatabase\EntityType.cs.t4">
+      <Generator></Generator>
+    </None>
+  </ItemGroup>
+
 </Project>

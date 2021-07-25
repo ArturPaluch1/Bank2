@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Bank2.Components.LokataItemNaglowek"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bank2.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Orientation="Horizontal">
+        <TextBlock Text="Id"/>
+        <TextBlock Text="KlientImie"/>
+        <TextBlock Text="KlientNazwisko"/>
+        <TextBlock Text="Rodzaj lokaty "/>
+
+        <TextBlock Text="Kwota lokaty"/>
+        <TextBlock Text="ImiePracownika"/>
+        <TextBlock Text="NazwiskoPracownika"/>
+        <TextBlock Text="Data założenia"/>
+        <TextBlock Text="Oprocentowanie"/>
+    </StackPanel>
+</UserControl>

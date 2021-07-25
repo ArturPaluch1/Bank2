@@ -11,14 +11,14 @@ using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
-    class VMDodajPracownika : ViewModelBase, INotifyPropertyChanged//, ICommand
+    class VMDodajPracownika : ViewModelBase//, INotifyPropertyChanged//, ICommand
     {
         private string _password;
        //rivate string _wynagrodzenieString;
         private decimal _wynagrodzenie;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public event EventHandler CanExecuteChanged;
+      //  public event PropertyChangedEventHandler PropertyChanged;
+      //  public event EventHandler CanExecuteChanged;
 
         private ICommand _dodaj;
         
@@ -76,7 +76,7 @@ namespace Bank2.ViewModel
         public VMDodajPracownika(INavigator navigator)
         {
             //Dodaj = new RelayCommand(new Action(ShowMessage));
-            Dodaj = new DodajPracownikaCommand(this);
+            Dodaj = new DodajPracownikaCommand<VMLogowanie>(this,navigator, () => new VMLogowanie(navigator));
             Anuluj = new UpdateCurrentViewModelCommand<VMLogowanie>(navigator, () => new VMLogowanie(navigator));
         }
 
