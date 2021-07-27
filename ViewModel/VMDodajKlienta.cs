@@ -5,17 +5,44 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
-    class VMDodajKlienta : INotifyPropertyChanged
+    class VMDodajKlienta : IDataErrorInfo
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        Regex regEmail = new Regex(@"^[a-z]");
+        public string this[string columnName] => b( columnName);
+        string b(string columnName)
+        { 
+        if(_imie!= null)
+            {
+                if (regEmail.IsMatch(_imie))
+                { return null; }
+                else
+                {
+                   Dodaj.CanExecute( false);
+                    return "jjj";
 
-        public string Imie { get; set; }
+                }
+                   
+            }
+            return null;
+        }
+
+        public string Imie {get { return _imie; }
+            set
+            {
+                if (value.GetType() != typeof(string))
+                {
+                    MessageBox.Show("jjjjjjj");
+                }
+                else _imie = value;
+            }
+        }
         public string  Nazwisko { get; set; }
         public string Password { get; set; }
         public int Telefon { get; set; }
@@ -23,13 +50,14 @@ namespace Bank2.ViewModel
         public string Ulica { get; set; }
 
         private Window _window;
+        private string _imie;
 
         public ICommand Dodaj { get; set; }
         public ICommand Anuluj { get; set; }
 
+        public string Error => throw new NotImplementedException();
 
-       
-
+        
         public VMDodajKlienta(Window window)
         {
             _window = window;

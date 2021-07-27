@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Bank2.Components.RodzajeKredytowTabela"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Bank2.Components"
+             mc:Ignorable="d" 
+             xmlns:components="clr-namespace:Bank2.Components"
+            >
+
+    <StackPanel  Orientation="Vertical">
+        <components:RodzajKredytuNaglowek/>
+        <ItemsControl ItemsSource="{Binding ListaRodzajowKredytow, Mode=TwoWay}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate >
+                    <components:RodzajKredytuItem/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bank2.Navigators;
+using Bank2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,10 @@ namespace Bank2.View.Windows
     /// </summary>
     public partial class DodajKredytWindow : Window
     {
-        public DodajKredytWindow()
+        public DodajKredytWindow(INavigator navigator)
         {
             InitializeComponent();
+            DataContext = new VMDodajKredyt(this, navigator);
         }
     }
 }

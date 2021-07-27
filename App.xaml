@@ -5,6 +5,6 @@
     <!--StartupUri="MainWindow.xaml">-->
              
     <Application.Resources>
-         
+        <!--<ResourceDictionary Source="Style/Button/ButtonsChowalne.xaml"/>-->
     </Application.Resources>
 </Application>

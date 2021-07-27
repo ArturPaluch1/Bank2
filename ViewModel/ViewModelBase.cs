@@ -1,4 +1,5 @@
-﻿using Bank2.Navigators;
+﻿using Bank2.Model;
+using Bank2.Navigators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Bank2.ViewModel
     public class ViewModelBase : INavigator
     {
         public ViewModelBase CurrentViewModel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+        public Pracownicy zalogowanyPracownik { get; set; }
         public event Action CurrentViewModelChanged;
     }
 }

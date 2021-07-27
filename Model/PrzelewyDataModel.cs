@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bank2.Model
 {
-    class PrzelewyDataModel
+    public class PrzelewyDataModel
     {
+        public bool IsSelected { get; set; }
         public int Id_Przelewu { get; set; }
         public decimal Kwota { get; set; }
         public string Nazwa_odbiorcy { get; set; }

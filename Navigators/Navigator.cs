@@ -1,4 +1,5 @@
 ﻿using Bank2.Commands;
+using Bank2.Model;
 using Bank2.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace Bank2.Navigators
     public class Navigator : INavigator//, INotifyPropertyChanged
 
     {
+        public Pracownicy zalogowanyPracownik { get; set; }
         private ViewModelBase _currentViewModel;
         public event Action CurrentViewModelChanged;
         public ViewModelBase CurrentViewModel

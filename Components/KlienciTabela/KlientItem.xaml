@@ -11,7 +11,7 @@
              
            >
     <StackPanel Background="red" Orientation="Horizontal">
-        <CheckBox/>
+        <CheckBox IsChecked="{Binding IsSelected}"/>
         <TextBlock Text="{Binding Id_klienta}"  />
         <TextBlock Text="{Binding Imię}" />
         <TextBlock Text="{Binding Nazwisko}" />

@@ -1,4 +1,5 @@
 ﻿
+using Bank2.Navigators;
 using Bank2.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace Bank2.View.Windows
     /// </summary>
     public partial class DodajKlientaWindow : Window
     {
-        public DodajKlientaWindow()
+        public DodajKlientaWindow(INavigator navigator)
         {
             InitializeComponent();
             DataContext = new VMDodajKlienta(this);

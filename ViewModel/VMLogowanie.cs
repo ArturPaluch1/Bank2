@@ -1,4 +1,5 @@
 ﻿using Bank2.Commands;
+using Bank2.Model;
 using Bank2.Navigators;
 using System;
 using System.ComponentModel;
@@ -77,8 +78,7 @@ namespace Bank2.ViewModel
             Zaloguj = new ZalogujPracownikaCommand<VMPracownikNavigationBar>(navigator, () => new VMPracownikNavigationBar(navigator));
 
             //    Zaloguj = new RelayCommand(new Action<object>(ShowMessage));
-
-
+           
             //   _navigationService = navigationService;
             //      _ea = ea;
             //       Zarejestruj = new RelayCommand(

@@ -125,23 +125,110 @@
 
             </Button>
             <Button x:Name="buttonKlienciDodaj"  Tag="Klienci" Content="Dodaj" Grid.Column="4"  Grid.Row="0" Command="{Binding klienciDodaj}" Margin="27,10"  />
-            <Button x:Name="buttonKlienciEdytuj"  Tag="Klienci" Content="Edytuj"    Grid.Column="5" Grid.Row="0" Command="{Binding klienciEdytuj}" Margin="27,10"  />
-            <Button x:Name="buttonKlienciUsun"  Tag="Klienci" Content="Usuń"    Grid.Column="6" Grid.Row="0" Command="{Binding klienciUsun}" Margin="27,10"  />
+            <Button x:Name="buttonKlienciEdytuj" Tag="Klienci" Content="Edytuj"    Grid.Column="5" Grid.Row="0" Command="{Binding klienciEdytuj}" Margin="27,10" >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Wyświetl">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Schowaj">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+
+            <Button x:Name="buttonKlienciUsun"  Tag="Klienci" Content="Usuń"    Grid.Column="6" Grid.Row="0" Command="{Binding klienciUsun}" Margin="27,10"  >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Wyświetl">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Schowaj">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button x:Name="buttonKlienciUsunieci" Width="200" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Tag="Klienci" Content="Usunięci klienci"    Grid.Column="8" Grid.Row="0" Command="{Binding klienciUsunieci}" Margin="0,10"  />
 
 
             <Label x:Name="LabelKlienciKredyt"   Content="Kredyt" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="25,5,5,5"/>
             <Button x:Name="buttonKlienciKredytWyswietl" Content="{Binding ButtonKredytyWyswietlContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"    Grid.Column="3" Grid.Row="1" Command="{Binding KredytWyswietl}" Margin="27,10"  />
             <Button x:Name="buttonKlienciKredytDodaj"  Tag="Kredyt" Content="Dodaj" Grid.Column="4"  Grid.Row="1" Command="{Binding KredytDodaj}" Margin="27,10" />
-            <Button x:Name="buttonKlienciKredytEdytuj"  Tag="Kredyt" Content="Edytuj"    Grid.Column="5" Grid.Row="1" Command="{Binding KredytEdytuj}" Margin="27,10"  />
-            <Button x:Name="buttonKlienciKredytUsun"  Tag="Kredyt" Content="Usuń"    Grid.Column="6" Grid.Row="1" Command="{Binding KredytUsun}" Margin="27,10"   />
+            <Button x:Name="buttonKlienciKredytEdytuj"  Tag="Kredyt" Content="Edytuj"    Grid.Column="5" Grid.Row="1" Command="{Binding KredytEdytuj}" Margin="27,10"  >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Wyświetl">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Schowaj">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="buttonKlienciKredytUsun"  Tag="Kredyt" Content="Usuń"    Grid.Column="6" Grid.Row="1" Command="{Binding KredytUsun}" Margin="27,10"   >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Wyświetl">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Schowaj">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button x:Name="buttonKlienciUsunieciKredyt" Width="200" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Tag="Kredyt" Content="Usunięte kredyty"    Grid.Column="8" Grid.Row="1" Command="{Binding KredytUsuniete}" Margin="0,10"  />
 
             <Label x:Name="LabelKlienciLokata"  Content="Lokata" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="25,5,5,5" />
             <Button x:Name="buttonKlienciLokataWyswietl" Content="{Binding ButtonLokatyWyswietlContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   Grid.Column="3" Grid.Row="2" Command="{Binding LokataWyswietl}" Margin="27,10"   />
             <Button x:Name="buttonKlienciLokataDodaj"  Tag="Lokata" Content="Dodaj" Grid.Column="4"  Grid.Row="2" Command="{Binding LokataDodaj}" Margin="27,10"   />
-            <Button x:Name="buttonKlienciLokataEdytuj"  Tag="Lokata" Content="Edytuj"    Grid.Column="5" Grid.Row="2" Command="{Binding LokataEdytuj}" Margin="27,10"  />
-            <Button x:Name="buttonKlienciLokataUsun"  Tag="Lokata" Content="Usuń"    Grid.Column="6" Grid.Row="2" Command="{Binding LokataiUsun}" Margin="27,10"   />
+            <Button x:Name="buttonKlienciLokataEdytuj"  Tag="Lokata" Content="Edytuj"    Grid.Column="5" Grid.Row="2" Command="{Binding LokataEdytuj}" Margin="27,10"  >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Wyświetl">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Schowaj">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="buttonKlienciLokataUsun"  Tag="Lokata" Content="Usuń"    Grid.Column="6" Grid.Row="2" Command="{Binding LokataiUsun}" Margin="27,10"   >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Wyświetl">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Schowaj">
+                                <Setter Property="IsEnabled" Value="True" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button x:Name="buttonKlienciUsunieciLokata"  Tag="Lokata" Content="Usunięte lokaty"  Width="200" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Grid.Column="8" Grid.Row="2" Command="{Binding LokataUsuniete}" Margin="0,10"  />
 
             <Label x:Name="LabelKlienciPrzelew" Content="Przelewy"  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="25,5,5,5" />
@@ -158,7 +245,15 @@
 
 
         </Grid>
-        <StackPanel  Background="green" Orientation="Horizontal" Visibility="{Binding KlienciNaglowek}">
+        <StackPanel>
+            <UserControl Content="{Binding TablicaDanych, Mode=TwoWay}" />
+         
+            <!--<components:KlientItem/>-->
+
+        </StackPanel>
+       
+
+        <!--<StackPanel  Background="green" Orientation="Horizontal" Visibility="{Binding KlienciNaglowek}">
             <components:KlientItemNaglowek/>
         </StackPanel>
         <ItemsControl ItemsSource="{Binding ListaKlientow, Mode=TwoWay}">
@@ -167,44 +262,22 @@
                     <components:KlientItem/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    
+        </ItemsControl>-->
 
-    <StackPanel   Orientation="Horizontal" Visibility="{Binding KredytyNaglowek}">
-        <components:KredytItemNaglowek/>
-    </StackPanel>
-    <ItemsControl ItemsSource="{Binding ListaKredytow, Mode=TwoWay}">
-        <ItemsControl.ItemTemplate>
-            <DataTemplate >
-                <components:KredytItem/>
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
-   
+      
 
-    <StackPanel  Background="green" Orientation="Horizontal" Visibility="{Binding LokatyNaglowek}">
-        <components:LokataItemNaglowek/>
-    </StackPanel>
-    <ItemsControl ItemsSource="{Binding ListaLokat, Mode=TwoWay}">
-        <ItemsControl.ItemTemplate>
-            <DataTemplate >
-                <components:LokataItem/>
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
-   
-    <StackPanel  Background="green" Orientation="Horizontal" Visibility="{Binding PrzelewyNaglowek}">
-        <components:PrzelewItemNaglowek/>
-    </StackPanel>
-        <ItemsControl ItemsSource="{Binding ListaPrzelewow, Mode=TwoWay}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate >
-                    <components:PrzelewItem/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </StackPanel>
+       
+        <!--<components:KlienciTabela Visibility="{Binding KlienciTabelaVisibility}"/>
+        <components:KredytyTabela  Visibility="{Binding KredytyTabelaVisibility}"/>
+        <components:LokatyTabela Visibility="{Binding LokatyTabelaVisibility}"/>
+        <components:RodzajeKredytowTabela/>
+        <components:RodzajeLokatTabela/>
+        <components:PrzelewyTabela  Visibility="{Binding PrzelewyTabelaVisibility}"/>-->
 
-    
-    
+
+
+
+
+
+    </StackPanel>
 </Page>

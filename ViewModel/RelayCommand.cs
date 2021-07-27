@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,12 @@ namespace Bank2
     {
         private Action execute;
         private Func<object, bool> canExecute;
+        private Action<ObservableCollection<object>> edytujLokate;
+
+        public RelayCommand(Action<ObservableCollection<object>> edytujLokate)
+        {
+            this.edytujLokate = edytujLokate;
+        }
 
         public RelayCommand(Action Execute, Func<object, bool> CanExecute = null)
         {
@@ -24,11 +31,18 @@ namespace Bank2
         }
 
         public event EventHandler CanExecuteChanged;
+        //public void RaiseCanExecuteChanged()
+        //{
+        //    if (CanExecuteChanged != null)
+        //        CanExecuteChanged(this, new EventArgs());
+        //}
 
         public bool CanExecute(object parameter)
         {
             if (canExecute == null) return true;
-            else return canExecute(parameter);
+            else
+                
+                return canExecute(parameter);
 
         }
 

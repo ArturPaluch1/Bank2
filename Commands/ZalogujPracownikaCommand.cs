@@ -40,16 +40,19 @@ namespace Bank2.Commands
         {
             if (_navigator.CurrentViewModel is VMLogowanie)
             {
-               if (Zaloguj(_navigator.CurrentViewModel as VMLogowanie))
+                Pracownicy pracownik = null;
+                pracownik = Zaloguj(_navigator.CurrentViewModel as VMLogowanie);
+               if (pracownik!=null)
                 {
+                    _navigator.zalogowanyPracownik = pracownik;
                     _navigator.CurrentViewModel = _createViewModel();
                 }
                 else
                 {
-                    (_navigator.CurrentViewModel as VMLogowanie).Imie = "";
+                  /*  (_navigator.CurrentViewModel as VMLogowanie).Imie = "";
                     (_navigator.CurrentViewModel as VMLogowanie).Nazwisko = "";
                     (_navigator.CurrentViewModel as VMLogowanie).Password = "";
-                    _navigator.CurrentViewModel = new VMLogowanie(_navigator);
+                    _navigator.CurrentViewModel = new VMLogowanie(_navigator);*/
                 }
 
             }
@@ -61,9 +64,9 @@ namespace Bank2.Commands
         }
 
 
-        private bool Zaloguj(VMLogowanie vm)
+        private Pracownicy Zaloguj(VMLogowanie vm)
         {
-            bool zalogowany = false;
+            Pracownicy zalogowany = null;
           
             if (!(vm.Imie==null || vm.Nazwisko == null || vm.Password == null))
             {
@@ -71,22 +74,22 @@ namespace Bank2.Commands
                 try
                 {
                     Baza db = new Baza();
+                   
 
-
-                    foreach (var item in db.Pracownicy)
+                        foreach (var item in db.Pracownicy)
                     {
                         if (
                             vm.Imie == item.Imię_pracownika.TrimEnd()
                           && vm.Nazwisko == item.Nazwisko_pracownika.TrimEnd()
                             && vm.Password == item.Password.TrimEnd())
                         {
-                            zalogowany = true;
+                            zalogowany = item;
                             break;
                         }
 
 
                     }
-                    if (zalogowany == true)
+                    if (zalogowany!=null)
                     {
                         MessageBox.Show("Dobre dane logowania");
                         return zalogowany;
@@ -94,7 +97,7 @@ namespace Bank2.Commands
                     else
                     {
                         MessageBox.Show("Złe dane logowania");
-                        return zalogowany;
+                        return null;
                     }
 
 
@@ -103,7 +106,7 @@ namespace Bank2.Commands
                 catch
                 {
                     MessageBox.Show("Błąd logowania do bazy danych.");
-                    return false;
+                    return null;
                 }
 
 
@@ -112,7 +115,7 @@ namespace Bank2.Commands
             else
             {
                 MessageBox.Show("Uzupełnij wszystkie pola");
-                return false;
+                return null;
             }
             
           //  return zalogowany;

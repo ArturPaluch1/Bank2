@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bank2.Model
 {
-    class LokatyDataModel
+    public class LokatyDataModel
     {
+        public bool IsSelected { get; set; }
         public int Id_Lokaty { get; set; }
         public string KlientImie { get; set; }
         public string KlientNazwisko { get; set; }

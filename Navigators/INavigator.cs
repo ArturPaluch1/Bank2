@@ -1,4 +1,5 @@
-﻿using Bank2.ViewModel;
+﻿using Bank2.Model;
+using Bank2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Bank2.Navigators
 
         public event Action CurrentViewModelChanged;
         ViewModelBase CurrentViewModel { get; set; }
+        Pracownicy zalogowanyPracownik { get; set; }
      //   ICommand UpdateCurrentViewModelCommand { get; }
          
     }
