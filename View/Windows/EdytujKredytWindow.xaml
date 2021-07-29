@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bank2.View.Windows"
         mc:Ignorable="d"
+        xmlns:components ="clr-namespace:Bank2.Components"
          Title="oknoEdytujKredyt" Name="NameoknoEdytujKredytj"  MinHeight="400" MaxHeight="900" Width="800"  
       >
     <Window.Resources>
@@ -104,8 +105,10 @@
         <TextBox x:Name="textBoxKwotaKredytu" Text="{Binding Kwota, Mode=TwoWay}" Width="200" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" />
 
         <Label Content="Wybierz Klienta" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5"  Width="800" />
+
         <UserControl Content="{Binding TablicaDanych, Mode=TwoWay, NotifyOnTargetUpdated=True}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5"/>
         <Label Content="Wybierz kredyt" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="5"  Width="800" />
+      
         <UserControl Content="{Binding TablicaDanych2, Mode=TwoWay}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="5"/>
         <Button x:Name="edytuj" Command="{Binding Edytuj}" Content="Edytuj" Grid.Column="2" Grid.Row="1" HorizontalAlignment="right" />
         <Button x:Name="anuluj" Command="{Binding Anuluj}" Content="anuluj" Grid.Column="3" Grid.Row="1" HorizontalAlignment="center" />

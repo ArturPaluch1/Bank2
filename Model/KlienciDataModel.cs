@@ -13,27 +13,27 @@ namespace Bank2.Model
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool IsSelected //{ get; set; }
-        {
-            get { return _IsSelected; }
-            set
-            {
-                _IsSelected = value;
-                OnPropertychanged("IsSelected");
+        public bool IsSelected { get; set; }
+        //{
+        //    get { return _IsSelected; }
+        //    set
+        //    {
+        //        _IsSelected = value;
+        //        OnPropertychanged("IsSelected");
 
-            }
+        //    }
 
-        }
+        //}
 
-        private void OnPropertychanged(string name)
-        {
+        //private void OnPropertychanged(string name)
+        //{
            
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
+        //    if (PropertyChanged != null)
+        //    {
+        //        PropertyChanged(this, new PropertyChangedEventArgs(name));
+        //    }
 
-        }
+        //}
 
         public int Id_klienta { get; set; }
         public string Imię { get; set; }

@@ -77,7 +77,7 @@ namespace Bank2.ViewModel
             _Klient = Klient;
             _window = window;
             _navigator = navigator;
-            ListaKlientow = new ListyZasobow().PobierzKlienci();
+            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
          // ListaKlientow.CollectionChanged += ContentCollectionChanged;
 
          //   ListaKlientow.CollectionChanged +=  new System.Collections.Specialized.NotifyCollectionChangedEventHandler(changed);

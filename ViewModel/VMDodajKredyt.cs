@@ -84,8 +84,8 @@ namespace Bank2.ViewModel
         {
             _window = window;
             _navigator = navigator;
-            ListaKlientow = new ListyZasobow().PobierzKlienci();
-            ListaRodzajowKredytow = new ListyZasobow().PobierzRodzajeKredytow();
+            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
+            ListaRodzajowKredytow = new ListyZasobow().PobierzAktywneRodzajeKredytow();
             TablicaDanych = new KlienciTabela(_navigator);
             TablicaDanych2 = new RodzajeKredytowTabela(_navigator);
 

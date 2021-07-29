@@ -8,15 +8,17 @@
               xmlns:components="clr-namespace:Bank2.Components"
              
            >
-    <StackPanel  Orientation="Vertical">
-        <components:PracownikItemNaglowek/>
-        <ItemsControl ItemsSource="{Binding ListaPracownikow, Mode=TwoWay}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate >
-                    <components:PracownikItem/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+    <StackPanel Orientation="Vertical">
 
+        <ItemsControl ItemsSource="{Binding ListaPracownikow, Mode=TwoWay}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate >
+                        <components:PracownikItem/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+  
     </StackPanel>
+    
 </UserControl>

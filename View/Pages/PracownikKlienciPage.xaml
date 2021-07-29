@@ -236,7 +236,7 @@
             <Button x:Name="buttonKlienciPrzelew" Tag="Przelew"   Content="Przelew" Grid.Column="4" Grid.Row="3" Command="{Binding PrzelewDodaj}" Margin="27,10"  />
             <Button x:Name="buttonKlienciWplata" Tag="Przelew"   Content="Wpłata" Grid.Column="5" Grid.Row="3" Command="{Binding PrzelewWplata}" Margin="27,10"   />
 
-            <Button x:Name="buttonKlienciHistoria" Width="150" Tag="Klienci" Content="Dane klienta"    Grid.Column="7" Grid.Row="0" Command="{Binding PrzelewHistoria}" Margin="2,10,3,10"  />
+            <Button x:Name="buttonKlienciHistoria" Width="150" Tag="Klienci" Content="Dane klienta"    Grid.Column="7" Grid.Row="0" Command="{Binding KlientPodsumowanie}" Margin="2,10,3,10"  />
 
             <Label Name="TabelaKlienta"  Content="Tabela Klienta" Tag="Klienci"  Grid.Row="4" Grid.Column="6" Visibility="Hidden"  Grid.ColumnSpan="2" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="200" Margin="76,5,33,5"/>
 
@@ -246,8 +246,9 @@
 
         </Grid>
         <StackPanel>
+            
             <UserControl Content="{Binding TablicaDanych, Mode=TwoWay}" />
-         
+            <UserControl Content="{Binding TablicaDanych2, Mode=TwoWay}" />
             <!--<components:KlientItem/>-->
 
         </StackPanel>

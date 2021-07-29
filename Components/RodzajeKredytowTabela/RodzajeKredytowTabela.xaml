@@ -7,15 +7,17 @@
              mc:Ignorable="d" 
              xmlns:components="clr-namespace:Bank2.Components"
             >
-
-    <StackPanel  Orientation="Vertical">
+    
+        <StackPanel  Orientation="Vertical">
         <components:RodzajKredytuNaglowek/>
         <ItemsControl ItemsSource="{Binding ListaRodzajowKredytow, Mode=TwoWay}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate >
-                    <components:RodzajKredytuItem/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </StackPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate >
+                        <components:RodzajKredytuItem/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+
+    
 </UserControl>

@@ -87,7 +87,7 @@ namespace Bank2.ViewModel
         {
             _window = window;
             _navigator = navigator;
-            ListaKlientow = new ListyZasobow().PobierzKlienci();
+            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
             _TablicaDanych = new KlienciTabela(_navigator);
           
             Przelej = new RelayCommand(ZrobPrzelew);

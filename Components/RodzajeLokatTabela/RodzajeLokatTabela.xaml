@@ -7,16 +7,18 @@
              mc:Ignorable="d" 
            xmlns:components="clr-namespace:Bank2.Components">
 
-
-    <StackPanel  Orientation="Vertical">
+    
+        <StackPanel  Orientation="Vertical">
         <components:RodzajLokatyNaglowek/>
         <ItemsControl ItemsSource="{Binding ListaRodzajowLokat, Mode=TwoWay}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate >
-                    <components:RodzajLokatyItem/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </StackPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate >
+                        <components:RodzajLokatyItem/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+   
+   
 
 </UserControl>

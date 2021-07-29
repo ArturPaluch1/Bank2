@@ -25,5 +25,7 @@ namespace Bank2.Components
         {
             InitializeComponent();
         }
+
+      
     }
 }

@@ -68,8 +68,8 @@ namespace Bank2.ViewModel
             _window = window;
             _navigator = navigator;
             _LokataDoZmiany = LokataDoZmiany;
-            ListaKlientow = new ListyZasobow().PobierzKlienci();
-            ListaRodzajowLokat = new ListyZasobow().PobierzRodzajeLokat();
+            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
+            ListaRodzajowLokat = new ListyZasobow().PobierzAktywneRodzajeLokat();
             TablicaDanych = new KlienciTabela(_navigator);
             TablicaDanych2 = new RodzajeLokatTabela(_navigator);
 

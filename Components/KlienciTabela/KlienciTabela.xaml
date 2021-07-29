@@ -7,15 +7,19 @@
              mc:Ignorable="d" 
               xmlns:components="clr-namespace:Bank2.Components"
             >
-    <StackPanel  Background="green" Orientation="Vertical">
+   
+        <StackPanel  Background="green" Orientation="Vertical">
         <components:KlientItemNaglowek/>
         <ItemsControl ItemsSource="{Binding ListaKlientow, Mode=TwoWay}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate >
-                    <components:KlientItem/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </StackPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate >
+                        <components:KlientItem/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+
+
+    
    
 </UserControl>

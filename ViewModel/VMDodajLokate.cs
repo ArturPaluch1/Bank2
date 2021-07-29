@@ -76,8 +76,8 @@ public VMDodajLokate(Window window, INavigator navigator)
 {
     _window = window;
     _navigator = navigator;
-    ListaKlientow = new ListyZasobow().PobierzKlienci();
-    ListaRodzajowLokat= new ListyZasobow().PobierzRodzajeLokat();
+    ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
+    ListaRodzajowLokat= new ListyZasobow().PobierzAktywneRodzajeLokat();
     _TablicaDanych = new KlienciTabela(_navigator);
     _TablicaDanych2 = new RodzajeLokatTabela(_navigator);
 

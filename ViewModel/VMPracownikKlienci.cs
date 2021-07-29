@@ -1,8 +1,5 @@
 ﻿using Bank2.Commands;
-using Bank2.Commands.Klient;
-using Bank2.Commands.Kredyt;
-using Bank2.Commands.Lokata;
-using Bank2.Commands.Przelew;
+
 using Bank2.Navigators;
 using System;
 using System.Collections.Generic;
@@ -19,6 +16,7 @@ using System.Collections.ObjectModel;
 using Bank2.View.Pages;
 using Bank2.View.Windows;
 using System.Windows.Controls;
+using Bank2.Components;
 
 namespace Bank2.ViewModel
 {
@@ -33,7 +31,15 @@ namespace Bank2.ViewModel
                 OnPropertyChanged("TablicaDanych");
 }
         }
-        
+        public UserControl TablicaDanych2
+        {
+            get { return _TablicaDanych2; }
+            set
+            {
+                _TablicaDanych2 = value;
+                OnPropertyChanged("TablicaDanych2");
+            }
+        }
         public ICommand klienciWyswietl { get; set; }
         public ICommand klienciDodaj { get; set; }
         public ICommand klienciEdytuj { get; set; }
@@ -52,7 +58,7 @@ namespace Bank2.ViewModel
         public ICommand PrzelewWyswietl { get; set; }
         public ICommand PrzelewDodaj { get; set; }
         public ICommand PrzelewWplata { get; set; }
-        public ICommand PrzelewHistoria { get; set; }
+        public ICommand KlientPodsumowanie { get; set; }
         public ICommand wyloguj { get; set; }
         public ICommand wyjdz { get; set; }
 
@@ -66,7 +72,7 @@ namespace Bank2.ViewModel
         }
 
         private INavigator _navigator;
-
+      
         /// <summary>
         /// //////////////////////////////////////
         /// </summary>
@@ -107,6 +113,8 @@ namespace Bank2.ViewModel
             }
         }
         private string _ButtonPrzelewyWyswietlContent = "Wyświetl";
+        private UserControl _TablicaDanych2;
+
         public string ButtonPrzelewyWyswietlContent
         {
             get { return _ButtonPrzelewyWyswietlContent; }
@@ -118,66 +126,14 @@ namespace Bank2.ViewModel
         }
 
 
-        //private Visibility _KlienciTabelaVisibility = Visibility.Hidden;
-        //public Visibility KlienciTabelaVisibility
-        //{
-        //    get { return _KlienciTabelaVisibility; }
-        //    set
-        //    {
-        //        _KlienciTabelaVisibility = value;
-        //        OnPropertyChanged("KlienciTabelaVisibility");
-        //    }
-
-        //}
-
-        //private Visibility _KredytyTabelaVisibility = Visibility.Hidden;
-        //public Visibility KredytyTabelaVisibility
-        //{
-        //    get { return _KredytyTabelaVisibility; }
-        //    set
-        //    {
-        //        _KredytyTabelaVisibility = value;
-        //        OnPropertyChanged("KredytyTabelaVisibility");
-        //    }
-
-        //}
-        //private Visibility _LokatyTabelaVisibility = Visibility.Hidden;
-        //public Visibility LokatyTabelaVisibility
-        //{
-        //    get { return _LokatyTabelaVisibility; }
-        //    set
-        //    {
-        //        _LokatyTabelaVisibility = value;
-        //        OnPropertyChanged("LokatyTabelaVisibility");
-        //    }
-
-        //}
-        //private Visibility _PrzelewyTabelaVisibility = Visibility.Hidden;
-        
-
-        //public Visibility PrzelewyTabelaVisibility
-        //{
-        //    get { return _PrzelewyTabelaVisibility; }
-        //    set
-        //    {
-        //        _PrzelewyTabelaVisibility = value;
-        //        OnPropertyChanged("PrzelewyTabelaVisibility");
-        //    }
-
-        //}
 
 
-
-
-
-
-
-
-
+        public ICommand Klient { get; set; }
+       
         public VMPracownikKlienci(INavigator navigator)
         {
             _navigator = navigator;
-          
+         
 
             wyloguj = new UpdateCurrentViewModelCommand<VMLogowanie>(_navigator, () => new VMLogowanie(_navigator));
             wyjdz = new RelayCommand(Wyjdz);
@@ -185,42 +141,339 @@ namespace Bank2.ViewModel
             klienciDodaj = new RelayCommand(WyswietlOknoDodajKlienta);
             klienciEdytuj = new RelayCommand(EdytujKlienta);
             klienciUsun = new RelayCommand(UsunKlienta);
-            //klienciUsunieci = new KlientPokarzUsunietychCommand();
+            klienciUsunieci = new RelayCommand(PokarzUsunietychKlientow);
+            KlientPodsumowanie = new RelayCommand(WyswietlKlientPodsumowanie);
 
             KredytWyswietl = new RelayCommand(WyswietlKredyty);
          KredytDodaj = new RelayCommand(WyswietlOknoDodajKredyt);
             KredytEdytuj = new RelayCommand(EdytujKredyt);
             KredytUsun = new RelayCommand(UsunKredyt);
-            //KredytUsuniete = new KredytUsunieteCommand();
+            KredytUsuniete = new RelayCommand(PokarzUsunieteKredyty);
 
             LokataWyswietl = new RelayCommand(WyswietlLokaty);
             LokataDodaj = new RelayCommand(WyswietlOknoDodajLokate);
             LokataEdytuj = new RelayCommand(EdytujLokate);
             LokataiUsun = new RelayCommand(UsunLokate);
-            //LokataUsuniete = new LokataUsunieteCommand();
+            LokataUsuniete = new RelayCommand(PokarzUsunieteLokaty);
 
             PrzelewWyswietl = new RelayCommand(WyswietlPrzelewy);
             PrzelewDodaj = new RelayCommand(WyswietlOknoZrobPrzelew);
             //PrzelewWplata = new PrzelewWplataCommand();
-            //PrzelewHistoria = new PrzelewHistoriaCommand();
 
 
+
+       
+        }
+        private void Wyczysc_Listy_I_UserControlle_Z_Tabelami()
+        {
+            ListaKlientow.Clear();
+            ListaKredytow.Clear();
+            ListaLokat.Clear();
+            ListaPrzelewow.Clear();
+            ListaRodzajowKredytow.Clear();
+            ListaRodzajowLokat.Clear();
+            TablicaDanych = null;
+            TablicaDanych2 = null;
+        }
+        private void WyswietlKlientPodsumowanie()
+        {
+            KlienciDataModel temp1 = new KlienciDataModel();
+            int licznik = 0;
+           
+
+            //sprawdza zaznaczenie
+            foreach (var item in ListaKlientow)
+            {
+                if (item.IsSelected == true)
+                {
+                    temp1 = item;
+                    licznik++;
+
+                }
+            }
+            if (licznik != 1)
+            {
+                MessageBox.Show("Musisz zaznaczyć dokładnie klienta.\n");
+
+            }
+            else
+            {
+                ButtonKlienciWyswietlContent = "Wyświetl";
+                TablicaDanych = new KlienciTabela(_navigator);
+                TablicaDanych2 = new KlientPodsumowanieNaglowek(_navigator, temp1);
+              //  TablicaDanych2 = new KlientPodsumowanieNaglowek(_navigator);
+               // TablicaDanych2.DataContext = new VMKlienciPodsumowanie(_navigator);
+                //    TablicaDanych.DataContext= new VMKlienciPodsumowanie(_navigator);
+               // TablicaDanych.Ci
+               // TablicaDanych.DataContext = new VMKlienciPodsumowanie(_navigator);
+
+                
+                ListaKlientow.Clear();
+                ListaKlientow.Add(temp1);
+                ListaKredytow = new ListyZasobow().PobierzAktywneKredyty();
+                /*  Baza db = new Baza();
+                  ListaKlientow.Clear();
+                  ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();*/
+
+
+            }
 
         }
 
-        private void UsunLokate(ObservableCollection<object> obj)
+        private void PokarzUsunieteLokaty()
         {
-            throw new NotImplementedException();
+            Wyczysc_Listy_I_UserControlle_Z_Tabelami();
+            if (ButtonKlienciWyswietlContent == "Schowaj")
+            {
+                ButtonKlienciWyswietlContent = "Wyświetl";
+            }
+            if (ButtonKredytyWyswietlContent == "Schowaj")
+            {
+                ButtonKredytyWyswietlContent = "Wyświetl";
+            }
+            if (ButtonLokatyWyswietlContent == "Schowaj")
+            {
+                ButtonLokatyWyswietlContent = "Wyświetl";
+            }
+            if (ButtonPrzelewyWyswietlContent == "Schowaj")
+            {
+                ButtonPrzelewyWyswietlContent = "Wyświetl";
+            }
+
+            ListaLokat = new ListyZasobow().PobierzNieAktywneLokaty();
+            TablicaDanych = null;
+            TablicaDanych = new LokatyTabela(_navigator);
+            TablicaDanych.DataContext = this;
         }
 
-        private void UsunKredyt(ObservableCollection<object> obj)
+        private void PokarzUsunieteKredyty()
         {
-            throw new NotImplementedException();
+            Wyczysc_Listy_I_UserControlle_Z_Tabelami();
+            if (ButtonKlienciWyswietlContent == "Schowaj")
+            {
+                ButtonKlienciWyswietlContent = "Wyświetl";
+            }
+            if (ButtonKredytyWyswietlContent == "Schowaj")
+            {
+                ButtonKredytyWyswietlContent = "Wyświetl";
+            }
+            if (ButtonLokatyWyswietlContent == "Schowaj")
+            {
+                ButtonLokatyWyswietlContent = "Wyświetl";
+            }
+            if (ButtonPrzelewyWyswietlContent == "Schowaj")
+            {
+                ButtonPrzelewyWyswietlContent = "Wyświetl";
+            }
+
+            ListaKredytow = new ListyZasobow().PobierzNieAktywneKredyty();
+            TablicaDanych = null;
+            TablicaDanych = new KredytyTabela(_navigator);
+            TablicaDanych.DataContext = this;
         }
 
-        private void UsunKlienta(ObservableCollection<object> obj)
+        private void PokarzUsunietychKlientow()
         {
-            throw new NotImplementedException();
+            Wyczysc_Listy_I_UserControlle_Z_Tabelami();
+            if (ButtonKlienciWyswietlContent == "Schowaj")
+            {
+                ButtonKlienciWyswietlContent = "Wyświetl";
+            }
+            if (ButtonKredytyWyswietlContent == "Schowaj")
+            {
+                ButtonKredytyWyswietlContent = "Wyświetl";
+            }
+            if (ButtonLokatyWyswietlContent == "Schowaj")
+            {
+                ButtonLokatyWyswietlContent = "Wyświetl";
+            }
+            if (ButtonPrzelewyWyswietlContent == "Schowaj")
+            {
+                ButtonPrzelewyWyswietlContent = "Wyświetl";
+            }
+
+            ListaKlientow = new ListyZasobow().PobierzNieAktywniKlienci();
+            TablicaDanych = null;
+            TablicaDanych = new KlienciTabela(_navigator);
+            TablicaDanych.DataContext = this;
+        }
+
+        private void UsunLokate()
+        {
+            LokatyDataModel temp1 = new LokatyDataModel();
+            ObservableCollection<LokatyDataModel> znalezione = new ObservableCollection<LokatyDataModel>();
+            //sprawdza zaznaczenie
+            foreach (var item in ListaLokat)
+            {
+                if (item.IsSelected == true)
+                {
+
+                    znalezione.Add(item);
+
+                }
+
+            }
+            if (znalezione.Count == 0)
+            {
+                MessageBox.Show("Musisz zaznaczyć lokatę.\n");
+
+            }
+            else
+            {
+                string komunikat = "Czy na pewno chcesz usunąć te lokaty?\n";
+
+                var result = MessageBox.Show(komunikat, "", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    Baza db = new Baza();
+                    // db.Klienci.Where((n)=>n.Id_klienta==znalezione.)
+                    foreach (var item in db.Lokaty)
+                    {
+
+                        foreach (var item2 in db.Lokaty)
+                        {
+                            if (item.Id_Lokaty == item2.Klient)
+                            {
+                                item2.aktywny = false;
+                            }
+                        }
+
+
+
+                    }
+                    db.SaveChanges();
+                    ListaLokat = new ListyZasobow().PobierzAktywneLokaty();
+                    TablicaDanych = null;
+                    TablicaDanych = new LokatyTabela(_navigator);
+                    TablicaDanych.DataContext = this;
+                }
+
+            }
+        }
+
+        private void UsunKredyt()
+        {
+            KredytyDataModel temp1 = new KredytyDataModel();
+            ObservableCollection<KredytyDataModel> znalezione = new ObservableCollection<KredytyDataModel>();
+            //sprawdza zaznaczenie
+            foreach (var item in ListaKredytow)
+            {
+                if (item.IsSelected == true)
+                {
+
+                    znalezione.Add(item);
+
+                }
+
+            }
+            if (znalezione.Count == 0)
+            {
+                MessageBox.Show("Musisz zaznaczyć kredyt.\n");
+
+            }
+            else
+            {
+                string komunikat = "Czy na pewno chcesz usunąć te kredyty?\n";
+               
+                var result = MessageBox.Show(komunikat, "", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    Baza db = new Baza();
+                    // db.Klienci.Where((n)=>n.Id_klienta==znalezione.)
+                    foreach (var item in db.Kredyty)
+                    {
+                       
+                        foreach (var item2 in db.Kredyty)
+                        {
+                            if (item.Id_Kredytu == item2.Klient)
+                            {
+                                item2.aktywny = false;
+                            }
+                        }
+                       
+
+
+                    }
+                    db.SaveChanges();
+                    ListaKredytow = new ListyZasobow().PobierzAktywneKredyty();
+                    TablicaDanych = null;
+                    TablicaDanych = new KredytyTabela(_navigator);
+                    TablicaDanych.DataContext = this;
+                }
+
+            }
+        }
+
+        private void UsunKlienta()
+        {
+            KlienciDataModel temp1 = new KlienciDataModel();
+            ObservableCollection<KlienciDataModel> znalezione = new ObservableCollection<KlienciDataModel>();
+            //sprawdza zaznaczenie
+            foreach (var item in ListaKlientow)
+            {
+                if (item.IsSelected == true)
+                {
+                
+                    znalezione.Add(item);
+
+                }
+              
+            }
+            if (znalezione.Count==0)
+            {
+                MessageBox.Show("Musisz zaznaczyć klienta.\n");
+
+            }
+            else
+            {
+                string komunikat = "Czy na pewno chcesz usunąć tych klientów, ich lokaty i kredyty?\n";
+                foreach (var item in znalezione)
+                {
+                    komunikat = komunikat + item.Imię.ToString() + " " + item.Nazwisko.ToString()+"\n";
+                }
+               var result = MessageBox.Show(komunikat,"" , MessageBoxButton.YesNo, MessageBoxImage.Question);
+          
+            if(result== MessageBoxResult.Yes)
+                {
+                    Baza db = new Baza();
+                   // db.Klienci.Where((n)=>n.Id_klienta==znalezione.)
+                    foreach (var item in db.Klienci)
+                    {
+                        foreach (var doUsuniecia in znalezione)
+                        {
+                            if(item.Id_klienta==doUsuniecia.Id_klienta)
+                            {
+                                item.aktywny = false;
+                            }
+                        }
+                        foreach (var item2 in db.Kredyty)
+                        {
+                            if (item.Id_klienta == item2.Klient)
+                            {
+                                item2.aktywny = false;
+                            }
+                        }
+                        foreach (var item3 in db.Lokaty)
+                        {
+                            if (item.Id_klienta == item3.Klient)
+                            {
+                                item3.aktywny = false;
+                            }
+                        }
+                       
+                        
+                    }
+                    db.SaveChanges();
+                    ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
+                    TablicaDanych = null;
+                    TablicaDanych = new KlienciTabela(_navigator);
+                    TablicaDanych.DataContext = this;
+                }
+            
+            }
+
         }
 
         private void EdytujLokate()
@@ -322,7 +575,7 @@ namespace Bank2.ViewModel
             {
                 case "EdytujKlientaWindow":
                     {
-                        ListaKlientow = new ListyZasobow().PobierzKlienci();
+                        ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
                         TablicaDanych = null;
                         TablicaDanych = new KlienciTabela(_navigator);
                         TablicaDanych.DataContext = this;
@@ -330,7 +583,7 @@ namespace Bank2.ViewModel
                     }
                 case "EdytujKredytWindow":
                     {
-                        ListaKredytow = new ListyZasobow().PobierzKredyty();
+                        ListaKredytow = new ListyZasobow().PobierzAktywneKredyty();
                         TablicaDanych = null;
                         TablicaDanych = new KredytyTabela(_navigator);
                         TablicaDanych.DataContext = this;
@@ -338,7 +591,7 @@ namespace Bank2.ViewModel
                     }
                 case "EdytujLokateWindow":
                     {
-                        ListaLokat = new ListyZasobow().PobierzLokaty();
+                        ListaLokat = new ListyZasobow().PobierzAktywneLokaty();
                         TablicaDanych = null;
                         TablicaDanych = new LokatyTabela(_navigator);
                         TablicaDanych.DataContext = this;
@@ -375,6 +628,24 @@ namespace Bank2.ViewModel
         }
         private void WyswietlKlientow()
         {
+            Wyczysc_Listy_I_UserControlle_Z_Tabelami();
+        
+            if (ButtonKredytyWyswietlContent=="Schowaj")
+            {
+                ButtonKredytyWyswietlContent = "Wyświetl";
+            }
+            if (ButtonLokatyWyswietlContent == "Schowaj")
+            {
+                ButtonLokatyWyswietlContent = "Wyświetl";
+            }
+            if (ButtonPrzelewyWyswietlContent == "Schowaj")
+            {
+                ButtonPrzelewyWyswietlContent = "Wyświetl";
+            }
+           
+
+
+
             TablicaDanych = new KlienciTabela(_navigator);
             TablicaDanych.DataContext = this;
 
@@ -382,19 +653,8 @@ namespace Bank2.ViewModel
             {
                 ButtonKlienciWyswietlContent = "Schowaj";
 
-                
-
-
-                Baza db = new Baza();
-                //ListaKlientow.Clear();
                 ListaKlientow.Clear();
-                ListaKlientow = new ListyZasobow().PobierzKlienci();
-                //foreach (var item in db.Klienci)
-                //{
-                //    ListaKlientow.Add(item);
-
-                //}
-                //KlienciTabelaVisibility = Visibility.Visible;
+                ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
             }
 
             else
@@ -408,6 +668,23 @@ namespace Bank2.ViewModel
         }
         private void WyswietlPrzelewy()
         {
+
+            Wyczysc_Listy_I_UserControlle_Z_Tabelami();
+            if (ButtonKlienciWyswietlContent == "Schowaj")
+            {
+                ButtonKlienciWyswietlContent = "Wyświetl";
+            }
+            if (ButtonKredytyWyswietlContent == "Schowaj")
+            {
+                ButtonKredytyWyswietlContent = "Wyświetl";
+            }
+            if (ButtonLokatyWyswietlContent == "Schowaj")
+            {
+                ButtonLokatyWyswietlContent = "Wyświetl";
+            }
+          
+
+
             TablicaDanych = new PrzelewyTabela(_navigator);
             TablicaDanych.DataContext = this;
 
@@ -433,6 +710,23 @@ namespace Bank2.ViewModel
 
         private void WyswietlLokaty()
         {
+
+            Wyczysc_Listy_I_UserControlle_Z_Tabelami();
+            if (ButtonKlienciWyswietlContent == "Schowaj")
+            {
+                ButtonKlienciWyswietlContent = "Wyświetl";
+            }
+            if (ButtonKredytyWyswietlContent == "Schowaj")
+            {
+                ButtonKredytyWyswietlContent = "Wyświetl";
+            }
+            
+            if (ButtonPrzelewyWyswietlContent == "Schowaj")
+            {
+                ButtonPrzelewyWyswietlContent = "Wyświetl";
+            }
+
+
             TablicaDanych = new LokatyTabela(_navigator);
             TablicaDanych.DataContext = this;
             if (ButtonLokatyWyswietlContent == "Wyświetl")
@@ -440,7 +734,7 @@ namespace Bank2.ViewModel
                 ButtonLokatyWyswietlContent = "Schowaj";
 
                 ListaLokat.Clear();
-                ListaLokat = new ListyZasobow().PobierzLokaty();
+                ListaLokat = new ListyZasobow().PobierzAktywneLokaty();
                
                 //LokatyTabelaVisibility = Visibility.Visible;
             }
@@ -456,6 +750,20 @@ namespace Bank2.ViewModel
 
         private void WyswietlKredyty()
         {
+            Wyczysc_Listy_I_UserControlle_Z_Tabelami();
+            if (ButtonKlienciWyswietlContent == "Schowaj")
+            {
+                ButtonKlienciWyswietlContent = "Wyświetl";
+            }
+            if (ButtonLokatyWyswietlContent == "Schowaj")
+            {
+                ButtonLokatyWyswietlContent = "Wyświetl";
+            }
+            if (ButtonPrzelewyWyswietlContent == "Schowaj")
+            {
+                ButtonPrzelewyWyswietlContent = "Wyświetl";
+            }
+
             TablicaDanych = new KredytyTabela(_navigator);
             TablicaDanych.DataContext = this;
             if (ButtonKredytyWyswietlContent == "Wyświetl")
@@ -463,7 +771,7 @@ namespace Bank2.ViewModel
                 ButtonKredytyWyswietlContent = "Schowaj";
 
                 ListaKredytow.Clear();
-                ListaKredytow = new ListyZasobow().PobierzKredyty();
+                ListaKredytow = new ListyZasobow().PobierzAktywneKredyty();
              
                 //KredytyTabelaVisibility = Visibility.Visible;
             }
