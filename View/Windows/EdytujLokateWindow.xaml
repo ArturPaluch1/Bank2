@@ -93,7 +93,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="50*"/>
             <RowDefinition Height="50*"/>
 
         </Grid.RowDefinitions>
@@ -107,14 +107,18 @@
 
 
         <Label Content="Wybierz Klienta" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5"  Width="800" />
-     
-        <UserControl Content="{Binding TablicaDanych, Mode=TwoWay, NotifyOnTargetUpdated=True}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5"/>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" Grid.RowSpan="2">
+            <ScrollViewer   VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto"  >
 
-        <Label Content="Wybierz lokatę" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="5"  Width="800" />
-       
-        <UserControl Content="{Binding TablicaDanych2, Mode=TwoWay}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="5"/>
+                <UserControl Content="{Binding TablicaDanych, Mode=TwoWay, NotifyOnTargetUpdated=True}" />
+            </ScrollViewer>
+            <Label Content="Wybierz lokatę"  Width="800" />
+            <ScrollViewer   VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto" >
 
-        <Button x:Name="edytuj" Command="{Binding Edytuj}" Content="Edytuj" Grid.Column="2" Grid.Row="1" Width="75" HorizontalAlignment="Right" Margin="0,0,20,0" />
+                <UserControl Content="{Binding TablicaDanych2, Mode=TwoWay}" />
+            </ScrollViewer>
+        </StackPanel>
+        <Button x:Name="edytuj" Command="{Binding Edytuj}"  IsEnabled="{Binding ErrorFree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Content="Edytuj" Grid.Column="2" Grid.Row="1" Width="75" HorizontalAlignment="Right" Margin="0,0,20,0" />
         <Button x:Name="anuluj" Command="{Binding Anuluj}" Content="anuluj" Grid.Column="3" Grid.Row="1" Width="75" HorizontalAlignment="Left"/>
 
     </Grid>

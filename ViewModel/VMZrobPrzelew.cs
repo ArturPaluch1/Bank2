@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
-    class VMZrobPrzelew
+    class VMZrobPrzelew:ViewModelBase
     {
         private Window _window;
         private INavigator _navigator;
@@ -28,9 +28,9 @@ namespace Bank2.ViewModel
             }
         }
         
-        private int _kwota;
+        private decimal _kwota;
         private string _Odbiorca;
-        private int _RachunekOdbiorcy;
+        private long  _RachunekOdbiorcy;
         private string _Tytylem;
 
         public string Odbiorca { get { return _Odbiorca; } 
@@ -38,14 +38,16 @@ namespace Bank2.ViewModel
             {
                 _Odbiorca = value;
                 OnPropertyChanged("Odbiorca");
+                ValidateOdbiorca(Odbiorca);
             }
         }
       
-        public int RachunekOdbiorcy { get { return _RachunekOdbiorcy; }
+        public long  RachunekOdbiorcy { get { return _RachunekOdbiorcy; }
             set
             {
                 _RachunekOdbiorcy = value;
                 OnPropertyChanged("RachunekOdbiorcy");
+                ValidateRachunekOdbiorcy(RachunekOdbiorcy);
             }
         }
         public string Tytylem
@@ -55,29 +57,27 @@ namespace Bank2.ViewModel
             {
                 _Tytylem = value;
                 OnPropertyChanged("Tytylem");
+
             }
         }
 
 
 
-        private void OnPropertyChanged(string v)
-        {
-            // throw new NotImplementedException();
-        }
-
+      
 
         public ObservableCollection<KlienciDataModel> ListaKlientow { get; set; } = new ObservableCollection<KlienciDataModel>();
        
         public ICommand Przelej { get; set; }
         public ICommand Anuluj { get; set; }
 
-        public int Kwota
+        public decimal Kwota
         {
             get { return _kwota; }
             set
             {
                 _kwota = value;
                 OnPropertyChanged("Kwota");
+                ValidateKwota(Kwota);
             }
         }
 
@@ -92,6 +92,13 @@ namespace Bank2.ViewModel
           
             Przelej = new RelayCommand(ZrobPrzelew);
             Anuluj = new RelayCommand(WyjdzZokna);
+
+
+            Odbiorca = "";
+            RachunekOdbiorcy = 0;
+            Kwota = 0;
+                
+                
         }
 
         private void ZrobPrzelew()
@@ -152,6 +159,7 @@ namespace Bank2.ViewModel
                         Przelewy nowyPrzelew = new Przelewy();
                         nowyPrzelew.Data = DateTime.Now;
                         nowyPrzelew.Kwota = this.Kwota;
+                        nowyPrzelew.Nadawca = zaznaczonyKlient.Id_klienta;
                         nowyPrzelew.Nazwa_odbiorcy = this.Odbiorca;
                         nowyPrzelew.Numer_rachunku_odbiorcy = this.RachunekOdbiorcy;
                         nowyPrzelew.Tytuł_przelewu = this.Tytylem;

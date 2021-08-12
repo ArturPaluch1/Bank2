@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <CheckBox IsChecked="{Binding IsSelected}"/>
-        <TextBlock Text="{Binding Id_Pracownika}"  />
-        <TextBlock Text="{Binding Imię_pracownika}" />
-        <TextBlock Text="{Binding Nazwisko_pracownika}" />
-        <TextBlock Text="{Binding Data_zatrudnienia , StringFormat=Date: {0:dddd, MMMM dd}}" />
-        <TextBlock Text="{Binding PESEL}" />
-        <TextBlock Text="{Binding Telefon}" />
+        <CheckBox Background="LightGray" IsChecked="{Binding IsSelected}" Width="15"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Id_Pracownika}"  Width="30" />
+        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Imię_pracownika}" />
+        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Nazwisko_pracownika}" />
+        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Data_zatrudnienia , StringFormat=Date: {0:dddd, MMMM dd}}" />
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding PESEL}" />
+        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Telefon}" />
     </Grid>
 </UserControl>

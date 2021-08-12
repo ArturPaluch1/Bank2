@@ -8,58 +8,9 @@
         mc:Ignorable="d"
        Title="oknoEdytujKlienta" Name="NameoknoEdytujKlienta" Height="450" Width="800">
     <Window.Resources>
-        <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
+       
 
-        </Style>
-        <Style TargetType="PasswordBox">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
-
-        </Style>
-        <Style TargetType="Label" >
-            <Setter Property="Width" Value="150" />
-            <Setter Property="Height" Value="40" />
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="20"/>
-        </Style>
-        <Style TargetType="Button" >
-
-            <Setter Property="FontSize" Value="20"/>
-
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Width" Value="150" />
-            <Setter Property="Height" Value="30" />
-
-        </Style>
-
-        <Style TargetType="DataGrid">
-
-
-
-            <Setter Property="Height" Value="auto"/>
-            <Setter Property="IsReadOnly" Value="True"/>
-            <Setter Property="Background" Value="LightGray"/>
-            <Setter Property="RowBackground" Value="LightYellow"/>
-            <Setter Property="AlternatingRowBackground" Value="LightBlue"/>
-            <Setter Property="CanUserAddRows" Value="False"/>
-            <Setter Property="SelectionMode" Value="Single"/>
-            <Setter Property="SelectionUnit" Value="Cell"/>
-            <Setter Property="AutoGenerateColumns" Value="False"/>
-
-            <Setter Property="CanUserResizeColumns" Value="False"/>
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="ColumnWidth" Value="120*"/>
-
-            <Setter Property="CanUserResizeRows" Value="False"/>
-        </Style>
+       
         <Style TargetType="ColumnDefinition" >
 
 
@@ -99,26 +50,26 @@
 
 
 
-        <Label x:Name="LabelTytul" Content="Edytowanie klienta" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" HorizontalAlignment="Center" Width="300" FontWeight="Bold" />
-        <Label x:Name="LabelImie" Content="Imię" Grid.Column="0" Grid.Row="1"/>
-        <Label x:Name="LabelNazwisko" Content="Nazwisko" Grid.Column="0" Grid.Row="2"  />
+        <Label x:Name="LabelTytul" Style="{DynamicResource LabelDefaultStyle}" Content="Edytowanie klienta" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" HorizontalAlignment="Center" Width="300" FontWeight="Bold" />
+        <Label x:Name="LabelImie" Style="{DynamicResource LabelDefaultStyle}" Content="Imię" Grid.Column="0" Grid.Row="1"/>
+        <Label x:Name="LabelNazwisko" Style="{DynamicResource LabelDefaultStyle}" Content="Nazwisko" Grid.Column="0" Grid.Row="2"  />
 
-        <Label x:Name="LabelHaslo" Content="Hasło" Grid.Column="0" Grid.Row="3"/>
-        <Label x:Name="LabelTelefon" Content="Telefon" Grid.Column="2" Grid.Row="1"/>
-        <Label x:Name="LabelMiasto" Content="Miasto" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="LabelUlica" Content="Ulica" Grid.Column="2" Grid.Row="3"/>
+        <Label x:Name="LabelHaslo" Style="{DynamicResource LabelDefaultStyle}" Content="Hasło" Grid.Column="0" Grid.Row="3"/>
+        <Label x:Name="LabelTelefon" Style="{DynamicResource LabelDefaultStyle}" Content="Telefon" Grid.Column="2" Grid.Row="1"/>
+        <Label x:Name="LabelMiasto" Style="{DynamicResource LabelDefaultStyle}" Content="Miasto" Grid.Column="2" Grid.Row="2"/>
+        <Label x:Name="LabelUlica" Style="{DynamicResource LabelDefaultStyle}" Content="Ulica" Grid.Column="2" Grid.Row="3"/>
 
 
-        <TextBox x:Name="textBoxImie" Text="{Binding Imie,Mode=TwoWay}" Grid.Column="1" Grid.Row="1"   TextWrapping="Wrap"  Width="120"  />
-        <TextBox x:Name="textBoxNazwisko" Text="{Binding Nazwisko,Mode=TwoWay}" Grid.Column="1" Grid.Row="2"  TextWrapping="Wrap"   Width="120" />
+        <TextBox x:Name="textBoxImie" Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Imie,Mode=TwoWay}" Grid.Column="1" Grid.Row="1"   TextWrapping="Wrap"   />
+        <TextBox x:Name="textBoxNazwisko" Style="{DynamicResource TextBoxDefaultStyle}"  Text="{Binding Nazwisko,Mode=TwoWay}" Grid.Column="1" Grid.Row="2"  TextWrapping="Wrap"   />
 
-        <components:BindablePasswordBox Password="{Binding Password, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" />
-        <TextBox x:Name="textBoxTelefon" Text="{Binding Telefon,Mode=TwoWay}" Grid.Column="3" Grid.Row="1"  TextWrapping="Wrap"   Width="120"  />
-        <TextBox x:Name="textBoxMiasto" Text="{Binding Miasto,Mode=TwoWay}" Grid.Column="3" Grid.Row="2"   TextWrapping="Wrap"   Width="120"  />
-        <TextBox x:Name="textBoxUlica" Text="{Binding Ulica,Mode=TwoWay}" Grid.Column="3" Grid.Row="3"   TextWrapping="Wrap"   Width="120"   />
+        <components:BindablePasswordBox Password="{Binding Password, Mode=TwoWay }"  Style="{DynamicResource BindablePasswordBoxStyle}"  Grid.Column="1" Grid.Row="3" />
+        <TextBox x:Name="textBoxTelefon"  Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Telefon,Mode=TwoWay}" Grid.Column="3" Grid.Row="1"  TextWrapping="Wrap"   />
+        <TextBox x:Name="textBoxMiasto" Style="{DynamicResource TextBoxDefaultStyle}"  Text="{Binding Miasto,Mode=TwoWay}" Grid.Column="3" Grid.Row="2"   TextWrapping="Wrap"    />
+        <TextBox x:Name="textBoxUlica" Style="{DynamicResource TextBoxDefaultStyle}"  Text="{Binding Ulica,Mode=TwoWay}" Grid.Column="3" Grid.Row="3"   TextWrapping="Wrap"      />
 
-        <Button x:Name="edytuj" Content="edytuj" Command="{Binding Edytuj}" Grid.Column="2" Grid.Row="5" Width="75" HorizontalAlignment="Center" />
-        <Button x:Name="anuluj" Content="anuluj" Command="{Binding Anuluj}"  Grid.Column="3" Grid.Row="5" Width="75" HorizontalAlignment="Center" />
+        <Button x:Name="edytuj" Content="edytuj" Command="{Binding Edytuj}"   Style="{DynamicResource ButtonDefaultStyle}" Grid.Column="2" Grid.Row="5" Width="75" HorizontalAlignment="Center" />
+        <Button x:Name="anuluj" Content="anuluj" Command="{Binding Anuluj}"  Style="{DynamicResource ButtonDefaultStyle}"  Grid.Column="3" Grid.Row="5" Width="75" HorizontalAlignment="Center" />
 
        
 

@@ -15,64 +15,9 @@
 
     <Page.Resources>
 
-        <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
-
-        </Style>
-        <Style TargetType="PasswordBox">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
-
-        </Style>
-        <Style TargetType="Button" >
-
-            <Setter Property="FontSize" Value="20"/>
-
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="30" />
-
-        </Style>
-        <Style TargetType="GroupBox">
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-            <Setter Property="Background" Value="LightGray"/>
-
-        </Style>
-        <Style TargetType="DataGrid">
-            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="Width" Value="1550"/>
-            <Setter Property="Visibility" Value="Hidden"/>
-            <Setter Property="IsReadOnly" Value="True"/>
-            <Setter Property="Background" Value="LightGray"/>
-            <Setter Property="RowBackground" Value="LightYellow"/>
-            <Setter Property="AlternatingRowBackground" Value="LightBlue"/>
-            <Setter Property="CanUserAddRows" Value="False"/>
-            <Setter Property="SelectionMode" Value="Single"/>
-            <Setter Property="SelectionUnit" Value="Cell"/>
-            <Setter Property="AutoGenerateColumns" Value="False"/>
-
-            <Setter Property="CanUserResizeColumns" Value="False"/>
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="ColumnWidth" Value="120*"/>
-
-            <Setter Property="CanUserResizeRows" Value="False"/>
-        </Style>
-
-        <Style TargetType="Label" >
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="40" />
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="20"/>
-        </Style>
+      
+    
+      
 
         <Style TargetType="ColumnDefinition" >
 
@@ -90,72 +35,41 @@
        
     </Page.Resources>
     <Page.Content>
-    <DockPanel  >
+   
 
 
-        <StackPanel DockPanel.Dock="Top">
+        <StackPanel Orientation="Vertical">
+            
             <Label Content="SKOK Olsena" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="25" Width="200" />
+            
+                <TabControl   HorizontalAlignment="Stretch" FontSize="20" >
+                    <TabItem Header="Klienci" >
+                        <Frame  Content="{Binding KlienciPage }" >
+                        </Frame>
+                    </TabItem>
+                    <TabItem Header="Pracownicy">
+                        <Frame Content="{Binding PracownicyPage  }">
+                        </Frame>
 
+                    </TabItem>
+                    <TabItem Header="Kredyty">
+                        <Frame Content="{Binding KredytyPage}">
+
+                        </Frame>
+                    </TabItem>
+                    <TabItem Header="Lokaty">
+                        <Frame Content="{Binding LokatyPage}">
+
+                        </Frame>
+                    </TabItem>
+
+
+                </TabControl>
+       
         </StackPanel>
 
 
-            <TabControl   DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" FontSize="20" >
-            <!--ItemsSource="{Binding TabItems}"-->
-            <!--<TabItem Header="Klienci" Tag="TabKlienci" Width="150" >
-
-                <Button Content="{Binding nav, Mode=TwoWay}"/>
-            </TabItem>-->
-
-            <TabItem Header="Klienci" >
-                    <Frame  Content="{Binding KlienciPage }" >
-
-
-
-                       
-
-                    </Frame>
-                </TabItem>
-            <TabItem Header="Pracownicy">
-                    <Frame Content="{Binding PracownicyPage  }">
-                    <!--<Frame.Content>
-                        <views:PracownikPracownicyPage></views:PracownikPracownicyPage>
-                    </Frame.Content>-->
-                </Frame>
-               
-            </TabItem>
-            <TabItem Header="Kredyty">
-                <Frame Content="{Binding KredytyPage}">
-                    <!--<Frame.Content>-->
-                        <!--<views:PracownikKredytyPage></views:PracownikKredytyPage>
-
-                    </Frame.Content>-->
-
-                </Frame>
-            </TabItem>
-            <TabItem Header="Lokaty">
-                <Frame Content="{Binding LokatyPage}">
-                    <!--<Frame.Content>-->
-                            <!--<views:PracownikLokatyPage></views:PracownikLokatyPage>
-
-                    </Frame.Content>-->
-
-                </Frame>
-            </TabItem>
-            <!--Binding the content for the Tab item-->
-            <!--<TabControl.ContentTemplate >
-                <DataTemplate  DataType="{x:Type vm:VMLogowanie}">
-                    <TextBlock Text="{Binding Content}" />
-                    -->
-            <!--<views:LogowaniePage/>-->
-            <!--
-                </DataTemplate>
-               
-            </TabControl.ContentTemplate>-->
-
-
-
-        </TabControl>
-            <!--<Button Command="{Binding bb}"/>-->
-        </DockPanel>
+         
+      
     </Page.Content>
 </Page>

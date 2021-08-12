@@ -8,39 +8,15 @@
       xmlns:viewModel="clr-namespace:Bank2.ViewModel"
      
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+
       Title="PracownikKlienciPage"
-        Height="auto" Width="1600"  
-       
-    Background="LightGray" 
+
         
-      
+
       
       >
 
-    <!--<components:PracownikNavigationBar 
-    d:DataContext="{d:DesignInstance Type=viewModel:VMPracownikNavigationBar}"/>-->
     <Page.Resources>
-        <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
-
-        </Style>
-        <Style TargetType="PasswordBox">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
-
-        </Style>
-        <Style TargetType="Button" >
-
-            <Setter Property="FontSize" Value="20"/>
-
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="30" />
-
-        </Style>
         <Style TargetType="GroupBox">
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -48,237 +24,190 @@
             <Setter Property="Background" Value="LightGray"/>
 
         </Style>
-        <Style TargetType="DataGrid">
-            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="Width" Value="1550"/>
-            <Setter Property="Visibility" Value="Hidden"/>
-            <Setter Property="IsReadOnly" Value="True"/>
-            <Setter Property="Background" Value="LightGray"/>
-            <Setter Property="RowBackground" Value="LightYellow"/>
-            <Setter Property="AlternatingRowBackground" Value="LightBlue"/>
-            <Setter Property="CanUserAddRows" Value="False"/>
-            <Setter Property="SelectionMode" Value="Single"/>
-            <Setter Property="SelectionUnit" Value="Cell"/>
-            <Setter Property="AutoGenerateColumns" Value="False"/>
 
-            <Setter Property="CanUserResizeColumns" Value="False"/>
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="ColumnWidth" Value="120*"/>
-
-            <Setter Property="CanUserResizeRows" Value="False"/>
-        </Style>
-
-        <Style TargetType="Label" >
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="40" />
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="20"/>
-        </Style>
-
-        <Style TargetType="ColumnDefinition" >
-
-
-            <Setter Property="Width"  Value="200* "/>
-
-        </Style>
-        <Style TargetType="RowDefinition" >
-
-
-            <Setter Property="Height"  Value=" 50"/>
-
-        </Style>
-    </Page.Resources>
-    <StackPanel Orientation="Vertical">
-        <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition />
-                <ColumnDefinition/>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition Width="500"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <GroupBox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="11" Grid.RowSpan="4" />
-            <Button  Content="Wyloguj" Grid.Column="9" Grid.Row="0"  Command="{Binding wyloguj}" HorizontalAlignment="Right" Margin="0,10,20,10"    />
-            <Button  Content="Wyjdź"    Grid.Column="9" Grid.Row="1"  Command="{Binding wyjdz}" HorizontalAlignment="Right" Margin="0,10,20,10"   />
-
-            <Label x:Name="LabelKlienci"   Content="Klienci" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="25,5,5,5" />
-            <Button x:Name="buttonKlienciWyswietl" Content="{Binding ButtonKlienciWyswietlContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Tag="Klienci"   Grid.Column="3" Grid.Row="0" Command="{Binding klienciWyswietl}" Margin="27,10" >
-
-            </Button>
-            <Button x:Name="buttonKlienciDodaj"  Tag="Klienci" Content="Dodaj" Grid.Column="4"  Grid.Row="0" Command="{Binding klienciDodaj}" Margin="27,10"  />
-            <Button x:Name="buttonKlienciEdytuj" Tag="Klienci" Content="Edytuj"    Grid.Column="5" Grid.Row="0" Command="{Binding klienciEdytuj}" Margin="27,10" >
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="IsEnabled" Value="True"></Setter>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Wyświetl">
-                                <Setter Property="IsEnabled" Value="False" />
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Schowaj">
-                                <Setter Property="IsEnabled" Value="True" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-
-
-
-            <Button x:Name="buttonKlienciUsun"  Tag="Klienci" Content="Usuń"    Grid.Column="6" Grid.Row="0" Command="{Binding klienciUsun}" Margin="27,10"  >
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="IsEnabled" Value="True"></Setter>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Wyświetl">
-                                <Setter Property="IsEnabled" Value="False" />
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Schowaj">
-                                <Setter Property="IsEnabled" Value="True" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button x:Name="buttonKlienciUsunieci" Width="200" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Tag="Klienci" Content="Usunięci klienci"    Grid.Column="8" Grid.Row="0" Command="{Binding klienciUsunieci}" Margin="0,10"  />
-
-
-            <Label x:Name="LabelKlienciKredyt"   Content="Kredyt" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="25,5,5,5"/>
-            <Button x:Name="buttonKlienciKredytWyswietl" Content="{Binding ButtonKredytyWyswietlContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"    Grid.Column="3" Grid.Row="1" Command="{Binding KredytWyswietl}" Margin="27,10"  />
-            <Button x:Name="buttonKlienciKredytDodaj"  Tag="Kredyt" Content="Dodaj" Grid.Column="4"  Grid.Row="1" Command="{Binding KredytDodaj}" Margin="27,10" />
-            <Button x:Name="buttonKlienciKredytEdytuj"  Tag="Kredyt" Content="Edytuj"    Grid.Column="5" Grid.Row="1" Command="{Binding KredytEdytuj}" Margin="27,10"  >
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="IsEnabled" Value="True"></Setter>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Wyświetl">
-                                <Setter Property="IsEnabled" Value="False" />
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Schowaj">
-                                <Setter Property="IsEnabled" Value="True" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button x:Name="buttonKlienciKredytUsun"  Tag="Kredyt" Content="Usuń"    Grid.Column="6" Grid.Row="1" Command="{Binding KredytUsun}" Margin="27,10"   >
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="IsEnabled" Value="True"></Setter>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Wyświetl">
-                                <Setter Property="IsEnabled" Value="False" />
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Schowaj">
-                                <Setter Property="IsEnabled" Value="True" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button x:Name="buttonKlienciUsunieciKredyt" Width="200" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Tag="Kredyt" Content="Usunięte kredyty"    Grid.Column="8" Grid.Row="1" Command="{Binding KredytUsuniete}" Margin="0,10"  />
-
-            <Label x:Name="LabelKlienciLokata"  Content="Lokata" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="25,5,5,5" />
-            <Button x:Name="buttonKlienciLokataWyswietl" Content="{Binding ButtonLokatyWyswietlContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   Grid.Column="3" Grid.Row="2" Command="{Binding LokataWyswietl}" Margin="27,10"   />
-            <Button x:Name="buttonKlienciLokataDodaj"  Tag="Lokata" Content="Dodaj" Grid.Column="4"  Grid.Row="2" Command="{Binding LokataDodaj}" Margin="27,10"   />
-            <Button x:Name="buttonKlienciLokataEdytuj"  Tag="Lokata" Content="Edytuj"    Grid.Column="5" Grid.Row="2" Command="{Binding LokataEdytuj}" Margin="27,10"  >
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="IsEnabled" Value="True"></Setter>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Wyświetl">
-                                <Setter Property="IsEnabled" Value="False" />
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Schowaj">
-                                <Setter Property="IsEnabled" Value="True" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button x:Name="buttonKlienciLokataUsun"  Tag="Lokata" Content="Usuń"    Grid.Column="6" Grid.Row="2" Command="{Binding LokataiUsun}" Margin="27,10"   >
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="IsEnabled" Value="True"></Setter>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Wyświetl">
-                                <Setter Property="IsEnabled" Value="False" />
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Schowaj">
-                                <Setter Property="IsEnabled" Value="True" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
-            <Button x:Name="buttonKlienciUsunieciLokata"  Tag="Lokata" Content="Usunięte lokaty"  Width="200" Grid.ColumnSpan="2" HorizontalAlignment="Left"  Grid.Column="8" Grid.Row="2" Command="{Binding LokataUsuniete}" Margin="0,10"  />
-
-            <Label x:Name="LabelKlienciPrzelew" Content="Przelewy"  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="25,5,5,5" />
-            <Button x:Name="buttonKlienciPrzelewWyswietl"  Content="{Binding ButtonPrzelewyWyswietlContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Grid.Row="3" Command="{Binding PrzelewWyswietl}" Margin="27,10"   />
-            <Button x:Name="buttonKlienciPrzelew" Tag="Przelew"   Content="Przelew" Grid.Column="4" Grid.Row="3" Command="{Binding PrzelewDodaj}" Margin="27,10"  />
-            <Button x:Name="buttonKlienciWplata" Tag="Przelew"   Content="Wpłata" Grid.Column="5" Grid.Row="3" Command="{Binding PrzelewWplata}" Margin="27,10"   />
-
-            <Button x:Name="buttonKlienciHistoria" Width="150" Tag="Klienci" Content="Dane klienta"    Grid.Column="7" Grid.Row="0" Command="{Binding KlientPodsumowanie}" Margin="2,10,3,10"  />
-
-            <Label Name="TabelaKlienta"  Content="Tabela Klienta" Tag="Klienci"  Grid.Row="4" Grid.Column="6" Visibility="Hidden"  Grid.ColumnSpan="2" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="200" Margin="76,5,33,5"/>
-
-        
-
-
-
-        </Grid>
-        <StackPanel>
-            
-            <UserControl Content="{Binding TablicaDanych, Mode=TwoWay}" />
-            <UserControl Content="{Binding TablicaDanych2, Mode=TwoWay}" />
-            <!--<components:KlientItem/>-->
-
-        </StackPanel>
-       
-
-        <!--<StackPanel  Background="green" Orientation="Horizontal" Visibility="{Binding KlienciNaglowek}">
-            <components:KlientItemNaglowek/>
-        </StackPanel>
-        <ItemsControl ItemsSource="{Binding ListaKlientow, Mode=TwoWay}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate >
-                    <components:KlientItem/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>-->
+     
 
       
 
        
-        <!--<components:KlienciTabela Visibility="{Binding KlienciTabelaVisibility}"/>
-        <components:KredytyTabela  Visibility="{Binding KredytyTabelaVisibility}"/>
-        <components:LokatyTabela Visibility="{Binding LokatyTabelaVisibility}"/>
-        <components:RodzajeKredytowTabela/>
-        <components:RodzajeLokatTabela/>
-        <components:PrzelewyTabela  Visibility="{Binding PrzelewyTabelaVisibility}"/>-->
+
+   
+        <Style TargetType="RowDefinition" >
+
+
+            <Setter Property="Height"  Value=" 55"/>
+
+        </Style>
+    </Page.Resources>
+   
+        <StackPanel Orientation="Vertical">
+
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+
+
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7" Grid.RowSpan="4" />
+                <Button Style="{DynamicResource ButtonDefaultStyle}" Content="Wyloguj" Grid.Column="6" Grid.Row="2"  Command="{Binding wyloguj}"   />
+                <Button  Style="{DynamicResource ButtonDefaultStyle}"  Content="Wyjdź"    Grid.Column="6" Grid.Row="3"  Command="{Binding wyjdz}"    />
+
+                <Label  Style="{DynamicResource LabelDefaultStyle}"  x:Name="LabelKlienci"   Content="Klienci" Grid.Column="0" Grid.Row="0"  />
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciWyswietl" Content="{Binding ButtonKlienciWyswietlContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   Grid.Column="1" Grid.Row="0" Command="{Binding klienciWyswietl}"  >
+
+                </Button>
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciDodaj"   Content="Dodaj" Grid.Column="2"  Grid.Row="0" Command="{Binding klienciDodaj}"   />
+                <Button x:Name="buttonKlienciEdytuj" Tag="Klienci" Content="Edytuj"    Grid.Column="3" Grid.Row="0" Command="{Binding klienciEdytuj}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="30" Margin="0,10,20,10" Padding="2" >
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Wyświetl">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Schowaj">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+
+
+                <Button x:Name="buttonKlienciUsun"  Content="Usuń"    Grid.Column="4" Grid.Row="0" Command="{Binding klienciUsun}"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="30" Margin="0,10,20,10" Padding="2"   >
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Wyświetl">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ButtonKlienciWyswietlContent}" Value="Schowaj">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciUsunieci"  Content="Usunięci klienci"    Grid.Column="5" Grid.Row="0" Command="{Binding klienciUsunieci}"  />
+
+
+                <Label  Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelKlienciKredyt"   Content="Kredyt" Grid.Column="0" Grid.Row="1"  />
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciKredytWyswietl" Content="{Binding ButtonKredytyWyswietlContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"    Grid.Column="1" Grid.Row="1" Command="{Binding KredytWyswietl}"  />
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciKredytDodaj"  Tag="Kredyt" Content="Dodaj" Grid.Column="2"  Grid.Row="1" Command="{Binding KredytDodaj}"  />
+                <Button x:Name="buttonKlienciKredytEdytuj"  Tag="Kredyt" Content="Edytuj"    Grid.Column="3" Grid.Row="1" Command="{Binding KredytEdytuj}"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="30" Margin="0,10,20,10" Padding="2"  >
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Wyświetl">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Schowaj">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="buttonKlienciKredytUsun"   Content="Usuń"    Grid.Column="4" Grid.Row="1" Command="{Binding KredytUsun}"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="30" Margin="0,10,20,10" Padding="2"  >
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Wyświetl">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ButtonKredytyWyswietlContent}" Value="Schowaj">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciUsunieciKredyt"    Content="Usunięte kredyty"    Grid.Column="5" Grid.Row="1" Command="{Binding KredytUsuniete}"  />
+
+                <Label  Style="{DynamicResource LabelDefaultStyle}"  x:Name="LabelKlienciLokata"  Content="Lokata" Grid.Column="0" Grid.Row="2"  />
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciLokataWyswietl" Content="{Binding ButtonLokatyWyswietlContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"   Grid.Column="1" Grid.Row="2" Command="{Binding LokataWyswietl}"    />
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciLokataDodaj"  Tag="Lokata" Content="Dodaj" Grid.Column="2"  Grid.Row="2" Command="{Binding LokataDodaj}"   />
+                <Button x:Name="buttonKlienciLokataEdytuj"  Tag="Lokata" Content="Edytuj"    Grid.Column="3" Grid.Row="2" Command="{Binding LokataEdytuj}"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="30" Margin="0,10,20,10" Padding="2"  >
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Wyświetl">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Schowaj">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="buttonKlienciLokataUsun"  Content="Usuń"    Grid.Column="4" Grid.Row="2" Command="{Binding LokataiUsun}"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="30" Margin="0,10,20,10" Padding="2"   >
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="IsEnabled" Value="True"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Wyświetl">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ButtonLokatyWyswietlContent}" Value="Schowaj">
+                                    <Setter Property="IsEnabled" Value="True" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciUsunieciLokata"  Content="Usunięte lokaty"    Grid.Column="5" Grid.Row="2" Command="{Binding LokataUsuniete}"   />
+
+                <Label  Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelKlienciPrzelew" Content="Przelewy"  Grid.Column="0" Grid.Row="3"  />
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciPrzelewWyswietl"  Content="{Binding ButtonPrzelewyWyswietlContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" Command="{Binding PrzelewWyswietl}"  />
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciPrzelew"   Content="Przelew" Grid.Column="2" Grid.Row="3" Command="{Binding PrzelewDodaj}"  />
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciWplata"    Content="Wpłata" Grid.Column="3" Grid.Row="3" Command="{Binding PrzelewWplata}"   />
+
+                <Button  Style="{DynamicResource ButtonDefaultStyle}" x:Name="buttonKlienciHistoria"  Content="Dane klienta"    Grid.Column="6" Grid.Row="0" Command="{Binding KlientPodsumowanie}"  />
+
+
+                
+                <StackPanel  Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="4">
+                <ScrollViewer   VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto" >
+                    <UserControl Content="{Binding TablicaDanych, Mode=TwoWay}" />
+                </ScrollViewer>
+                <ScrollViewer   VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto">
+                    <UserControl Content="{Binding TablicaDanych2, Mode=TwoWay}" />
+                </ScrollViewer>
+
+            </StackPanel>
+             
 
 
 
 
 
+            </Grid>
 
-    </StackPanel>
+
+
+
+
+        </StackPanel>
+   
 </Page>

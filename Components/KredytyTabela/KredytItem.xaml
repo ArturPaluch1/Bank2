@@ -5,17 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bank2.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal">
-        <CheckBox IsChecked="{Binding IsSelected}"/>
-        <TextBlock Text="{Binding Id_Kredytu}"/>
-        <TextBlock Text="{Binding KlientImie }"/>
-        <TextBlock Text="{Binding KlientNazwisko}"/>
-        <TextBlock Text="{Binding Rodzaj_kredytu}"/>
-        <TextBlock Text="{Binding Kwota_kredytu }"/>
-        <TextBlock Text="{Binding Oprocentowanie }"/>
-        <TextBlock Text="{Binding Data_założenia}"/>
-        <TextBlock Text="{Binding ImiePracownika }"/>
-        <TextBlock Text="{Binding NazwiskoPracownika }"/>
+            >
+    <StackPanel Orientation="Horizontal"  Background="LightGray" >
+        <CheckBox  IsChecked="{Binding IsSelected}" Width="15"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Id_Kredytu}" Width="30"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding KlientImie }"/>
+        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding KlientNazwisko}"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Rodzaj_kredytu}"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Kwota_kredytu }"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Oprocentowanie }"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Data_założenia}"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding ImiePracownika }"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding NazwiskoPracownika }"/>
     </StackPanel>
 </UserControl>

@@ -14,7 +14,7 @@ using System.Windows.Controls;
 
 namespace Bank2.ViewModel
 {
-    class VMEdytujKredyt : INotifyPropertyChanged
+    class VMEdytujKredyt : ViewModelBase
     {
         private Window _window;
         private INavigator _navigator;
@@ -39,30 +39,27 @@ namespace Bank2.ViewModel
                 OnPropertyChanged("TablicaDanych2");
             }
         }
-        private int _kwota;
+        private decimal _kwota;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+      
         public ObservableCollection<KlienciDataModel> ListaKlientow { get; set; } = new ObservableCollection<KlienciDataModel>();
         public ObservableCollection<RodzajeKredytowDataModel> ListaRodzajowKredytow { get; set; } = new ObservableCollection<RodzajeKredytowDataModel>();
 
         public ICommand Edytuj { get; set; }
         public ICommand Anuluj { get; set; }
 
-        public int Kwota
+        public decimal Kwota
         {
             get { return _kwota; }
             set
             {
                 _kwota = value;
                 OnPropertyChanged("Kwota");
+                ValidateKwota(Kwota);
             }
         }
 
-        private void OnPropertyChanged(string v)
-        {
-            //throw new NotImplementedException();
-        }
-
+     
         public VMEdytujKredyt(Window window, INavigator navigator, KredytyDataModel KredytDoZmiany)
         {
             _window = window;

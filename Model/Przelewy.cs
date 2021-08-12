@@ -46,7 +46,7 @@ namespace Bank2.Model
 
         [Column("Numer rachunku odbiorcy")]
 
-        public int Numer_rachunku_odbiorcy { get; set; }
+        public long Numer_rachunku_odbiorcy { get; set; }
 
 
         [Column("Tytuł przelewu")]

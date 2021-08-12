@@ -5,6 +5,20 @@
     <!--StartupUri="MainWindow.xaml">-->
              
     <Application.Resources>
-        <!--<ResourceDictionary Source="Style/Button/ButtonsChowalne.xaml"/>-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/Buttons.xaml"/>
+                <ResourceDictionary Source="Style/BindablePasswordBox.xaml"/>
+                <ResourceDictionary Source="Style/TextBoxes.xaml"/>
+                <ResourceDictionary Source="Style/PasswordBoxes.xaml"/>
+                <ResourceDictionary Source="Style/Labels.xaml"/>
+                <ResourceDictionary Source="Style/TextBlockNaglowek.xaml"/>
+                <ResourceDictionary Source="Style/TextBlockItem.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+      
+       
+       
+      
     </Application.Resources>
 </Application>

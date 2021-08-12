@@ -6,15 +6,16 @@
              xmlns:local="clr-namespace:Bank2.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal">
-        <TextBlock Text="Id"/>
-        <TextBlock Text="KlientImie"/>
-        <TextBlock Text="KlientNazwisko"/>
-        <TextBlock Text="Rodzaj kredytu"/>
-        <TextBlock Text="Kwota kredytu"/>
-        <TextBlock Text="Oprocentowanie"/>
-        <TextBlock Text="Data założenia"/>
-        <TextBlock Text="ImiePracownika"/>
-        <TextBlock Text="NazwiskoPracownika"/>
+    <StackPanel Orientation="Horizontal"  Background="Gray" >
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="x" Width="15"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="Id" Width="30"/>
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}"  Text="KlientImie"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="KlientNazwisko"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="Rodzaj kredytu"/>
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}"  Text="Kwota kredytu"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="Oprocentowanie"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="Data założenia"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="ImiePracownika"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="NazwiskoPracownika"/>
     </StackPanel>
 </UserControl>

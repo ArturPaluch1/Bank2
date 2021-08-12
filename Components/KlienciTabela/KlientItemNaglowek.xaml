@@ -6,16 +6,17 @@
              xmlns:local="clr-namespace:Bank2.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal">
-        <TextBlock Text=" checkbox"  />
-        <TextBlock Text=" Id_klienta"  />
-        <TextBlock Text=" Imię" />
-        <TextBlock Text=" Nazwisko"  />
-        <TextBlock Text=" Numer_rachunku" />
-        <TextBlock Text=" Data_założenia" />
-        <TextBlock Text=" Telefon" />
-        <TextBlock Text=" Miasto" />
-        <TextBlock Text= "Ulica" />
-        <TextBlock Text=" Środki" />
+    <StackPanel Orientation="Horizontal "  Background="Gray" >
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" x"  Width="15" />
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Id_klienta"  Width="30" />
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Imię" />
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Nazwisko"  />
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Numer_rachunku" />
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Data_założenia" />
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Telefon" />
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Miasto" />
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text= "Ulica" />
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Środki" />
+       
     </StackPanel>
 </UserControl>

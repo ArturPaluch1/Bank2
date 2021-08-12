@@ -17,9 +17,6 @@
            
         </StackPanel>
         <UserControl Content="{Binding TuNaglowek , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <!--<components:KlientItemNaglowek />-->
-        <!--<components:KlientItemNaglowek />-->
-        <!--<UserControl Content="{Binding TablicaDanych, Mode=TwoWay, NotifyOnTargetUpdated=True}" />-->
 
         <ItemsControl  ItemsSource="{Binding ListaPrzelewow, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
            

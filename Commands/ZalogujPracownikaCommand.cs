@@ -67,7 +67,8 @@ namespace Bank2.Commands
         private Pracownicy Zaloguj(VMLogowanie vm)
         {
             Pracownicy zalogowany = null;
-          
+            
+
             if (!(vm.Imie==null || vm.Nazwisko == null || vm.Password == null))
             {
 

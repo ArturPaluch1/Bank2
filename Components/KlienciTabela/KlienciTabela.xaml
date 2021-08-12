@@ -8,8 +8,8 @@
               xmlns:components="clr-namespace:Bank2.Components"
             >
    
-        <StackPanel  Background="green" Orientation="Vertical">
-        <components:KlientItemNaglowek/>
+        <StackPanel  Orientation="Vertical" >
+        <components:KlientItemNaglowek />
         <ItemsControl ItemsSource="{Binding ListaKlientow, Mode=TwoWay}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate >

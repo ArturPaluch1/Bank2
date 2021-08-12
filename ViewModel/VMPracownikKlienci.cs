@@ -695,8 +695,7 @@ namespace Bank2.ViewModel
                 ListaPrzelewow = new ListyZasobow().PobierzPrzelewy();
 
 
-                //PrzelewyTabelaVisibility = Visibility.Visible;
-                
+               
             }
 
             else

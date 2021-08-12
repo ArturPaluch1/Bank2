@@ -7,16 +7,21 @@
              mc:Ignorable="d" 
             xmlns:components="clr-namespace:Bank2.Components">
    
-        <StackPanel  Background="green" Orientation="Vertical">
-        <components:PrzelewItemNaglowek/>
-        <ItemsControl ItemsSource="{Binding ListaPrzelewow, Mode=TwoWay}">
-                <ItemsControl.ItemTemplate>
+        <StackPanel   Orientation="Vertical" >
+        <components:PrzelewItemNaglowek  />
+         <ItemsControl ItemsSource="{Binding ListaPrzelewow, Mode=TwoWay}"  >
+                <ItemsControl.ItemTemplate >
                     <DataTemplate >
-                        <components:PrzelewItem/>
+                        <components:PrzelewItem />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
+         
+                
+          
+            
             </ItemsControl>
-        </StackPanel>
+       
+    </StackPanel>
 
    
     

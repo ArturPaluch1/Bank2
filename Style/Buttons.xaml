@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <Style TargetType="{x:Type Button}" x:Key="ButtonDefaultStyle">
+
+    <Setter Property="FontSize" Value="20"/>
+
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="MinWidth" Value="100" />
+    <Setter Property="MinHeight" Value="30" />
+        <Setter Property="Margin" Value="0,10,20,10" />
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+</ResourceDictionary>

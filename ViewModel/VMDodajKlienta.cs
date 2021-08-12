@@ -12,45 +12,99 @@ using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
-    class VMDodajKlienta : IDataErrorInfo
+    class VMDodajKlienta : ViewModelBase
     {
-        Regex regEmail = new Regex(@"^[a-z]");
-        public string this[string columnName] => b( columnName);
-        string b(string columnName)
-        { 
-        if(_imie!= null)
+
+        public string Imie
+        {
+            get
             {
-                if (regEmail.IsMatch(_imie))
-                { return null; }
-                else
-                {
-                   Dodaj.CanExecute( false);
-                    return "jjj";
-
-                }
-                   
+                return _imie;
             }
-            return null;
-        }
-
-        public string Imie {get { return _imie; }
             set
             {
-                if (value.GetType() != typeof(string))
-                {
-                    MessageBox.Show("jjjjjjj");
-                }
-                else _imie = value;
+                _imie = value;
+
+                OnPropertyChanged(nameof(Imie));
+
+                         ValidateImie(Imie);
             }
         }
-        public string  Nazwisko { get; set; }
-        public string Password { get; set; }
-        public int Telefon { get; set; }
-        public string Miasto { get; set; }
-        public string Ulica { get; set; }
+        public string Nazwisko
+        {
+            get
+            {
+                return _nazwisko;
+            }
+            set
+            {
+                _nazwisko = value;
+
+                OnPropertyChanged(nameof(Nazwisko));
+                   ValidateNazwisko(Nazwisko);
+            }
+        }
+        public string Password
+        {
+            get
+            {
+                return _password;
+            }
+            set
+            {
+                _password = value;
+
+                OnPropertyChanged(nameof(Password));
+                    ValidatePassword(Password);
+            }
+        }
+        public string Telefon
+        {
+            get
+            {
+                return _Telefon;
+            }
+            set
+            {
+                _Telefon = value;
+                OnPropertyChanged(nameof(Telefon));
+                ValidateTelefon(Telefon);
+            }
+        }
+        public string Miasto
+        {
+            get
+            {
+                return _Miasto;
+            }
+            set
+            {
+                _Miasto = value;
+                OnPropertyChanged(nameof(Miasto));
+                ValidateMiasto(Miasto);
+            }
+        }
+        public string Ulica
+        {
+            get
+            {
+                return _Ulica;
+            }
+            set
+            {
+                _Ulica = value;
+                OnPropertyChanged(nameof(Ulica));
+                ValidateUlica(Ulica);
+            }
+        }
 
         private Window _window;
         private string _imie;
+        private string _nazwisko;
+        private string _password;
+        private string _Telefon;
+        private string _Miasto;
+        private string _Ulica;
 
         public ICommand Dodaj { get; set; }
         public ICommand Anuluj { get; set; }
@@ -64,17 +118,23 @@ namespace Bank2.ViewModel
             Dodaj = new RelayCommand(DodajKlienta);
             Anuluj = new RelayCommand(ZamknijOkno);
 
+            Password ="";
+            Imie = "";
+            Nazwisko = "";
+            Telefon = "";
+            Miasto = "";
+            Ulica = "";
 
 
 
-           
 
-     
-         //   this.CloseWindowCommand = new RelayCommand<Window>(this.CloseWindow);
-        
 
-        
-    }
+
+            //   this.CloseWindowCommand = new RelayCommand<Window>(this.CloseWindow);
+
+
+
+        }
 
         private void ZamknijOkno()
         {

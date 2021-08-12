@@ -14,37 +14,7 @@
 
     <Page.Resources>
       
-        <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
-
-        </Style>
-        <Style TargetType="PasswordBox">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
-
-        </Style>
-        <Style TargetType="Label" >
-            <Setter Property="Width" Value="150" />
-            <Setter Property="Height" Value="40" />
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="20"/>
-        </Style>
-        <Style TargetType="Button" >
-
-            <Setter Property="FontSize" Value="20"/>
-
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Width" Value="150" />
-            <Setter Property="Height" Value="30" />
-
-        </Style>
-
         <Style TargetType="DataGrid">
-
-
 
             <Setter Property="Height" Value="auto"/>
             <Setter Property="IsReadOnly" Value="True"/>
@@ -80,11 +50,8 @@
         </Style>
 
 
-
-
-
     </Page.Resources>
-    <Grid >
+    <Grid HorizontalAlignment="Center" VerticalAlignment="top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
@@ -93,6 +60,7 @@
             <ColumnDefinition MinWidth="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition />
             <RowDefinition/>
@@ -103,29 +71,29 @@
 
         </Grid.RowDefinitions>
 
-        <Label x:Name="LabelTytul" Content="Dodawanie pracownika" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="300" FontWeight="Bold" />
-        <Label x:Name="LabelImie" Content="Imię" Grid.Column="0" Grid.Row="1"/>
-        <Label x:Name="LabelNazwisko" Content="Nazwisko" Grid.Column="0" Grid.Row="2"  />
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelTytul" Content="Dodawanie pracownika" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" FontSize="35"/>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelImie" Content="Imię" Grid.Column="0" Grid.Row="2"/>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelNazwisko" Content="Nazwisko" Grid.Column="0" Grid.Row="3"  />
 
-        <Label x:Name="LabelHaslo" Content="Hasło" Grid.Column="0" Grid.Row="3"/>
-        <Label x:Name="LabelPESEL" Content="PESEL" Grid.Column="2" Grid.Row="1"/>
-        <Label x:Name="LabelTelefon" Content="Telefon" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="LabelWynagrodzenie" Content="Wynagrodzenie" Grid.Column="2" Grid.Row="3"/>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelHaslo" Content="Hasło" Grid.Column="0" Grid.Row="4"/>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelPESEL" Content="PESEL" Grid.Column="2" Grid.Row="2"/>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelTelefon" Content="Telefon" Grid.Column="2" Grid.Row="3"/>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelWynagrodzenie" Content="Wynagrodzenie" Grid.Column="2" Grid.Row="4"/>
 
 
-        <TextBox x:Name="textBoxImie" Text="{Binding Imie, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"  TextWrapping="Wrap"   />
-        <TextBox x:Name="textBoxNazwisko" Text="{Binding Nazwisko, Mode=TwoWay}" Grid.Column="1" Grid.Row="2"   TextWrapping="Wrap"     />
-      <components:BindablePasswordBox Grid.Column="1" Grid.Row="3" Password="{Binding Password, Mode=TwoWay}" />
-        
-      
-      
+        <TextBox Style="{DynamicResource TextBoxDefaultStyle}" x:Name="textBoxImie" Text="{Binding Imie, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="2"   />
+        <TextBox Style="{DynamicResource TextBoxDefaultStyle}" x:Name="textBoxNazwisko" Text="{Binding Nazwisko, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="3"      />
+        <components:BindablePasswordBox Style="{DynamicResource BindablePasswordBoxStyle}" Grid.Column="1" Grid.Row="4" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
 
-        <TextBox x:Name="textBoxPESEL" Text="{Binding Pesel, Mode=TwoWay}" Grid.Column="3" Grid.Row="1" TextWrapping="Wrap"   Grid.ColumnSpan="2" />
-        <TextBox x:Name="textBoxTelefon" Text="{Binding Telefon, Mode=TwoWay, StringFormat={}{:}}"  Grid.Column="3" Grid.Row="2" TextWrapping="Wrap"    Grid.ColumnSpan="2"  />
-        <TextBox x:Name="textBoxWynagrodzenie" Text="{Binding Wynagrodzenie, Mode=TwoWay, StringFormat={}{:}}" Grid.Column="3" Grid.Row="3"  TextWrapping="Wrap" Grid.ColumnSpan="2"   />
-       
-        <Button x:Name="dodaj" Content="Dodaj" Command="{Binding Dodaj}"  Grid.Column="2" Grid.Row="5"  HorizontalAlignment="Center" CommandParameter="{Binding Mode=OneWay}"  />
-        <Button x:Name="anuluj" Content="Anuluj" Command="{Binding Anuluj}" Grid.Column="3" Grid.Row="5"  HorizontalAlignment="Center" />
+
+
+
+        <TextBox Style="{DynamicResource TextBoxDefaultStyle}" x:Name="textBoxPESEL" Text="{Binding Pesel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" Grid.Column="3" Grid.Row="2"  Grid.ColumnSpan="2" />
+        <TextBox Style="{DynamicResource TextBoxDefaultStyle}" x:Name="textBoxTelefon" Text="{Binding Telefon, Mode=TwoWay, StringFormat={}{:} , UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"  Grid.Column="3" Grid.Row="3"   Grid.ColumnSpan="2"  />
+        <TextBox Style="{DynamicResource TextBoxDefaultStyle}" x:Name="textBoxWynagrodzenie"  Text="{Binding Wynagrodzenie, Mode=TwoWay, ValidatesOnNotifyDataErrors=True}" Grid.Column="3" Grid.Row="4"  Grid.ColumnSpan="2"  />
+
+        <Button Style="{DynamicResource ButtonDefaultStyle}" x:Name="dodaj" Content="Dodaj" Command="{Binding Dodaj}"  IsEnabled="{Binding ErrorFree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="6"   CommandParameter="{Binding Mode=OneWay}" MinWidth="160" />
+        <Button Style="{DynamicResource ButtonDefaultStyle}" x:Name="anuluj" Content="Anuluj" Command="{Binding Anuluj}" Grid.Column="3" Grid.Row="6"  MinWidth="160"  />
 
     </Grid>
 </Page>

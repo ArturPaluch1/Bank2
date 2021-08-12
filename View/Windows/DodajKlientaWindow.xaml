@@ -9,43 +9,9 @@
         
          Title="oknoDodajKlienta" Name="NameoknododajKlienta"  Height="450" Width="800">
     <Window.Resources>
-        <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
+      
 
-        </Style>
-        <Style TargetType="PasswordBox">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
-
-        </Style>
-        <Style TargetType="Button" >
-
-            <Setter Property="FontSize" Value="20"/>
-
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="30" />
-
-        </Style>
-        <Style TargetType="Label" >
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="40" />
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-
-            <Setter Property="FontSize" Value="20"/>
-        </Style>
-
-        <Style x:Key="textBoxInError" TargetType="TextBox">
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError" Value="true">
-                    <Setter Property="ToolTip" 
-                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
-                        Path=(Validation.Errors)[0].ErrorContent}"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+      
     </Window.Resources>
 
     <Grid >
@@ -68,36 +34,26 @@
 
 
 
-        <Label x:Name="LabelTytul" Content="Dodawanie klienta" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" HorizontalAlignment="Center"  FontWeight="Bold" Width="400" HorizontalContentAlignment="Center" />
-        <Label x:Name="LabelImie" Content="Imię" Grid.Column="0" Grid.Row="1"/>
-        <Label x:Name="LabelNazwisko" Content="Nazwisko" Grid.Column="0" Grid.Row="2"  />
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelTytul" Content="Dodawanie klienta" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" HorizontalAlignment="Center"  FontWeight="Bold" Width="400" HorizontalContentAlignment="Center" />
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelImie" Content="Imię" Grid.Column="0" Grid.Row="1"/>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelNazwisko" Content="Nazwisko" Grid.Column="0" Grid.Row="2"  />
 
-        <Label x:Name="LabelHaslo" Content="Hasło" Grid.Column="0" Grid.Row="3"/>
-        <Label x:Name="LabelTelefon" Content="Telefon" Grid.Column="2" Grid.Row="1"/>
-        <Label x:Name="LabelMiasto" Content="Miasto" Grid.Column="2" Grid.Row="2"/>
-        <Label x:Name="LabelUlica" Content="Ulica" Grid.Column="2" Grid.Row="3"/>
-        <TextBox Grid.Column="1" Grid.Row="1"  Style="{StaticResource textBoxInError}">
-            <TextBox.Text>
-                <Binding  Path="Imie" Mode="TwoWay" ValidatesOnDataErrors="True" NotifyOnValidationError="True"></Binding>
-                
-            </TextBox.Text> 
-
-
-
-
-
-        </TextBox>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelHaslo" Content="Hasło" Grid.Column="0" Grid.Row="3"/>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelTelefon" Content="Telefon" Grid.Column="2" Grid.Row="1"/>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelMiasto" Content="Miasto" Grid.Column="2" Grid.Row="2"/>
+        <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelUlica" Content="Ulica" Grid.Column="2" Grid.Row="3"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Imie, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" x:Name="textBoxImie" TextWrapping="Wrap"   Width="120"  />
 
         <!--<TextBox Text="{Binding Imie, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True }" x:Name="textBoxImie"   TextWrapping="Wrap"  Width="120"/>-->
-        <TextBox Text="{Binding Nazwisko, Mode=TwoWay}" x:Name="textBoxNazwisko" Grid.Column="1" Grid.Row="2"  TextWrapping="Wrap"   Width="120"  />
-        
-        <components:BindablePasswordBox Password="{Binding Password, Mode=TwoWay}" Grid.Column="1" Grid.Row="3"   Width="120"/>
-        <TextBox Text="{Binding Telefon, Mode=TwoWay}" x:Name="textBoxTelefon" Grid.Column="3" Grid.Row="1"  TextWrapping="Wrap" Margin="0,0,10,0"  Width="120"  />
-        <TextBox Text="{Binding Miasto , Mode=TwoWay}" x:Name="textBoxMiasto" Grid.Column="3" Grid.Row="2"   TextWrapping="Wrap" Margin="0,0,10,0"   Width="120"   />
-        <TextBox Text="{Binding Ulica, Mode=TwoWay}" x:Name="textBoxUlica" Grid.Column="3" Grid.Row="3"   TextWrapping="Wrap" Margin="0,0,10,0"   Width="120"   />
+        <TextBox Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Nazwisko, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" x:Name="textBoxNazwisko" Grid.Column="1" Grid.Row="2"  TextWrapping="Wrap"   Width="120"  />
 
-        <Button x:Name="dodaj" Command="{Binding Dodaj}" Content="dodaj" Grid.Column="2" Grid.Row="5" Width="75" HorizontalAlignment="Center"/>
-        <Button x:Name="anuluj" Command="{Binding Anuluj }" CommandParameter="{Binding ElementName=NameoknododajKlienta}" Content="anuluj" Grid.Column="3" Grid.Row="5" Width="75" HorizontalAlignment="Center" />
+        <components:BindablePasswordBox Style="{DynamicResource BindablePasswordBoxStyle}" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" Grid.Column="1" Grid.Row="3"   Width="120"/>
+        <TextBox Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Telefon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" x:Name="textBoxTelefon" Grid.Column="3" Grid.Row="1"  TextWrapping="Wrap" Margin="0,0,10,0"  Width="120"  />
+        <TextBox Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Miasto , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" x:Name="textBoxMiasto" Grid.Column="3" Grid.Row="2"   TextWrapping="Wrap" Margin="0,0,10,0"   Width="120"   />
+        <TextBox Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Ulica, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" x:Name="textBoxUlica" Grid.Column="3" Grid.Row="3"   TextWrapping="Wrap" Margin="0,0,10,0"   Width="120"   />
+
+        <Button Style="{DynamicResource ButtonDefaultStyle}" x:Name="dodaj" Command="{Binding Dodaj}" IsEnabled="{Binding ErrorFree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Content="dodaj" Grid.Column="2" Grid.Row="5" Width="75" HorizontalAlignment="Center"/>
+        <Button Style="{DynamicResource ButtonDefaultStyle}" x:Name="anuluj" Command="{Binding Anuluj }" CommandParameter="{Binding ElementName=NameoknododajKlienta}" Content="anuluj" Grid.Column="3" Grid.Row="5" Width="75" HorizontalAlignment="Center" />
 
     </Grid>
 

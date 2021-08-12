@@ -8,56 +8,18 @@
       xmlns:nav="clr-namespace:Bank2.Navigators"
       
       xmlns:Bank2="clr-namespace:Bank2" x:Class="Bank2.View.Pages.LogowaniePage"
-      xmlns:components="clr-namespace:Bank2.Components"
-      mc:Ignorable="d" 
+      xmlns:components="clr-namespace:Bank2.Components" 
+  
+    mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LogowaniePage"
     
       >
 
-    <Page.Resources>
-        
-        <!--<vm:VMLogowanie x:Key="VMLogowanie"/>-->
-        <Style TargetType="{x:Type Button}" >
-
-            <Setter Property="FontSize" Value="20"/>
-
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="30" />
-
-        </Style>
-
-        <Style TargetType="{x:Type Label}" >
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="40" />
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-
-            <Setter Property="FontSize" Value="20"/>
-        </Style>
-        <Style TargetType="{x:Type TextBox}">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
-
-        </Style>
-        <Style TargetType="{x:Type PasswordBox}">
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Height" Value="25"/>
-
-        </Style>
-
-    </Page.Resources>
    
     <Viewbox OpacityMask="Black" VerticalAlignment="Top" HorizontalAlignment="Center"   >
 
-
-       
-
-
         <Grid>
-            <!--DataContext="{StaticResource VMLogowanie}">-->
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="130"/>
@@ -76,17 +38,20 @@
                 <RowDefinition MinHeight="20"/>
             </Grid.RowDefinitions>
 
-           
 
-            <Label x:Name="LabelTytul" Content="Logowanie do SKOK-u Olsena" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" Width="400" HorizontalContentAlignment="Center" FontWeight="Bold" HorizontalAlignment="Center" TextBlock.TextAlignment="Center"/>
-            <Label x:Name="LabelImie" Content="Imię" Grid.Row="2"  Grid.Column="1"  HorizontalAlignment="Left"  VerticalAlignment="Center" />
-            <Label x:Name="LabelNazwisko" Content="Nazwisko" Grid.Row="3"  Grid.Column="1"  HorizontalAlignment="Left"  VerticalAlignment="Center" />
-            <Label x:Name="LabelHaslo" Content="Hasło" Grid.Row="4"  Grid.Column="1"  HorizontalAlignment="Left" VerticalAlignment="Center" />
-            <TextBox x:Name="textBoxImie" Text="{Binding Imie, Mode=TwoWay}" Grid.Row="2"  Grid.Column="2"  HorizontalAlignment="Left"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="120" />
-            <TextBox x:Name="textBoxNazwisko" Text="{Binding Nazwisko, Mode=TwoWay}" Grid.Row="3"  Grid.Column="2"  HorizontalAlignment="Left"   TextWrapping="Wrap"  VerticalAlignment="Center" Width="120"  />
-            <components:BindablePasswordBox Password="{Binding Password, Mode=TwoWay}" x:Name="PasswordBox"  Grid.Row="4"  Grid.Column="2"  HorizontalAlignment="Left"     VerticalAlignment="Center" Width="120"  />
-            <Button x:Name="Zarejestruj" Command="{Binding Zarejestruj}"  Grid.Row="6"  Grid.Column="1"  Content="Zarejestruj" HorizontalAlignment="left"  VerticalAlignment="Center" Width="100"   />
-            <Button x:Name="Zaloguj" Command="{Binding Zaloguj}" Grid.Row="6"  Grid.Column="3"  Content="Zaloguj" HorizontalAlignment="right"  VerticalAlignment="Center" Width="100"   />
+
+            <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelTytul" Content="Logowanie do SKOK-u Olsena" Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="4" />
+            <Label Style="{DynamicResource LabelDefaultStyle}"  x:Name="LabelImie" Content="Imię" Grid.Row="2"  Grid.Column="1"   />
+            <Label Style="{DynamicResource LabelDefaultStyle}" x:Name="LabelNazwisko" Content="Nazwisko" Grid.Row="3"  Grid.Column="1"   />
+            <Label Style="{DynamicResource LabelDefaultStyle}"  x:Name="LabelHaslo" Content="Hasło" Grid.Row="4"  Grid.Column="1" />
+            <TextBox Style="{StaticResource TextBoxDefaultStyle}"  Text="{Binding Imie, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" Grid.Row="2"  Grid.Column="2"  />
+
+
+            <TextBox Style="{StaticResource TextBoxDefaultStyle}" Text="{Binding Nazwisko, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" Grid.Row="3"  Grid.Column="2"        />
+            <components:BindablePasswordBox Style="{StaticResource BindablePasswordBoxStyle}" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" x:Name="PasswordBox"  Grid.Row="4"  Grid.Column="2"      />
+            <Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zarejestruj" Command="{Binding Zarejestruj}"  Grid.Row="6"  Grid.Column="1"  Content="Zarejestruj"     />
+            <!--<Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zaloguj" Command="{Binding Zaloguj}" IsEnabled="{Binding ErrorFree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6"  Grid.Column="3"  Content="Zaloguj"    />-->
+            <Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zaloguj" Command="{Binding Zaloguj}"  Grid.Row="6"  Grid.Column="3"  Content="Zaloguj"    />
             <Image Grid.Row="2"  Grid.Column="3" Grid.RowSpan="3" HorizontalAlignment="Center" Source="/image.jpg" />
 
 

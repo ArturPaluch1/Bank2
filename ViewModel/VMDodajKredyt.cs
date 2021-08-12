@@ -15,7 +15,7 @@ using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
-    class VMDodajKredyt : INotifyPropertyChanged
+    class VMDodajKredyt : ViewModelBase
     {
 
         private Window _window;
@@ -40,16 +40,12 @@ namespace Bank2.ViewModel
                 OnPropertyChanged("TablicaDanych2");
             }
         }
-        private int _kwota;
+        private decimal _kwota;
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
   
 
-        private void OnPropertyChanged(string v)
-        {
-            // throw new NotImplementedException();
-        }
+       
 
 
 
@@ -60,13 +56,14 @@ namespace Bank2.ViewModel
         public ICommand Dodaj { get; set; }
         public ICommand Anuluj { get; set; }
 
-        public int Kwota
+        public decimal Kwota
         {
             get { return _kwota; }
             set
             {
                 _kwota = value;
                 OnPropertyChanged("Kwota");
+                ValidateKwota(Kwota);
             }
         }
 
@@ -91,6 +88,8 @@ namespace Bank2.ViewModel
 
             Dodaj = new RelayCommand(DodajKredyt);
             Anuluj = new RelayCommand(WyjdzZokna);
+
+
         }
 
         private void WyjdzZokna()

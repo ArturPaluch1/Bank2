@@ -56,61 +56,61 @@ namespace Bank2.ViewModel
           //  decimal decimalParse1;
 
                 
-                    if (!_vm.Wynagrodzenie.GetType().Equals(typeof(decimal)))// || vm.Wynagrodzenie > 30)
-                    {
+                   // if (!_vm.Wynagrodzenie.GetType().Equals(typeof(decimal)))// || vm.Wynagrodzenie > 30)
+                   // {
 
-                        wynagr1 = "Błędne dane wynagrodzenia. Musi być liczba. \n";
-                        //    textBoxWynagrodzenie.Text = "";
-                    }
-                    else
-                    {
-                        if (_vm.Wynagrodzenie < 2500)
-                        {
-                            wynagr2 = "Błędna kwota wynagrodzenia. Musi być większa od 2500. \n";
-                            //     textBoxWynagrodzenie.Text = "";
-                        }
-                    }
+                   //     wynagr1 = "Błędne dane wynagrodzenia. Musi być liczba. \n";
+                   //     //    textBoxWynagrodzenie.Text = "";
+                   // }
+                   // else
+                   // {
+                   //     if (_vm.Wynagrodzenie < 2500)
+                   //     {
+                   //         wynagr2 = "Błędna kwota wynagrodzenia. Musi być większa od 2500. \n";
+                   //         //     textBoxWynagrodzenie.Text = "";
+                   //     }
+                   // }
 
-                   // int intParse1;
-                    if (!_vm.Telefon.GetType().Equals(typeof(int)))
-                    {
-                        telefon2 = "Błędny telefon. Musi być liczbą. \n";
-                        //   textBoxTelefon.Text = "";
-                    }
-                    if (_vm.Telefon.ToString().Length != 9)
-                    {
-                        telefon = "Podaj 9 cyfr telefonu. \n";
-                        //   textBoxTelefon.Text = "";
-                    }
+                   //// int intParse1;
+                   // if (!_vm.Telefon.GetType().Equals(typeof(int)))
+                   // {
+                   //     telefon2 = "Błędny telefon. Musi być liczbą. \n";
+                   //     //   textBoxTelefon.Text = "";
+                   // }
+                   // if (_vm.Telefon.ToString().Length != 9)
+                   // {
+                   //     telefon = "Podaj 9 cyfr telefonu. \n";
+                   //     //   textBoxTelefon.Text = "";
+                   // }
 
 
 
-                    if (sprawdzCzyCyfry(_vm.Imie) == true || _vm.Imie.Length > 30)
-                    {
-                        Imie = "Popraw imię. \n";
+                   // if (sprawdzCzyCyfry(_vm.Imie) == true || _vm.Imie.Length > 30)
+                   // {
+                   //     Imie = "Popraw imię. \n";
 
-                        //  textBoxImie.Text = "";
-                    }
-                    if (sprawdzCzyCyfry(_vm.Nazwisko) == true || _vm.Nazwisko.Length > 30)
-                    {
-                        nazwisko = "Popraw nazwisko. \n";
+                   //     //  textBoxImie.Text = "";
+                   // }
+                   // if (sprawdzCzyCyfry(_vm.Nazwisko) == true || _vm.Nazwisko.Length > 30)
+                   // {
+                   //     nazwisko = "Popraw nazwisko. \n";
 
-                        //textBoxNazwisko.Text = "";
-                    }
-                    if (_vm.Password.Length < 9 || _vm.Password.Length > 30)
-                    {
-                        haslo = "Podaj dłuższe hasło. \n";
-                        //      PasswordBoxHaslo.Password = "";
-                    }
+                   //     //textBoxNazwisko.Text = "";
+                   // }
+                   // if (_vm.Password.Length < 9 || _vm.Password.Length > 30)
+                   // {
+                   //     haslo = "Podaj dłuższe hasło. \n";
+                   //     //      PasswordBoxHaslo.Password = "";
+                   // }
 
-                    for (int i = 0; i < _vm.Pesel.Length; i++)
-                    {
-                        if (!char.IsNumber(_vm.Pesel, i) || _vm.Pesel.Length != 11)
-                        {
-                            pesel = "Błędny PESEL. \n";
-                            //      textBoxPESEL.Text = "";
-                        }
-                    }
+                   // for (int i = 0; i < _vm.Pesel.Length; i++)
+                   // {
+                   //     if (!char.IsNumber(_vm.Pesel, i) || _vm.Pesel.Length != 11)
+                   //     {
+                   //         pesel = "Błędny PESEL. \n";
+                   //         //      textBoxPESEL.Text = "";
+                   //     }
+                   // }
                 if (Imie == "" && nazwisko == "" && pesel == "" && haslo == "" && telefon == "" && telefon2 == "" && wynagr1 == "" && wynagr2 == "")
                 {
                     Baza db = new Baza();
@@ -120,9 +120,9 @@ namespace Bank2.ViewModel
                         Data_zatrudnienia = DateTime.Now,
                         Imię_pracownika = _vm.Imie,
                         Nazwisko_pracownika = _vm.Nazwisko,
-                        PESEL = _vm.Pesel,
+                        //PESEL = _vm.Pesel,
                         Password = _vm.Password,
-                        Telefon = _vm.Telefon,
+                        Telefon = int.Parse( _vm.Telefon),
                         Wynagrodzenie = _vm.Wynagrodzenie
 
 

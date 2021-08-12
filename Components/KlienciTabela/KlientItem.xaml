@@ -6,21 +6,18 @@
              xmlns:local="clr-namespace:Bank2.Components"
              xmlns:ViewModel ="clr-namespace:Bank2.ViewModel"
              mc:Ignorable="d" 
-            
-    
-             
-           >
-    <StackPanel Background="red" Orientation="Horizontal">
-        <CheckBox IsChecked="{Binding IsSelected}"/>
-        <TextBlock Text="{Binding Id_klienta}"  />
-        <TextBlock Text="{Binding Imię}" />
-        <TextBlock Text="{Binding Nazwisko}" />
-        <TextBlock Text="{Binding Numer_rachunku}" />
-        <TextBlock Text="{Binding Data_założenia , StringFormat=Date: {0:dddd, MMMM dd}}" />
-        <TextBlock Text="{Binding Telefon}" />
-        <TextBlock Text="{Binding Miasto}" />
-        <TextBlock Text="{Binding Ulica}" />
-        <TextBlock Text="{Binding Środki}" />
+              d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Background="LightGray"  Orientation="Horizontal">
+        <CheckBox IsChecked="{Binding IsSelected}" Width="15"/>
+        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Id_klienta}"   Width="30"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Imię}" />
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Nazwisko}" />
+        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Numer_rachunku}" />
+        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Data_założenia , StringFormat=Date: {0:dddd, MMMM dd}}" />
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Telefon}" />
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Miasto}" />
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Ulica}" />
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Środki}" />
         
     </StackPanel>
 </UserControl>

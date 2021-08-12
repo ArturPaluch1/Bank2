@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -46,30 +47,102 @@ namespace Bank2.ViewModel
             set
             {
                 _password = value;
-              //  OnPropertyChanged(nameof(Password));
+               OnPropertyChanged(nameof(Password));
+                ValidatePassword(Password);
             }
         }
 
         private string _imie;
 
+        private string _nazwisko;
+        private string _Telefon;
+        private string _Pesel;
+
         public string Imie
         {
-            get { return _imie; }
-            set { _imie = value;
-            //    OnPropertyChanged(nameof(Imie));
+            get
+            {
+                return _imie;
+            }
+            set
+            {
+                _imie = value;
+
+                OnPropertyChanged(nameof(Imie));
+                ValidateImie(Imie);
+            }
+        }
+    
+        
+
+        public string Nazwisko
+        {
+            get
+            {
+                return _nazwisko;
+            }
+            set
+            {
+                _nazwisko = value;
+
+                OnPropertyChanged(nameof(Nazwisko));
+                ValidateNazwisko(Nazwisko);
+            }
+        }
+        public string Pesel
+        {
+            get
+            {
+                return _Pesel;
+            }
+            set
+            {
+                _Pesel = value;
+                OnPropertyChanged(nameof(Pesel));
+              
+                ValidatePesel(Pesel);
             }
         }
 
-        public string Nazwisko { get; set; }
-        public string Pesel { get; set; }
-        public int Telefon { get; set; }
-        public decimal Wynagrodzenie { get; set; }
-
-        /*private void OnPropertyChanged(string v)
+      
+        public string Telefon
         {
-            //    _password=
-          
-        }*/
+            get
+            {
+                return _Telefon;
+            }
+            set
+            {
+                _Telefon = value;
+                OnPropertyChanged(nameof(Telefon));
+                ValidateTelefon(Telefon);
+            }
+        }
+        public decimal Wynagrodzenie
+        {
+            get
+            {
+                return _wynagrodzenie;
+            }
+            set
+            {
+
+
+
+                _wynagrodzenie = value;
+
+
+
+
+
+                OnPropertyChanged(nameof(Wynagrodzenie));
+                  
+                ValidateWynagrodzenie(Wynagrodzenie);
+            }
+        }
+
+
+      
 
 
 
@@ -78,9 +151,18 @@ namespace Bank2.ViewModel
             //Dodaj = new RelayCommand(new Action(ShowMessage));
             Dodaj = new DodajPracownikaCommand<VMLogowanie>(this,navigator, () => new VMLogowanie(navigator));
             Anuluj = new UpdateCurrentViewModelCommand<VMLogowanie>(navigator, () => new VMLogowanie(navigator));
+            Password = "";
+            Imie = "";
+            Nazwisko = "";
+            Pesel = "";
+            Telefon = "";
+            Wynagrodzenie = 0;
+           
         }
 
-       
+        
+
+
     }
     
 }

@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Orientation="Horizontal">
-        <TextBlock Text=" checkbox"  />
-        <TextBlock Text=" Id"  />
-        <TextBlock Text=" Imię" />
-        <TextBlock Text=" Nazwisko"  />
-        <TextBlock Text=" Data zatrudnienia" />
-        <TextBlock Text=" PESEL" />
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" checkbox"  Width="15" />
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}"  Text=" Id"  Width="30" />
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Imię" />
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Nazwisko"  />
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" Data zatrudnienia" />
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text=" PESEL" />
     
     </StackPanel>
 </UserControl>

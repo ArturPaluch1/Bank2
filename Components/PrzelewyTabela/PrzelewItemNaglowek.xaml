@@ -4,16 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Bank2.Components"
+           
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal">
-        <TextBlock Text="Id"/>
-        <TextBlock Text="NadawcaImię"/>
-        <TextBlock Text="NadawcaNazwisko"/>
-        <TextBlock Text="Nazwa odbiorcy"/>
-        <TextBlock Text="Tytuł przelewu"/>
-        <TextBlock Text="Kwota"/>
-        <TextBlock Text="Data"/>
-        <TextBlock Text="Numer rachunku odbiorcy"/>
+           
+       
+    d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Orientation="Horizontal" Background="Gray"   >
+
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="x" Width="15" />
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="Id" Width="30"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="NadawcaImię" Width="200"/>
+        <TextBlock Style="{DynamicResource TextBlockNaglowekDefaultStyle}"  Text="NadawcaNazwisko" Width="200" />
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="Nazwa odbiorcy" Width="200"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="Tytuł przelewu" Width="200"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="Kwota" Width="150"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="Data" Width="200"/>
+        <TextBlock  Style="{DynamicResource TextBlockNaglowekDefaultStyle}" Text="Numer rachunku odbiorcy" Width="auto"/>
     </StackPanel>
 </UserControl>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
            xmlns:components="clr-namespace:Bank2.Components">
     
-        <StackPanel  Background="green" Orientation="Vertical" >
+        <StackPanel  Orientation="Vertical" >
         <components:LokataItemNaglowek/>
         <ItemsControl ItemsSource="{Binding ListaLokat, Mode=TwoWay}">
                 <ItemsControl.ItemTemplate>

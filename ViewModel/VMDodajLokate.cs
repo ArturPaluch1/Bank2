@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
-    class VMDodajLokate
+    class VMDodajLokate: ViewModelBase
     {
 private Window _window;
 private INavigator _navigator;
@@ -28,7 +28,7 @@ public UserControl TablicaDanych
     }
 }
 private UserControl _TablicaDanych2;
-private int _kwota;
+private decimal _kwota;
 
 public UserControl TablicaDanych2
 {
@@ -40,10 +40,7 @@ public UserControl TablicaDanych2
     }
 }
 
-private void OnPropertyChanged(string v)
-{
-    // throw new NotImplementedException();
-}
+
 
 
 public ObservableCollection<KlienciDataModel> ListaKlientow { get; set; } = new ObservableCollection<KlienciDataModel>();
@@ -52,15 +49,16 @@ public ObservableCollection<RodzajeLokatDataModel> ListaRodzajowLokat { get; set
 public ICommand Dodaj { get; set; }
 public ICommand Anuluj { get; set; }
 
-public int Kwota
-{
-    get { return _kwota; }
-    set
-    {
-        _kwota = value;
-        OnPropertyChanged("Kwota");
-    }
-}
+        public decimal Kwota
+        {
+            get { return _kwota; }
+            set
+            {
+                _kwota = value;
+                OnPropertyChanged("Kwota");
+                ValidateKwota(Kwota);
+            }
+        }
 
 
 
@@ -72,7 +70,7 @@ public int Kwota
 
 
 
-public VMDodajLokate(Window window, INavigator navigator)
+        public VMDodajLokate(Window window, INavigator navigator)
 {
     _window = window;
     _navigator = navigator;
@@ -83,6 +81,7 @@ public VMDodajLokate(Window window, INavigator navigator)
 
     Dodaj = new RelayCommand(DodajLokate);
     Anuluj = new RelayCommand(WyjdzZokna);
+
 }
 
 private void WyjdzZokna()

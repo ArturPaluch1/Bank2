@@ -11,29 +11,35 @@
         Title="Bank" Name="mainwindow" Height="auto" Width="auto"
         WindowState="Normal"
         BorderThickness="3" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
-      
-        >
  
-    <Frame Content="{Binding CurrentViewModel}" NavigationUIVisibility="Hidden" >
-        <Frame.Resources>
+        >
+   
+        <Frame Content="{Binding CurrentViewModel}" NavigationUIVisibility="Hidden" >
 
-            <DataTemplate DataType="{x:Type viewModels:VMLogowanie}">
-            <views:LogowaniePage/>
-        </DataTemplate>
+            <Frame.Resources>
 
-            <DataTemplate DataType="{x:Type viewModels:VMDodajPracownika}">
-                <views:DodajPracownikaPage/>
+                <DataTemplate DataType="{x:Type viewModels:VMLogowanie}">
+                    <views:LogowaniePage/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:VMDodajPracownika}">
+                    <views:DodajPracownikaPage/>
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type viewModels:VMPracownikNavigationBar}">
+              
+                    <views:PracownikNavigationBarPage/>
+              
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModels:VMPracownikNavigationBar}">
-                <views:PracownikNavigationBarPage/>
-            </DataTemplate>
-            <!--<DataTemplate DataType="{x:Type viewModels:VMDodajPracownika}">
+
+                <!--<DataTemplate DataType="{x:Type viewModels:VMDodajPracownika}">
                 <views:DodajPracownikaPage/>
             </DataTemplate>-->
-        </Frame.Resources>
-        
-       
-    </Frame>
+
+            </Frame.Resources>
+
+
+        </Frame>
   
 
 
