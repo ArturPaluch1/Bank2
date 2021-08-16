@@ -2,18 +2,14 @@
 using Bank2.Model;
 using Bank2.Navigators;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
-    class VMZrobPrzelew:ViewModelBase
+    class VMZrobPrzelew : ViewModelBase
     {
         private Window _window;
         private INavigator _navigator;
@@ -27,13 +23,15 @@ namespace Bank2.ViewModel
                 OnPropertyChanged("TablicaDanych");
             }
         }
-        
+
         private decimal _kwota;
         private string _Odbiorca;
-        private long  _RachunekOdbiorcy;
+        private long _RachunekOdbiorcy;
         private string _Tytylem;
 
-        public string Odbiorca { get { return _Odbiorca; } 
+        public string Odbiorca
+        {
+            get { return _Odbiorca; }
             set
             {
                 _Odbiorca = value;
@@ -41,8 +39,10 @@ namespace Bank2.ViewModel
                 ValidateOdbiorca(Odbiorca);
             }
         }
-      
-        public long  RachunekOdbiorcy { get { return _RachunekOdbiorcy; }
+
+        public long RachunekOdbiorcy
+        {
+            get { return _RachunekOdbiorcy; }
             set
             {
                 _RachunekOdbiorcy = value;
@@ -63,10 +63,10 @@ namespace Bank2.ViewModel
 
 
 
-      
+
 
         public ObservableCollection<KlienciDataModel> ListaKlientow { get; set; } = new ObservableCollection<KlienciDataModel>();
-       
+
         public ICommand Przelej { get; set; }
         public ICommand Anuluj { get; set; }
 
@@ -89,7 +89,7 @@ namespace Bank2.ViewModel
             _navigator = navigator;
             ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
             _TablicaDanych = new KlienciTabela(_navigator);
-          
+
             Przelej = new RelayCommand(ZrobPrzelew);
             Anuluj = new RelayCommand(WyjdzZokna);
 
@@ -97,31 +97,31 @@ namespace Bank2.ViewModel
             Odbiorca = "";
             RachunekOdbiorcy = 0;
             Kwota = 0;
-                
-                
+
+
         }
 
         private void ZrobPrzelew()
         {
             string bledy = "";
-            if(Kwota==null || Kwota==0)
+            if (Kwota == null || Kwota == 0)
             {
                 bledy = "- nie wpisałeś kwoty.\n";
             }
-            if(Odbiorca==null)
+            if (Odbiorca == null)
             {
                 bledy = bledy + "- nie wpisałeś odbiorcy.\n";
             }
-            if(RachunekOdbiorcy==null||RachunekOdbiorcy==0)
+            if (RachunekOdbiorcy == null || RachunekOdbiorcy == 0)
             {
                 bledy = bledy + "- nie wpisałeś rachunku odbiorcy.\n";
             }
-            if(Tytylem==""||Tytylem==null)
+            if (Tytylem == "" || Tytylem == null)
             {
                 bledy = bledy + "- nie wpisałeś tytułu.\n";
             }
             int licznik = 0;
-            KlienciDataModel zaznaczonyKlient = null ;
+            KlienciDataModel zaznaczonyKlient = null;
             foreach (var item in ListaKlientow)
             {
                 if (item.IsSelected == true)
@@ -131,19 +131,17 @@ namespace Bank2.ViewModel
 
                 }
             }
-            if (licznik == 1)
-            {
-               
-            }
-            else
+            if (licznik != 1)
             {
 
-                bledy =bledy+ "- Musisz zaznaczyć dokładnie jednego klienta.\n";
+
+
+                bledy = bledy + "- Musisz zaznaczyć dokładnie jednego klienta.\n";
             }
-            if (bledy!="")
+            if (bledy != "")
             {
 
-                MessageBox.Show("W formularzu\n"+bledy);
+                MessageBox.Show("W formularzu\n" + bledy);
             }
 
             else
@@ -164,6 +162,7 @@ namespace Bank2.ViewModel
                         nowyPrzelew.Numer_rachunku_odbiorcy = this.RachunekOdbiorcy;
                         nowyPrzelew.Tytuł_przelewu = this.Tytylem;
                         db.Przelewy.Add(nowyPrzelew);
+
                         db.SaveChanges();
 
                         MessageBoxResult result = MessageBox.Show("Przelew wykonany", "", MessageBoxButton.OK);
@@ -183,7 +182,7 @@ namespace Bank2.ViewModel
                     MessageBox.Show("Za mało środków na koncie");
                 }
             }
-            
+
 
         }
 

@@ -1,16 +1,10 @@
-﻿using Bank2.Commands;
-using Bank2.Components;
+﻿using Bank2.Components;
 using Bank2.Model;
 using Bank2.Navigators;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -43,13 +37,13 @@ namespace Bank2.ViewModel
         //}
 
         public UserControl TablicaDanych { get; set; }
-  
+
         private void OnPropertyChanged(string v)
         {
             //throw new NotImplementedException();
             //if (v== "TuNaglowek")
             //{
-               
+
             //}
             if (PropertyChanged != null)
             {
@@ -61,18 +55,18 @@ namespace Bank2.ViewModel
         //    //throw new NotImplementedException();
         //}
 
-       
+
         public ObservableCollection<KredytyDataModel> ListaKredytow //{ get; set; } = new ObservableCollection<KredytyDataModel>();
         {
             get
             {
                 return _ListaKredytow;
             }
-    set
+            set
             {
                 _ListaKredytow = value;
                 OnPropertyChanged("ListaKredytow");
-}
+            }
         }
 
         public ObservableCollection<LokatyDataModel> ListaLokat
@@ -133,9 +127,9 @@ namespace Bank2.ViewModel
             Przelewy = new RelayCommand(WyswietlPrzelewy);
             TuNaglowek = null;// new LokataItemNaglowek();
 
-            
-            
-           
+
+
+
 
 
 
@@ -161,7 +155,7 @@ namespace Bank2.ViewModel
                              Przelewy.Nadawca,
                              Przelewy.Data
                          };
-            
+
             foreach (var item in querry)
             {
                 PrzelewyDataModel przelew = new PrzelewyDataModel();
@@ -176,7 +170,7 @@ namespace Bank2.ViewModel
 
 
             }
-           
+
 
             //  ListaPrzelewow = new ListyZasobow().PobierzPrzelewy();
 
@@ -200,20 +194,20 @@ namespace Bank2.ViewModel
                              Lokaty.Wysokość_lokaty,
                              Lokaty.Lokaty_udzielił,
                              Lokaty.Data_założenia,
-                            
+
                          };
 
             foreach (var item in querry)
             {
                 LokatyDataModel lokata = new LokatyDataModel();
                 lokata.Id_Lokaty = item.Id_Lokaty;
-                
+
                 lokata.Kwota_lokaty = item.Wysokość_lokaty;
-              
+
                 lokata.Data_założenia = item.Data_założenia;
                 lokata.KlientImie = _klient.Imię;
                 lokata.KlientNazwisko = _klient.Nazwisko;
-                
+
                 foreach (var item2 in db.Rodzaje_lokat)
                 {
                     if (item.Id_Rodzaju_lokaty == item2.Id_rodzaju_lokaty)
@@ -232,7 +226,7 @@ namespace Bank2.ViewModel
                 }
                 ListaLokat.Add(lokata);
 
-                
+
             }
         }
 
@@ -290,7 +284,7 @@ namespace Bank2.ViewModel
             }
 
         }
-        }
+    }
 
 
 

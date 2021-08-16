@@ -1,0 +1,71 @@
+﻿<Window x:Class="Bank2.View.Windows.ZrobWplateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bank2.View.Windows"
+        mc:Ignorable="d"
+        Title="ZrobWplateWindow" Height="auto" MinHeight="400" Width="800"  >
+    <Window.Resources>
+       
+        <Style TargetType="ColumnDefinition" >
+
+
+            <Setter Property="Width"  Value="75* "/>
+
+        </Style>
+        <Style TargetType="RowDefinition" >
+
+
+            <Setter Property="Height"  Value=" 50"/>
+
+        </Style>
+
+
+
+
+
+    </Window.Resources>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+
+        </Grid.RowDefinitions>
+
+
+
+        <Label x:Name="Tytul" Content="Przeprowadzanie Wpłaty" Style="{DynamicResource LabelDefaultStyle}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Width="300" HorizontalContentAlignment="Center" HorizontalAlignment="Center"  FontWeight="Bold" />
+        <Label x:Name="KwotaPrzelwu" Content="Kwota wpłaty" Style="{DynamicResource LabelDefaultStyle}"  Grid.Column="0" Grid.Row="1" />
+
+        <TextBox x:Name="textBoxKwotaPrzelewu"  Style="{DynamicResource TextBoxDefaultStyle}"   Text="{Binding Kwota, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}"  Grid.Column="1" Grid.Row="1"    TextWrapping="Wrap"   />
+
+
+        <Button x:Name="dodaj" Content="wpłać"  Style="{DynamicResource ButtonDefaultStyle}" Command="{Binding Wplac}" IsEnabled="{Binding ErrorFree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="1"  />
+        <Button x:Name="anuluj" Content="anuluj"  Style="{DynamicResource ButtonDefaultStyle}" Command="{Binding Anuluj}" Grid.Column="3" Grid.Row="1"   />
+
+
+
+            <ScrollViewer   VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5"  >
+                <UserControl  Content="{Binding TablicaDanych, Mode=TwoWay}" />
+            </ScrollViewer>
+
+
+
+
+
+
+
+    </Grid>
+
+</Window>

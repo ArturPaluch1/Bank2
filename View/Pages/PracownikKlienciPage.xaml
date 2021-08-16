@@ -187,9 +187,9 @@
 
 
                 
-                <StackPanel  Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="4">
+                <StackPanel  Orientation="Vertical" Grid.Column="0" Grid.ColumnSpan="7" Grid.Row="4" >
                 <ScrollViewer   VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto" >
-                    <UserControl Content="{Binding TablicaDanych, Mode=TwoWay}" />
+                    <UserControl Content="{Binding TablicaDanych, Mode=TwoWay}"  />
                 </ScrollViewer>
                 <ScrollViewer   VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto">
                     <UserControl Content="{Binding TablicaDanych2, Mode=TwoWay}" />

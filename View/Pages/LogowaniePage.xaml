@@ -50,8 +50,8 @@
             <TextBox Style="{StaticResource TextBoxDefaultStyle}" Text="{Binding Nazwisko, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" Grid.Row="3"  Grid.Column="2"        />
             <components:BindablePasswordBox Style="{StaticResource BindablePasswordBoxStyle}" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" x:Name="PasswordBox"  Grid.Row="4"  Grid.Column="2"      />
             <Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zarejestruj" Command="{Binding Zarejestruj}"  Grid.Row="6"  Grid.Column="1"  Content="Zarejestruj"     />
-            <!--<Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zaloguj" Command="{Binding Zaloguj}" IsEnabled="{Binding ErrorFree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6"  Grid.Column="3"  Content="Zaloguj"    />-->
-            <Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zaloguj" Command="{Binding Zaloguj}"  Grid.Row="6"  Grid.Column="3"  Content="Zaloguj"    />
+            <Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zaloguj" Command="{Binding Zaloguj}" IsEnabled="{Binding ErrorFree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6"  Grid.Column="3"  Content="Zaloguj"    />
+            <!--<Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zaloguj" Command="{Binding Zaloguj}"  Grid.Row="6"  Grid.Column="3"  Content="Zaloguj"    />-->
             <Image Grid.Row="2"  Grid.Column="3" Grid.RowSpan="3" HorizontalAlignment="Center" Source="/image.jpg" />
 
 

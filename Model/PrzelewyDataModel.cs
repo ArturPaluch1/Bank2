@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank2.Model
 {
@@ -17,6 +13,6 @@ namespace Bank2.Model
         public string NadawcaImię { get; set; }
         public string NadawcaNazwisko { get; set; }
         public DateTime? Data { get; set; }
-      
+
     }
 }

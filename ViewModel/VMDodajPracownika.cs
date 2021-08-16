@@ -1,13 +1,5 @@
 ﻿using Bank2.Commands;
 using Bank2.Navigators;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Bank2.ViewModel
@@ -15,15 +7,15 @@ namespace Bank2.ViewModel
     class VMDodajPracownika : ViewModelBase//, INotifyPropertyChanged//, ICommand
     {
         private string _password;
-       //rivate string _wynagrodzenieString;
+        //rivate string _wynagrodzenieString;
         private decimal _wynagrodzenie;
 
-      //  public event PropertyChangedEventHandler PropertyChanged;
-      //  public event EventHandler CanExecuteChanged;
+        //  public event PropertyChangedEventHandler PropertyChanged;
+        //  public event EventHandler CanExecuteChanged;
 
         private ICommand _dodaj;
-        
-       public  ICommand Dodaj
+
+        public ICommand Dodaj
         {
             get
             {
@@ -47,7 +39,7 @@ namespace Bank2.ViewModel
             set
             {
                 _password = value;
-               OnPropertyChanged(nameof(Password));
+                OnPropertyChanged(nameof(Password));
                 ValidatePassword(Password);
             }
         }
@@ -72,8 +64,8 @@ namespace Bank2.ViewModel
                 ValidateImie(Imie);
             }
         }
-    
-        
+
+
 
         public string Nazwisko
         {
@@ -99,12 +91,12 @@ namespace Bank2.ViewModel
             {
                 _Pesel = value;
                 OnPropertyChanged(nameof(Pesel));
-              
+
                 ValidatePesel(Pesel);
             }
         }
 
-      
+
         public string Telefon
         {
             get
@@ -136,20 +128,20 @@ namespace Bank2.ViewModel
 
 
                 OnPropertyChanged(nameof(Wynagrodzenie));
-                  
+
                 ValidateWynagrodzenie(Wynagrodzenie);
             }
         }
 
 
-      
+
 
 
 
         public VMDodajPracownika(INavigator navigator)
         {
             //Dodaj = new RelayCommand(new Action(ShowMessage));
-            Dodaj = new DodajPracownikaCommand<VMLogowanie>(this,navigator, () => new VMLogowanie(navigator));
+            Dodaj = new DodajPracownikaCommand<VMLogowanie>(this, navigator, () => new VMLogowanie(navigator));
             Anuluj = new UpdateCurrentViewModelCommand<VMLogowanie>(navigator, () => new VMLogowanie(navigator));
             Password = "";
             Imie = "";
@@ -157,12 +149,12 @@ namespace Bank2.ViewModel
             Pesel = "";
             Telefon = "";
             Wynagrodzenie = 0;
-           
+
         }
 
-        
+
 
 
     }
-    
+
 }

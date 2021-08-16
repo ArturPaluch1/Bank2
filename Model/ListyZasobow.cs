@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace Bank2.Model
 {
-      class ListyZasobow
+    class ListyZasobow
     {
         public ObservableCollection<KlienciDataModel> ListaKlientow { get; set; }
         public ObservableCollection<KredytyDataModel> ListaKredytow { get; set; }
@@ -26,17 +21,17 @@ namespace Bank2.Model
             ListaPrzelewow = new ObservableCollection<PrzelewyDataModel>();
             ListaRodzajowLokat = new ObservableCollection<RodzajeLokatDataModel>();
             ListaRodzajowKredytow = new ObservableCollection<RodzajeKredytowDataModel>();
-            ListaPracownikow = new  ObservableCollection<PracownicyDataModel>();
-             db = new Baza();
+            ListaPracownikow = new ObservableCollection<PracownicyDataModel>();
+            db = new Baza();
         }
 
 
-           public ObservableCollection<KlienciDataModel> PobierzAktywniKlienci()
+        public ObservableCollection<KlienciDataModel> PobierzAktywniKlienci()
         {
-          
+
             foreach (var item in db.Klienci)
             {
-                if (item.aktywny==true)
+                if (item.aktywny == true)
                 {
                     KlienciDataModel temp = new KlienciDataModel();
                     temp.Id_klienta = item.Id_klienta;
@@ -87,7 +82,7 @@ namespace Bank2.Model
         }
         public ObservableCollection<KredytyDataModel> PobierzAktywneKredyty()
         {
-            
+
             foreach (var item in db.Kredyty)
             {
                 if (item.aktywny == true)
@@ -127,8 +122,8 @@ namespace Bank2.Model
 
                     ListaKredytow.Add(temp);
                 }
-               
-               
+
+
             }
             return ListaKredytow;
         }
@@ -181,7 +176,7 @@ namespace Bank2.Model
         }
         public ObservableCollection<LokatyDataModel> PobierzAktywneLokaty()
         {
-            
+
             foreach (var item in db.Lokaty)
             {
                 if (item.aktywny == true)
@@ -277,10 +272,10 @@ namespace Bank2.Model
         {
 
 
-            
+
             foreach (var item in db.Przelewy)
             {
-               
+
                 PrzelewyDataModel temp = new PrzelewyDataModel();
                 temp.Id_Przelewu = item.Id_Przelewu;
                 temp.Data = item.Data;
@@ -297,13 +292,13 @@ namespace Bank2.Model
                 temp.Numer_rachunku_odbiorcy = item.Numer_rachunku_odbiorcy;
                 temp.Tytuł_przelewu = item.Tytuł_przelewu;
                 ListaPrzelewow.Add(temp);
-               
+
             }
             return ListaPrzelewow;
         }
-            public ObservableCollection<RodzajeLokatDataModel> PobierzAktywneRodzajeLokat()
+        public ObservableCollection<RodzajeLokatDataModel> PobierzAktywneRodzajeLokat()
         {
-            
+
             foreach (var item in db.Rodzaje_lokat)
             {
                 if (item.aktywny == true)
@@ -361,7 +356,7 @@ namespace Bank2.Model
         }
         public ObservableCollection<RodzajeKredytowDataModel> PobierzAktywneRodzajeKredytow()
         {
-           
+
             foreach (var item in db.Rodzaje_kredytów)
             {
                 if (item.aktywny == true)
@@ -420,7 +415,7 @@ namespace Bank2.Model
         }
         public ObservableCollection<PracownicyDataModel> PobierzAktywnychPracownikow()
         {
-           
+
             foreach (var item in db.Pracownicy)
             {
                 if (item.aktywny == true)
@@ -468,7 +463,7 @@ namespace Bank2.Model
             return ListaPracownikow;
         }
     }
-    
+
 
 
 }

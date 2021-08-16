@@ -1,12 +1,6 @@
 ﻿
 using Bank2.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -27,7 +21,7 @@ namespace Bank2.ViewModel
 
                 OnPropertyChanged(nameof(Imie));
 
-                         ValidateImie(Imie);
+                ValidateImie(Imie);
             }
         }
         public string Nazwisko
@@ -41,7 +35,7 @@ namespace Bank2.ViewModel
                 _nazwisko = value;
 
                 OnPropertyChanged(nameof(Nazwisko));
-                   ValidateNazwisko(Nazwisko);
+                ValidateNazwisko(Nazwisko);
             }
         }
         public string Password
@@ -55,7 +49,7 @@ namespace Bank2.ViewModel
                 _password = value;
 
                 OnPropertyChanged(nameof(Password));
-                    ValidatePassword(Password);
+                ValidatePassword(Password);
             }
         }
         public string Telefon
@@ -111,14 +105,14 @@ namespace Bank2.ViewModel
 
         public string Error => throw new NotImplementedException();
 
-        
+
         public VMDodajKlienta(Window window)
         {
             _window = window;
             Dodaj = new RelayCommand(DodajKlienta);
             Anuluj = new RelayCommand(ZamknijOkno);
 
-            Password ="";
+            Password = "";
             Imie = "";
             Nazwisko = "";
             Telefon = "";
@@ -154,16 +148,16 @@ namespace Bank2.ViewModel
             temp.Ulica = this.Ulica;
             db.Klienci.Add(temp);
             db.SaveChanges();
-         MessageBoxResult result=   MessageBox.Show("Dodany","", MessageBoxButton.OK);
-            if(result==MessageBoxResult.OK)
+            MessageBoxResult result = MessageBox.Show("Dodany", "", MessageBoxButton.OK);
+            if (result == MessageBoxResult.OK)
             {
                 _window.Close();
             }
 
         }
 
-       
+
     }
 
-   
+
 }

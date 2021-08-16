@@ -1,13 +1,7 @@
 ﻿using Bank2.Components;
 using Bank2.Model;
 using Bank2.Navigators;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -58,7 +52,7 @@ namespace Bank2.ViewModel
             }
         }
 
-   
+
 
         public VMEdytujLokate(Window window, INavigator navigator, LokatyDataModel LokataDoZmiany)
         {
@@ -165,18 +159,18 @@ namespace Bank2.ViewModel
 
 
                 }
-                }
             }
+        }
     }
 }
 ///
 
-   
+
 //    else
 //    {
 
 
-        
+
 
 
 //            //    string wynik = db.Database.SqlQuery(innerJoinQuery);

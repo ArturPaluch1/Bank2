@@ -1,14 +1,6 @@
 ﻿using Bank2.Navigators;
 using Bank2.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Markup;
 
 namespace Bank2
 {
@@ -25,9 +17,9 @@ namespace Bank2
             {
                 DataContext = new VMMainWindow(navigator)
             };
-        
-        
-            
+
+
+
             MainWindow.Show();
 
 

@@ -1,22 +1,12 @@
-﻿using Bank2.Commands;
-using Bank2.Navigators;
+﻿using Bank2.Navigators;
 using Bank2.View.Pages;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Navigation;
 
 namespace Bank2.ViewModel
 {
-    class VMPracownikNavigationBar:ViewModelBase
+    class VMPracownikNavigationBar : ViewModelBase
     {
-    //  public ICommand CurrentContent { get; set; }
+        //  public ICommand CurrentContent { get; set; }
         //  public VMLogowanie Content { get; set; } 
         //public VMPracownikNavigationBar dcnav { get; set; }
         //private ObservableCollection<Model1> tabItems;
@@ -39,7 +29,7 @@ namespace Bank2.ViewModel
         public VMPracownikKlienci pg { get; set; }
 
 
-      //  private PracownikKlienciPage _KlienciPage;
+        //  private PracownikKlienciPage _KlienciPage;
 
         public Page KlienciPage { get; set; }
         public Page PracownicyPage { get; set; }
@@ -113,7 +103,7 @@ namespace Bank2.ViewModel
             //nv.CurrentViewModel.ToString();
         }
 
-       
+
 
         //private void OnPropertyChanged(string v)
         //{
@@ -133,11 +123,11 @@ namespace Bank2.ViewModel
         //   //   Content = new Navigator()
 
         //};
-           
+
 
         //    //Adding the tab tems into the collection
         //    tabItems.Add(model1);
-         
+
         //}
     }
     //public class Model1

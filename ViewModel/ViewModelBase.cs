@@ -4,13 +4,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Data;
 
 namespace Bank2.ViewModel
 {
@@ -96,17 +91,17 @@ namespace Bank2.ViewModel
         //    //ErrorFree = !HasErrors;
         //}
 
-       // public event PropertyChangedEventHandler PropertyChanged;
+        // public event PropertyChangedEventHandler PropertyChanged;
 
-         protected void OnPropertyChanged(string nazwa)
+        protected void OnPropertyChanged(string nazwa)
         {
-           
+
             if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(nazwa));
         }
 
 
 
-        public  void ValidateImie(string Imie)
+        public void ValidateImie(string Imie)
         {
             Regex regImie = new Regex(@"^([a-zA-Z]*)$");
 
@@ -117,7 +112,7 @@ namespace Bank2.ViewModel
                 AddError(nameof(Imie), "Imię musi mieć co najmiej 3 znaki.");
             if (!regImie.IsMatch(Imie))
                 AddError(nameof(Imie), "Imię musi składać się wyłącznie z liter.");
-                  ErrorFree = !HasErrors;
+            ErrorFree = !HasErrors;
         }
 
         public void ValidatePassword(string Password)
@@ -154,8 +149,8 @@ namespace Bank2.ViewModel
         public void ValidatePesel(string Pesel)
         {
             ClearErrors(nameof(Pesel));
-           
-           
+
+
             Regex regPesel = new Regex(@"^([0-9]*)$");
             if (!regPesel.IsMatch(Pesel))
                 AddError(nameof(Pesel), "Pesel musi składać się wyłącznie z cyfr.");
@@ -174,7 +169,7 @@ namespace Bank2.ViewModel
                 AddError(nameof(Wynagrodzenie), "Wynagrodzenie musi składać się wyłącznie z cyfr.");
             if (string.IsNullOrWhiteSpace(Wynagrodzenie.ToString()))
                 AddError(nameof(Wynagrodzenie), "Wynagrodzenie nie może być puste.");
-          
+
             //int wynagrodzenieInt;
             //bool parseResult =  int.TryParse(Wynagrodzenie, out wynagrodzenieInt);
             //if(parseResult)
@@ -256,10 +251,10 @@ namespace Bank2.ViewModel
             ClearErrors(nameof(Odbiorca));
 
 
-           
+
             if (string.IsNullOrWhiteSpace(Odbiorca) || Odbiorca == null)
                 AddError(nameof(Odbiorca), "Odbiorca nie może być pusty.");
-       
+
             ErrorFree = !HasErrors;
         }
         public void ValidateRachunekOdbiorcy(long RachunekOdbiorcy)
@@ -268,7 +263,7 @@ namespace Bank2.ViewModel
 
 
             Regex regRachunekOdbiorcy = new Regex(@"^[0-9]*$");
-           if (!regRachunekOdbiorcy.IsMatch(RachunekOdbiorcy.ToString()))
+            if (!regRachunekOdbiorcy.IsMatch(RachunekOdbiorcy.ToString()))
                 AddError(nameof(RachunekOdbiorcy), "Rachunek Odbiorcy musi składać się wyłącznie z cyfr.");
             if (string.IsNullOrWhiteSpace(RachunekOdbiorcy.ToString()) || RachunekOdbiorcy == null)
                 AddError(nameof(RachunekOdbiorcy), "Rachunek Odbiorcy nie może być pusty.");

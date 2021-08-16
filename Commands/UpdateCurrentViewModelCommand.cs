@@ -1,17 +1,12 @@
 ﻿using Bank2.Navigators;
 using Bank2.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using static Bank2.Navigators.INavigator;
 
 namespace Bank2.Commands
 {
     public class UpdateCurrentViewModelCommand<TViewModel> : ICommand
-        where TViewModel: ViewModelBase
+        where TViewModel : ViewModelBase
     {
         /* public event EventHandler CanExecuteChanged;
          private readonly INavigator _navigator;
@@ -54,7 +49,7 @@ namespace Bank2.Commands
         private readonly INavigator _navigator;
         private readonly Func<TViewModel> _createViewModel;
 
-        public UpdateCurrentViewModelCommand(INavigator navigator,Func<TViewModel> createViewModel)
+        public UpdateCurrentViewModelCommand(INavigator navigator, Func<TViewModel> createViewModel)
         {
             _navigator = navigator;
             _createViewModel = createViewModel;
@@ -69,7 +64,7 @@ namespace Bank2.Commands
         {
             _navigator.CurrentViewModel = _createViewModel();
 
-            
+
         }
 
 

@@ -2,13 +2,7 @@
 using Bank2.Model;
 using Bank2.Navigators;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -43,9 +37,9 @@ namespace Bank2.ViewModel
         private decimal _kwota;
 
 
-  
 
-       
+
+
 
 
 
@@ -77,7 +71,7 @@ namespace Bank2.ViewModel
 
 
 
-        public VMDodajKredyt(Window window, INavigator navigator )
+        public VMDodajKredyt(Window window, INavigator navigator)
         {
             _window = window;
             _navigator = navigator;
@@ -85,7 +79,7 @@ namespace Bank2.ViewModel
             ListaRodzajowKredytow = new ListyZasobow().PobierzAktywneRodzajeKredytow();
             TablicaDanych = new KlienciTabela(_navigator);
             TablicaDanych2 = new RodzajeKredytowTabela(_navigator);
-
+            Kwota = 0;
             Dodaj = new RelayCommand(DodajKredyt);
             Anuluj = new RelayCommand(WyjdzZokna);
 
@@ -101,31 +95,31 @@ namespace Bank2.ViewModel
         {
             Baza db = new Baza();
             Kredyty nowyKredyt = new Kredyty();
-           
+
             string bladKlienta = "";
             string bladRodzajuKredytu = "";
             string bladKwoty = "";
             int licznik = 0;
             KlienciDataModel temp1 = new KlienciDataModel();
-           
-            foreach ( KlienciDataModel item in ListaKlientow)
-            { 
+
+            foreach (KlienciDataModel item in ListaKlientow)
+            {
                 if (item.IsSelected == true)
                 {
                     temp1 = item;
                     licznik++;
-                    
+
                 }
 
             }
-            if(licznik==1)
+            if (licznik == 1)
             {
                 nowyKredyt.Klient = temp1.Id_klienta;
                 licznik = 0;
             }
             else
             {
-               
+
                 bladKlienta = "Musisz zaznaczyć dokładnie jednego klienta.\n";
             }
 
@@ -150,7 +144,7 @@ namespace Bank2.ViewModel
             }
             else
             {
-               
+
                 bladRodzajuKredytu = "Musisz zaznaczyć dokładnie jeden rodzaj kredytu.\n";
             }
 
@@ -158,13 +152,13 @@ namespace Bank2.ViewModel
             nowyKredyt.Data_założenia = DateTime.Now;
             nowyKredyt.Kredytu_udzielił = _navigator.zalogowanyPracownik.Id_Pracownika;
 
-                
-                nowyKredyt.Kwota_kredytu = this.Kwota;
-            if(this.Kwota==0||this.Kwota==null)
+
+            nowyKredyt.Kwota_kredytu = this.Kwota;
+            if (this.Kwota == 0 || this.Kwota == null)
             { bladKwoty = "Kwota kredytu nie może być zerowa"; }
 
             string tempString = bladKlienta + bladRodzajuKredytu + bladKwoty;
-            if(tempString=="")
+            if (tempString == "")
             {
                 db.Kredyty.Add(nowyKredyt);
                 db.SaveChanges();
@@ -175,8 +169,8 @@ namespace Bank2.ViewModel
                 }
             }
             else
-            MessageBox.Show(tempString);
-           
+                MessageBox.Show(tempString);
+
 
         }
     }

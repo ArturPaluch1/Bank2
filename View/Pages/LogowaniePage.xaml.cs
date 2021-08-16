@@ -1,41 +1,26 @@
-﻿using Bank2.Commands;
-using Bank2.Model;
-using Bank2.Navigators;
-using Bank2.View.Pages;
+﻿using Bank2.Navigators;
 using Bank2.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Bank2.View.Pages
 {
     /// <summary>
     /// Interaction logic for LogowaniePage.xaml
     /// </summary>
-    public partial class LogowaniePage: Page
+    public partial class LogowaniePage : Page
     {
         private INavigator _navigator;
         public LogowaniePage()
         {
             InitializeComponent();
-          //  DataContext = new VMLogowanie();
-            
+            //  DataContext = new VMLogowanie();
+
         }
         public LogowaniePage(INavigator navigator)
         {
             _navigator = navigator;
-          
+
         }
         private void OnClickZaloguj(object sender, RoutedEventArgs e)
         {
@@ -86,9 +71,9 @@ namespace Bank2.View.Pages
               {
                   MessageBox.Show("Uzupełnij wszystkie pola");
               }*/
-            _navigator.CurrentViewModel =  new VMPracownikKlienci(_navigator);
+            _navigator.CurrentViewModel = new VMPracownikKlienci(_navigator);
             //_navigator.CurrentViewModelChanged+=
-           // Zaloguj = new UpdateCurrentViewModelCommand<VMPracownikLayout>(_navigator, () => new VMPracownikLayout(_navigator));
+            // Zaloguj = new UpdateCurrentViewModelCommand<VMPracownikLayout>(_navigator, () => new VMPracownikLayout(_navigator));
 
         }
 

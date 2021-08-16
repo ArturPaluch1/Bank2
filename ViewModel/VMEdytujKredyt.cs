@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Bank2.Components;
 using Bank2.Model;
 using Bank2.Navigators;
-using System.Windows;
 using System.Collections.ObjectModel;
-using Bank2.Components;
-using System.Windows.Input;
-using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
@@ -41,7 +35,7 @@ namespace Bank2.ViewModel
         }
         private decimal _kwota;
 
-      
+
         public ObservableCollection<KlienciDataModel> ListaKlientow { get; set; } = new ObservableCollection<KlienciDataModel>();
         public ObservableCollection<RodzajeKredytowDataModel> ListaRodzajowKredytow { get; set; } = new ObservableCollection<RodzajeKredytowDataModel>();
 
@@ -59,7 +53,7 @@ namespace Bank2.ViewModel
             }
         }
 
-     
+
         public VMEdytujKredyt(Window window, INavigator navigator, KredytyDataModel KredytDoZmiany)
         {
             _window = window;
@@ -130,7 +124,7 @@ namespace Bank2.ViewModel
                 }
                 else
                 {
-                    if(_kwota==0)
+                    if (_kwota == 0)
                     {
                         MessageBox.Show("Błędna kwota");
                     }
@@ -166,9 +160,9 @@ namespace Bank2.ViewModel
                             MessageBox.Show("Błąd zapisu");
                         }
                     }
-                   
-                    
-                    
+
+
+
                     //    string wynik = db.Database.SqlQuery(innerJoinQuery);
 
                     //doZmiany =(a)=>()
