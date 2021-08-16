@@ -20,18 +20,9 @@ namespace Bank2
             if (Execute == null) throw new ArgumentNullException(nameof(Execute));
             else this.execute = Execute;
             this.canExecute = CanExecute;
-
-
-
-
         }
 
         public event EventHandler CanExecuteChanged;
-        //public void RaiseCanExecuteChanged()
-        //{
-        //    if (CanExecuteChanged != null)
-        //        CanExecuteChanged(this, new EventArgs());
-        //}
 
         public bool CanExecute(object parameter)
         {

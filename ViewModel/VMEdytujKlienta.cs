@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
-    class VMEdytujKlienta//: INotifyPropertyChanged//: INotifyCollectionChanged, 
+    class VMEdytujKlienta
     {
         public bool ISChecked;
         public string Imie { get; set; }
@@ -25,26 +25,6 @@ namespace Bank2.ViewModel
         private INavigator _navigator;
         private UserControl _TablicaDanych;
         public UserControl TablicaDanych { get; set; }
-        //        {
-        //            get { return _TablicaDanych; }
-        //    set
-        //            {
-        //                _TablicaDanych = value;
-        //                OnPropertyChanged("TablicaDanych");
-        //}
-        //        }
-
-
-
-        //        public event PropertyChangedEventHandler PropertyChanged;
-        //        // void OnPropertyChanged([CallerMemberName] string name = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-
-
-
-        //        public void OnPropertyChanged(string v)
-        //        {
-
-        //        }
 
 
         public ObservableCollection<KlienciDataModel> ListaKlientow { get; set; } = new ObservableCollection<KlienciDataModel>();
@@ -53,17 +33,11 @@ namespace Bank2.ViewModel
         public ICommand Anuluj { get; set; }
 
 
-
-        //public event NotifyCollectionChangedEventHandler CollectionChanged;
-
-        // public event CollectionChangeEventHandler CollectionChanged;
-
         public VMEdytujKlienta(Window window, INavigator navigator, KlienciDataModel Klient)
         {
             this.Imie = Klient.Imię;
             this.Nazwisko = Klient.Nazwisko;
             this.Miasto = Klient.Miasto;
-            // this.Password = "bbdbfdf";
             this.Telefon = Klient.Telefon;
             this.Ulica = Klient.Ulica;
 
@@ -71,10 +45,7 @@ namespace Bank2.ViewModel
             _window = window;
             _navigator = navigator;
             ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
-            // ListaKlientow.CollectionChanged += ContentCollectionChanged;
-
-            //   ListaKlientow.CollectionChanged +=  new System.Collections.Specialized.NotifyCollectionChangedEventHandler(changed);
-
+          
 
             TablicaDanych = new KlienciTabela(_navigator);
 
@@ -84,21 +55,6 @@ namespace Bank2.ViewModel
 
 
         }
-        //private void changed(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs args)
-        //{
-        //    //You get notified here two times.
-        //}
-
-        //private void ContentCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs args)
-        //{
-
-        //}
-
-        //private void OnPropertyChanged()
-        //{
-        //    //  throw new NotImplementedException();
-        //    //return ListaKlientow;
-        //}
 
         private void WyjdzZokna()
         {
@@ -150,9 +106,6 @@ namespace Bank2.ViewModel
                 }
             }
             db.SaveChanges();
-            //  db.Klienci.
-            //    db.Klienci.Add(temp);
-            //  db.SaveChanges();
             MessageBoxResult result = MessageBox.Show("Zedytowany", "", MessageBoxButton.OK);
             if (result == MessageBoxResult.OK)
             {

@@ -122,12 +122,6 @@ namespace Bank2.ViewModel
 
 
 
-
-
-            //   this.CloseWindowCommand = new RelayCommand<Window>(this.CloseWindow);
-
-
-
         }
 
         private void ZamknijOkno()

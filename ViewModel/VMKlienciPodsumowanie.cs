@@ -22,41 +22,19 @@ namespace Bank2.ViewModel
                 OnPropertyChanged("TuNaglowek");
             }
         }
-        //public static readonly DependencyProperty CityProperty = DependencyProperty.Register
-        // (
-        //      "City",
-        //      typeof(INavigator),
-        //      typeof(KlientPodsumowanieNaglowek),
-        //      new PropertyMetadata()
-        // );
-
-        //public INavigator City { get; set; }
-        //  {
-        //    get { return (INavigator)GetValue(CityProperty); }
-        //    set { SetValue(CityProperty, value); }
-        //}
 
         public UserControl TablicaDanych { get; set; }
 
         private void OnPropertyChanged(string v)
         {
-            //throw new NotImplementedException();
-            //if (v== "TuNaglowek")
-            //{
-
-            //}
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(v));
             }
         }
-        //private void OnPropertyChanged(ObservableCollection<KlienciDataModel> listaKlientow)
-        //{
-        //    //throw new NotImplementedException();
-        //}
 
 
-        public ObservableCollection<KredytyDataModel> ListaKredytow //{ get; set; } = new ObservableCollection<KredytyDataModel>();
+        public ObservableCollection<KredytyDataModel> ListaKredytow 
         {
             get
             {
@@ -96,16 +74,10 @@ namespace Bank2.ViewModel
 
 
 
-
-
-
-
-        //{ get; set; } = new ObservableCollection<KredytyDataModel>();
-
         public event PropertyChangedEventHandler PropertyChanged;
         public event NotifyCollectionChangedEventHandler CollectionChanged;
 
-        public KlientItemNaglowek gg { get; set; } = null;// new KlientItemNaglowek();
+        public KlientItemNaglowek gg { get; set; } = null;
 
         private KlienciDataModel _klient;
         private INavigator _navigator;
@@ -125,7 +97,7 @@ namespace Bank2.ViewModel
             Kredyty = new RelayCommand(WyswietlKredyty);
             Lokaty = new RelayCommand(WyswietlLokaty);
             Przelewy = new RelayCommand(WyswietlPrzelewy);
-            TuNaglowek = null;// new LokataItemNaglowek();
+            TuNaglowek = null;
 
 
 
@@ -172,7 +144,6 @@ namespace Bank2.ViewModel
             }
 
 
-            //  ListaPrzelewow = new ListyZasobow().PobierzPrzelewy();
 
         }
 

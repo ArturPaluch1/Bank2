@@ -5,11 +5,6 @@ using System.ComponentModel;
 
 namespace Bank2.Navigators
 {
-    /*  public enum ViewType
-      {
-          LogowaniePage,
-          PracownikPage
-      }*/
     public interface INavigator
     {
 
@@ -18,7 +13,6 @@ namespace Bank2.Navigators
 
         ViewModelBase CurrentViewModel { get; set; }
         Pracownicy zalogowanyPracownik { get; set; }
-        //   ICommand UpdateCurrentViewModelCommand { get; }
 
     }
 }

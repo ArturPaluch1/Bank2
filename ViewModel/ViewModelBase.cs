@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace Bank2.ViewModel
 {
-    public abstract class ViewModelBase : INavigator, INotifyDataErrorInfo, INotifyPropertyChanged//, IValueConverter
+    public abstract class ViewModelBase : INavigator, INotifyDataErrorInfo, INotifyPropertyChanged
     {
 
 
@@ -41,7 +41,7 @@ namespace Bank2.ViewModel
         }
         public bool HasErrors
         {
-            get { return _errorsByPropertyName.Any(); }// (x => x.Value != null && x.Value.Count > 0); }
+            get { return _errorsByPropertyName.Any(); }
 
         }
         public event Action CurrentViewModelChanged;
@@ -79,19 +79,6 @@ namespace Bank2.ViewModel
                 OnErrorsChanged(propertyName);
             }
         }
-        //public void ValidateImie()
-        //{
-        //    //ClearErrors(nameof(Imie));
-        //    //if (string.IsNullOrWhiteSpace(Imie))
-        //    //    AddError(nameof(Imie), "Imie cannot be empty.");
-        //    //if (string.Equals(Imie, "Admin", StringComparison.OrdinalIgnoreCase))
-        //    //    AddError(nameof(Imie), "Admin is not valid Imie.");
-        //    //if (Imie == null || Imie?.Length <= 5)
-        //    //    AddError(nameof(Imie), "Imie must be at least 6 characters long.");
-        //    //ErrorFree = !HasErrors;
-        //}
-
-        // public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string nazwa)
         {
@@ -130,7 +117,6 @@ namespace Bank2.ViewModel
 
 
             ErrorFree = !HasErrors;
-            //  ErrorFree = true;
         }
 
         public void ValidateNazwisko(string Nazwisko)
@@ -170,14 +156,6 @@ namespace Bank2.ViewModel
             if (string.IsNullOrWhiteSpace(Wynagrodzenie.ToString()))
                 AddError(nameof(Wynagrodzenie), "Wynagrodzenie nie może być puste.");
 
-            //int wynagrodzenieInt;
-            //bool parseResult =  int.TryParse(Wynagrodzenie, out wynagrodzenieInt);
-            //if(parseResult)
-            //{
-            //    if(wynagrodzenieInt<2500)
-            //        AddError(nameof(Wynagrodzenie), "Wynagrodzenie musi wynosić co najmniej 2500.");
-
-            //}
             if (Wynagrodzenie < 2500)
                 AddError(nameof(Wynagrodzenie), "Wynagrodzenie musi wynosić co najmniej 2500.");
 
@@ -219,8 +197,6 @@ namespace Bank2.ViewModel
                 AddError(nameof(Ulica), "Podaj nazwę ulicy i numer mieszkania");
             if (string.IsNullOrWhiteSpace(Ulica))
                 AddError(nameof(Ulica), "Ulica nie może być pusta.");
-            //if (Ulica == null || Ulica?.Length <= 1)
-            //    AddError(nameof(Ulica), "Ulica musi mieć co najmniej 2 znaki.");
             ErrorFree = !HasErrors;
         }
         public void ValidateKwota(decimal Kwota)
@@ -232,15 +208,6 @@ namespace Bank2.ViewModel
                 AddError(nameof(Kwota), "Kwota musi składać się wyłącznie z cyfr.");
             if (string.IsNullOrWhiteSpace(Kwota.ToString()))
                 AddError(nameof(Kwota), "Wynagrodzenie nie może być puste.");
-
-            //int wynagrodzenieInt;
-            //bool parseResult =  int.TryParse(Wynagrodzenie, out wynagrodzenieInt);
-            //if(parseResult)
-            //{
-            //    if(wynagrodzenieInt<2500)
-            //        AddError(nameof(Wynagrodzenie), "Wynagrodzenie musi wynosić co najmniej 2500.");
-
-            //}
             if (Kwota <= 0)
                 AddError(nameof(Kwota), "Kwota jest za mała.");
 
@@ -271,29 +238,14 @@ namespace Bank2.ViewModel
                 AddError(nameof(RachunekOdbiorcy), "RachunekOdbiorcy musi mieć 11 cyfr.");
             ErrorFree = !HasErrors;
         }
-
-
-        //public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 
 
 }
-//////////
-///bool _errorFree = false;
 
 
 
 
-//=> (
-//    _errorsByPropertyName.Any());
 
 
 

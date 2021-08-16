@@ -65,10 +65,6 @@ namespace Bank2.ViewModel
 
         private INavigator _navigator;
 
-        /// <summary>
-        /// //////////////////////////////////////
-        /// </summary>
-        /// 
         public ObservableCollection<KlienciDataModel> ListaKlientow { get; set; } = new ObservableCollection<KlienciDataModel>();
         public ObservableCollection<KredytyDataModel> ListaKredytow { get; set; } = new ObservableCollection<KredytyDataModel>();
         public ObservableCollection<LokatyDataModel> ListaLokat { get; set; } = new ObservableCollection<LokatyDataModel>();
@@ -195,19 +191,11 @@ namespace Bank2.ViewModel
                 ButtonKlienciWyswietlContent = "Wyświetl";
                 TablicaDanych = new KlienciTabela(_navigator);
                 TablicaDanych2 = new KlientPodsumowanieNaglowek(_navigator, temp1);
-                //  TablicaDanych2 = new KlientPodsumowanieNaglowek(_navigator);
-                // TablicaDanych2.DataContext = new VMKlienciPodsumowanie(_navigator);
-                //    TablicaDanych.DataContext= new VMKlienciPodsumowanie(_navigator);
-                // TablicaDanych.Ci
-                // TablicaDanych.DataContext = new VMKlienciPodsumowanie(_navigator);
 
 
                 ListaKlientow.Clear();
                 ListaKlientow.Add(temp1);
                 ListaKredytow = new ListyZasobow().PobierzAktywneKredyty();
-                /*  Baza db = new Baza();
-                  ListaKlientow.Clear();
-                  ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();*/
 
 
             }
@@ -321,7 +309,6 @@ namespace Bank2.ViewModel
                 if (result == MessageBoxResult.Yes)
                 {
                     Baza db = new Baza();
-                    // db.Klienci.Where((n)=>n.Id_klienta==znalezione.)
                     foreach (var item in db.Lokaty)
                     {
 
@@ -375,7 +362,6 @@ namespace Bank2.ViewModel
                 if (result == MessageBoxResult.Yes)
                 {
                     Baza db = new Baza();
-                    // db.Klienci.Where((n)=>n.Id_klienta==znalezione.)
                     foreach (var item in db.Kredyty)
                     {
 
@@ -432,7 +418,6 @@ namespace Bank2.ViewModel
                 if (result == MessageBoxResult.Yes)
                 {
                     Baza db = new Baza();
-                    // db.Klienci.Where((n)=>n.Id_klienta==znalezione.)
                     foreach (var item in db.Klienci)
                     {
                         foreach (var doUsuniecia in znalezione)
@@ -662,7 +647,6 @@ namespace Bank2.ViewModel
                 ButtonKlienciWyswietlContent = "Wyświetl";
                 ListaKlientow.Clear();
                 TablicaDanych = null;
-                //KlienciTabelaVisibility = Visibility.Hidden;
             }
 
         }
@@ -703,7 +687,6 @@ namespace Bank2.ViewModel
                 ButtonPrzelewyWyswietlContent = "Wyświetl";
                 ListaPrzelewow.Clear();
                 TablicaDanych = null;
-                //PrzelewyTabelaVisibility = Visibility.Hidden;
             }
         }
 
@@ -735,7 +718,6 @@ namespace Bank2.ViewModel
                 ListaLokat.Clear();
                 ListaLokat = new ListyZasobow().PobierzAktywneLokaty();
 
-                //LokatyTabelaVisibility = Visibility.Visible;
             }
 
             else
@@ -743,7 +725,6 @@ namespace Bank2.ViewModel
                 ButtonLokatyWyswietlContent = "Wyświetl";
                 ListaLokat.Clear();
                 TablicaDanych = null;
-                //LokatyTabelaVisibility = Visibility.Hidden;
             }
         }
 
@@ -772,7 +753,6 @@ namespace Bank2.ViewModel
                 ListaKredytow.Clear();
                 ListaKredytow = new ListyZasobow().PobierzAktywneKredyty();
 
-                //KredytyTabelaVisibility = Visibility.Visible;
             }
 
             else
@@ -780,7 +760,6 @@ namespace Bank2.ViewModel
                 ButtonKredytyWyswietlContent = "Wyświetl";
                 ListaKredytow.Clear();
                 TablicaDanych = null;
-                //KredytyTabelaVisibility = Visibility.Hidden;
             }
         }
 

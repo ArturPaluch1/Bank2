@@ -118,8 +118,6 @@ namespace Bank2.ViewModel
                 bladKlienta = "Musisz zaznaczyć dokładnie jednego klienta.\n";
             }
 
-            //////////
-            ///
             RodzajeLokatDataModel temp2 = new RodzajeLokatDataModel();
 
             foreach (RodzajeLokatDataModel item in ListaRodzajowLokat)
@@ -148,8 +146,8 @@ namespace Bank2.ViewModel
             nowaLokata.Lokaty_udzielił = _navigator.zalogowanyPracownik.Id_Pracownika;
 
 
-            nowaLokata.Wysokość_lokaty = this.Kwota;
-            if (this.Kwota == 0 || this.Kwota == null)
+            nowaLokata.Wysokość_lokaty = Kwota;
+            if (this.Kwota == 0 )
             { bladKwoty = "Kwota lokaty nie może być zerowa"; }
 
             string tempString = bladKlienta + bladRodzajuLokaty + bladKwoty;

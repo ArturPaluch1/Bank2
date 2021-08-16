@@ -163,21 +163,3 @@ namespace Bank2.ViewModel
         }
     }
 }
-///
-
-
-//    else
-//    {
-
-
-
-
-
-//            //    string wynik = db.Database.SqlQuery(innerJoinQuery);
-
-//            //doZmiany =(a)=>()
-
-
-//        }
-//    }
-//}

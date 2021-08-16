@@ -63,14 +63,6 @@ namespace Bank2.ViewModel
 
 
 
-
-
-
-
-
-
-
-
         public VMDodajKredyt(Window window, INavigator navigator)
         {
             _window = window;
@@ -123,8 +115,7 @@ namespace Bank2.ViewModel
                 bladKlienta = "Musisz zaznaczyć dokładnie jednego klienta.\n";
             }
 
-            //////////
-            ///
+
             RodzajeKredytowDataModel temp2 = new RodzajeKredytowDataModel();
 
             foreach (RodzajeKredytowDataModel item in ListaRodzajowKredytow)
@@ -154,7 +145,7 @@ namespace Bank2.ViewModel
 
 
             nowyKredyt.Kwota_kredytu = this.Kwota;
-            if (this.Kwota == 0 || this.Kwota == null)
+            if (this.Kwota == 0 || Kwota == null)
             { bladKwoty = "Kwota kredytu nie może być zerowa"; }
 
             string tempString = bladKlienta + bladRodzajuKredytu + bladKwoty;

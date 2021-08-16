@@ -132,7 +132,7 @@ namespace Bank2.ViewModel
                     {
                         Kredyty doZmiany = null;
                         Baza db = new Baza();
-                        //  _KredytDoZmiany;
+
                         foreach (var item in db.Kredyty)
                         {
                             if (_KredytDoZmiany.Id_Kredytu == item.Id_Kredytu)
@@ -162,10 +162,6 @@ namespace Bank2.ViewModel
                     }
 
 
-
-                    //    string wynik = db.Database.SqlQuery(innerJoinQuery);
-
-                    //doZmiany =(a)=>()
 
 
                 }

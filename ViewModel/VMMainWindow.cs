@@ -7,7 +7,6 @@
     public class VMMainWindow : ViewModelBase, INotifyPropertyChanged
     {
         public ViewModelBase CurrentViewModel => _navigator.CurrentViewModel;
-        //  public INavigator Navigator { get; set; } = new Navigator();
         private readonly INavigator _navigator;
 
         private object _currentView;
@@ -23,20 +22,9 @@
             if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(nazwa));
         }
 
-
-        //public object CurrentView
-        //{
-        //    get { return _currentView; }
-        //    set
-        //    {
-        //        _currentView = value;
-        //        OnPropertyChanged("CurrentView");
-        //    }
-        //}
-
         public VMMainWindow(INavigator navigator)
         {
-            //CurrentView = new LogowaniePage();
+
 
 
             _navigator = navigator;

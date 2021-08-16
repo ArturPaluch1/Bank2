@@ -14,7 +14,6 @@ namespace Bank2.Commands
         public event EventHandler CanExecuteChanged;
         private readonly INavigator _navigator;
         private readonly Func<TViewModel> _createViewModel;
-        //  private bool _zalogowany = false;
 
         public ZalogujPracownikaCommand(INavigator navigator, Func<TViewModel> createViewModel)
         {
@@ -42,13 +41,6 @@ namespace Bank2.Commands
                 {
                     _navigator.zalogowanyPracownik = pracownik;
                     _navigator.CurrentViewModel = _createViewModel();
-                }
-                else
-                {
-                    /*  (_navigator.CurrentViewModel as VMLogowanie).Imie = "";
-                      (_navigator.CurrentViewModel as VMLogowanie).Nazwisko = "";
-                      (_navigator.CurrentViewModel as VMLogowanie).Password = "";
-                      _navigator.CurrentViewModel = new VMLogowanie(_navigator);*/
                 }
 
             }
@@ -115,7 +107,6 @@ namespace Bank2.Commands
                 return null;
             }
 
-            //  return zalogowany;
         }
 
 

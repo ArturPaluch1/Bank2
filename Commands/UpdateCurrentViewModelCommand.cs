@@ -8,42 +8,7 @@ namespace Bank2.Commands
     public class UpdateCurrentViewModelCommand<TViewModel> : ICommand
         where TViewModel : ViewModelBase
     {
-        /* public event EventHandler CanExecuteChanged;
-         private readonly INavigator _navigator;
-
-
-         public UpdateCurrentViewModelCommand(INavigator navigator)
-         {
-             _navigator = navigator;
-         }
-
-         public bool CanExecute(object parameter) => true;
-
-
-
-
-         public void Execute(object parameter)
-         {
-             if(parameter is ViewType)
-             {
-                 ViewType viewType = (ViewType)parameter;
-                 switch(viewType)
-                     {
-                     case ViewType.LogowaniePage:
-                         _navigator.CurrentViewModel = new VMLogowanie(_navigator);
-                         break;
-                     case ViewType.PracownikPage:
-                         _navigator.CurrentViewModel = new VMPracownik(_navigator);
-                         break;
-                     default:
-                         break;
-
-                 }
-             }
-         }*/
-
-
-
+       
 
         public event EventHandler CanExecuteChanged;
         private readonly INavigator _navigator;

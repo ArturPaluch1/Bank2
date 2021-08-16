@@ -4,14 +4,10 @@ using System.Windows.Input;
 
 namespace Bank2.ViewModel
 {
-    class VMDodajPracownika : ViewModelBase//, INotifyPropertyChanged//, ICommand
+    class VMDodajPracownika : ViewModelBase
     {
         private string _password;
-        //rivate string _wynagrodzenieString;
         private decimal _wynagrodzenie;
-
-        //  public event PropertyChangedEventHandler PropertyChanged;
-        //  public event EventHandler CanExecuteChanged;
 
         private ICommand _dodaj;
 
