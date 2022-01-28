@@ -5,7 +5,7 @@ namespace Bank2.Model
 {
     public class KlienciDataModel : INotifyPropertyChanged
     {
-        private bool _IsSelected;
+     
 
         public event PropertyChangedEventHandler PropertyChanged;
 

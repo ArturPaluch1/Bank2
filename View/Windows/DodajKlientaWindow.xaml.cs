@@ -13,7 +13,7 @@ namespace Bank2.View.Windows
         public DodajKlientaWindow(INavigator navigator)
         {
             InitializeComponent();
-            DataContext = new VMDodajKlienta(this);
+            DataContext = new VMDodajKlienta(this, navigator);
 
         }
     }

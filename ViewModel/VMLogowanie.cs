@@ -1,5 +1,7 @@
 ﻿using Bank2.Commands;
 using Bank2.Navigators;
+using System;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace Bank2.ViewModel
@@ -11,7 +13,7 @@ namespace Bank2.ViewModel
         private string _password;
 
 
-
+        private INavigator _navigator;
 
         public string Imie
         {
@@ -71,22 +73,36 @@ namespace Bank2.ViewModel
 
         public ICommand Zarejestruj { get; set; }
         public ICommand Zaloguj { get; set; }
+        public ICommand BazaDanychPlik { get; set; }
+        public ICommand BazaDanychSQLServer { get; set; }
 
 
 
 
 
-       
         public VMLogowanie(INavigator navigator)
         {
-            Zarejestruj = new UpdateCurrentViewModelCommand<VMDodajPracownika>(navigator, () => new VMDodajPracownika(navigator));
-            Zaloguj = new ZalogujPracownikaCommand<VMPracownikNavigationBar>(navigator, () => new VMPracownikNavigationBar(navigator));
-
-            Password = "";
+            _navigator = navigator;
+            Zarejestruj = new UpdateCurrentViewModelCommand<VMDodajPracownika>(_navigator, () => new VMDodajPracownika(_navigator));
+         
+           _navigator.rodzajBazy = INavigator.RodzajBazy.SQLServer;
+            Zaloguj = new ZalogujPracownikaCommand<VMPracownikNavigationBar>(_navigator, () => new VMPracownikNavigationBar(_navigator));
+            BazaDanychPlik = new RelayCommand(UpdateDatabaseSourceToFile);
+            BazaDanychSQLServer = new RelayCommand(UpdateDatabaseSourceToBazaDanychSQLServer);
+             Password = "";
             Imie = "";
             Nazwisko = "";
         }
 
+        private void UpdateDatabaseSourceToBazaDanychSQLServer()
+        {
+            _navigator.rodzajBazy = INavigator.RodzajBazy.SQLServer;
+        }
+
+        private void UpdateDatabaseSourceToFile()
+        {
+            _navigator.rodzajBazy = INavigator.RodzajBazy.Plik;
+        }
     }
 
 

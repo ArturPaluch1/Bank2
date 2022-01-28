@@ -26,16 +26,7 @@ namespace Bank2
             base.OnStartup(e);
         }
 
-        //public App()
-        //{
-        //    FrameworkElement.LanguageProperty.OverrideMetadata(
-
-        //    typeof(FrameworkElement),
-
-        //    new FrameworkPropertyMetadata(
-
-        //        XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
-        //}
+       
     }
 
 }

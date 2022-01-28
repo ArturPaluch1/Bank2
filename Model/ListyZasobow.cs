@@ -13,7 +13,7 @@ namespace Bank2.Model
         private ObservableCollection<PracownicyDataModel> ListaPracownikow { get; set; }
 
         private readonly Baza db;
-        public ListyZasobow()
+        public ListyZasobow(string rodzajBazyName)
         {
             ListaKlientow = new ObservableCollection<KlienciDataModel>();
             ListaKredytow = new ObservableCollection<KredytyDataModel>();
@@ -22,7 +22,7 @@ namespace Bank2.Model
             ListaRodzajowLokat = new ObservableCollection<RodzajeLokatDataModel>();
             ListaRodzajowKredytow = new ObservableCollection<RodzajeKredytowDataModel>();
             ListaPracownikow = new ObservableCollection<PracownicyDataModel>();
-            db = new Baza();
+            db = new Baza(rodzajBazyName);
         }
 
 
@@ -51,6 +51,8 @@ namespace Bank2.Model
 
 
             }
+           
+            
             return ListaKlientow;
         }
         public ObservableCollection<KlienciDataModel> PobierzNieAktywniKlienci()

@@ -9,7 +9,7 @@
         public ViewModelBase CurrentViewModel => _navigator.CurrentViewModel;
         private readonly INavigator _navigator;
 
-        private object _currentView;
+      
 
 
 

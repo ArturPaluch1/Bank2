@@ -2,6 +2,9 @@
 using Bank2.Navigators;
 using Bank2.ViewModel;
 using System;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
 
@@ -60,43 +63,56 @@ namespace Bank2.Commands
             if (!(vm.Imie == null || vm.Nazwisko == null || vm.Password == null))
             {
 
-                try
-                {
-                    Baza db = new Baza();
 
+              
+        
+                Baza db = new Baza(_navigator.rodzajBazy.ToString());
+             
 
-                    foreach (var item in db.Pracownicy)
-                    {
-                        if (
-                            vm.Imie == item.Imię_pracownika.TrimEnd()
-                          && vm.Nazwisko == item.Nazwisko_pracownika.TrimEnd()
-                            && vm.Password == item.Password.TrimEnd())
+                if (   db.Database.Exists() == true)
                         {
-                            zalogowany = item;
-                            break;
+                        foreach (var item in db.Pracownicy)
+                        {
+                            if (
+                                vm.Imie == item.Imię_pracownika.TrimEnd()
+                              && vm.Nazwisko == item.Nazwisko_pracownika.TrimEnd()
+                                && vm.Password == item.Password.TrimEnd())
+                            {
+                           
+                                zalogowany = item;
+                                break;
+                            }
+
+
                         }
-
-
-                    }
-                    if (zalogowany != null)
-                    {
-                        MessageBox.Show("Dobre dane logowania");
-                        return zalogowany;
+                        if (zalogowany != null)
+                        {
+                            MessageBox.Show("Dobre dane logowania");
+                            return zalogowany;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Złe dane logowania");
+                            return null;
+                        }
                     }
                     else
-                    {
-                        MessageBox.Show("Złe dane logowania");
+                        {
+                        MessageBox.Show("Błąd logowania do bazy danych lub baza nie istnieje.");
                         return null;
                     }
+                
+                   
 
 
 
-                }
-                catch
-                {
-                    MessageBox.Show("Błąd logowania do bazy danych.");
-                    return null;
-                }
+
+                  
+
+
+
+                
+                
 
 
 

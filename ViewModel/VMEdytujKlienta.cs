@@ -44,7 +44,7 @@ namespace Bank2.ViewModel
             _Klient = Klient;
             _window = window;
             _navigator = navigator;
-            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
+            ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywniKlienci();
           
 
             TablicaDanych = new KlienciTabela(_navigator);
@@ -81,7 +81,7 @@ namespace Bank2.ViewModel
 
 
 
-            Baza db = new Baza();
+            Baza db = new Baza(_navigator.rodzajBazy.ToString());
             Klienci temp = new Klienci();
 
             foreach (var item in db.Klienci)

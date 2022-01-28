@@ -23,6 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Security" />
   </ItemGroup>
 
@@ -41,6 +43,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Update="View\Pages\test - Copy %282%29.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>test.xaml.cs</DependentUpon>
@@ -61,6 +68,10 @@
     </None>
     <None Update="CodeTemplates\EFModelFromDatabase\EntityType.cs.t4">
       <Generator></Generator>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

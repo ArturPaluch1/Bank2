@@ -46,7 +46,7 @@ namespace Bank2.ViewModel
 
                 if (Imie == "" && nazwisko == "" && pesel == "" && haslo == "" && telefon == "" && telefon2 == "" && wynagr1 == "" && wynagr2 == "")
                 {
-                    Baza db = new Baza();
+                    Baza db = new Baza(_navigator.rodzajBazy.ToString());
                     //  db.Database.
                     db.Pracownicy.Add(new Pracownicy()
                     {

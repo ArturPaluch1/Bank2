@@ -67,8 +67,8 @@ namespace Bank2.ViewModel
         {
             _window = window;
             _navigator = navigator;
-            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
-            ListaRodzajowKredytow = new ListyZasobow().PobierzAktywneRodzajeKredytow();
+            ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywniKlienci();
+            ListaRodzajowKredytow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneRodzajeKredytow();
             TablicaDanych = new KlienciTabela(_navigator);
             TablicaDanych2 = new RodzajeKredytowTabela(_navigator);
             Kwota = 0;
@@ -85,7 +85,7 @@ namespace Bank2.ViewModel
 
         private void DodajKredyt()
         {
-            Baza db = new Baza();
+            Baza db = new Baza(_navigator.rodzajBazy.ToString());
             Kredyty nowyKredyt = new Kredyty();
 
             string bladKlienta = "";

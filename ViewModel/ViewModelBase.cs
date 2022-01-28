@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text.RegularExpressions;
+using static Bank2.Navigators.INavigator;
 
 namespace Bank2.ViewModel
 {
@@ -44,6 +45,9 @@ namespace Bank2.ViewModel
             get { return _errorsByPropertyName.Any(); }
 
         }
+
+        public RodzajBazy rodzajBazy { get; set; }
+
         public event Action CurrentViewModelChanged;
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
         public event PropertyChangedEventHandler PropertyChanged;

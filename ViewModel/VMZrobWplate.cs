@@ -42,7 +42,7 @@ namespace Bank2.ViewModel
         {
             _window = window;
             _navigator = navigator;
-            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
+            ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywniKlienci();
             _TablicaDanych = new KlienciTabela(_navigator);
             Wplac = new RelayCommand(ZrobWplate);
             Anuluj = new RelayCommand(WyjdzZokna);
@@ -76,7 +76,7 @@ namespace Bank2.ViewModel
             {
                 try
                 {
-                    Baza db = new Baza();
+                    Baza db = new Baza(_navigator.rodzajBazy.ToString());
 
                     Przelewy nowyPrzelew = new Przelewy();
                     nowyPrzelew.Data = DateTime.Now;

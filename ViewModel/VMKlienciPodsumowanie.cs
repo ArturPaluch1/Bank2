@@ -115,7 +115,7 @@ namespace Bank2.ViewModel
             ListaLokat = null;
             TuNaglowek = new PrzelewItemNaglowek();
 
-            Baza db = new Baza();
+            Baza db = new Baza(_navigator.rodzajBazy.ToString());
             var querry = from Przelewy in db.Przelewy
                          where Przelewy.Nadawca == _klient.Id_klienta
                          select new
@@ -154,7 +154,7 @@ namespace Bank2.ViewModel
             ListaPrzelewow = null;
             ListaKredytow = null;
             TuNaglowek = new LokataItemNaglowek();
-            Baza db = new Baza();
+            Baza db = new Baza(_navigator.rodzajBazy.ToString());
             var querry = from Lokaty in db.Lokaty
                          where Lokaty.Klient == _klient.Id_klienta
                          select new
@@ -208,7 +208,7 @@ namespace Bank2.ViewModel
             ListaPrzelewow = null;
             ListaLokat = null;
             TuNaglowek = new KredytItemNaglowek();
-            Baza db = new Baza();
+            Baza db = new Baza(_navigator.rodzajBazy.ToString());
             var querry = from Kredyty in db.Kredyty
                          where Kredyty.Klient == _klient.Id_klienta
                          select new
@@ -224,7 +224,7 @@ namespace Bank2.ViewModel
 
             foreach (var item in querry)
             {
-                KredytyDataModel kredyt = new KredytyDataModel();
+                KredytyDataModel kredyt = new KredytyDataModel() ;
                 kredyt.Id_Kredytu = item.Id_Kredytu;
 
                 kredyt.Kwota_kredytu = item.Kwota_kredytu;

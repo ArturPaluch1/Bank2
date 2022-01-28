@@ -70,8 +70,8 @@ namespace Bank2.ViewModel
         {
             _window = window;
             _navigator = navigator;
-            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
-            ListaRodzajowLokat = new ListyZasobow().PobierzAktywneRodzajeLokat();
+            ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywniKlienci();
+            ListaRodzajowLokat = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneRodzajeLokat();
             _TablicaDanych = new KlienciTabela(_navigator);
             _TablicaDanych2 = new RodzajeLokatTabela(_navigator);
             Kwota = 0;
@@ -88,7 +88,7 @@ namespace Bank2.ViewModel
 
         private void DodajLokate()
         {
-            Baza db = new Baza();
+            Baza db = new Baza(_navigator.rodzajBazy.ToString());
             Lokaty nowaLokata = new Lokaty();
 
             string bladKlienta = "";

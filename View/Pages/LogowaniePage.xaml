@@ -50,7 +50,25 @@
             <TextBox Style="{StaticResource TextBoxDefaultStyle}" Text="{Binding Nazwisko, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" Grid.Row="3"  Grid.Column="2"        />
             <components:BindablePasswordBox Style="{StaticResource BindablePasswordBoxStyle}" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" x:Name="PasswordBox"  Grid.Row="4"  Grid.Column="2"      />
             <Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zarejestruj" Command="{Binding Zarejestruj}"  Grid.Row="6"  Grid.Column="1"  Content="Zarejestruj"     />
-            <Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zaloguj" Command="{Binding Zaloguj}" IsEnabled="{Binding ErrorFree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6"  Grid.Column="3"  Content="Zaloguj"    />
+            <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="2">
+                <Label Content="Baza danych" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="0" Margin="0"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="localhost" Grid.Row="0" Grid.Column="0"/>
+                    <Label Content="Z pliku" Grid.Row="1" Grid.Column="0"/>
+                    <RadioButton Grid.Row="0" Grid.Column="1" Command="{Binding BazaDanychSQLServer, Mode=OneWay}" IsChecked="True"/>
+                    <RadioButton Grid.Row="1" Grid.Column="1" Command="{Binding BazaDanychPlik, Mode=OneWay}"/>
+                </Grid>
+            </StackPanel>
+            
+            <Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zaloguj" Command="{Binding Zaloguj}" IsEnabled="{Binding ErrorFree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="6"  Grid.Column="3"  Content="Zaloguj" HorizontalAlignment="Left" Margin="15.623,9.679,0,9.755"    />
             <!--<Button Style="{StaticResource ButtonDefaultStyle}" x:Name="Zaloguj" Command="{Binding Zaloguj}"  Grid.Row="6"  Grid.Column="3"  Content="Zaloguj"    />-->
             <Image Grid.Row="2"  Grid.Column="3" Grid.RowSpan="3" HorizontalAlignment="Center" Source="/image.jpg" />
 

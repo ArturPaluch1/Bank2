@@ -2,23 +2,18 @@
 
 
 
-
-
-
-
-
-
-
-
 namespace Bank2.Model
 {
     public partial class Baza : DbContext
     {
-        public Baza()
-            : base("name=Baza")
+        //public Baza()
+        //    : base("name=BazaPlik1")
+        //{
+        //}
+        public Baza(string bazaName)
+            : base("name="+ bazaName)
         {
         }
-
 
         public virtual DbSet<Klienci> Klienci { get; set; }
 
@@ -34,7 +29,7 @@ namespace Bank2.Model
 
         public virtual DbSet<Rodzaje_lokat> Rodzaje_lokat { get; set; }
 
-
+       
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

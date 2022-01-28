@@ -195,7 +195,7 @@ namespace Bank2.ViewModel
 
                 ListaKlientow.Clear();
                 ListaKlientow.Add(temp1);
-                ListaKredytow = new ListyZasobow().PobierzAktywneKredyty();
+                ListaKredytow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneKredyty();
 
 
             }
@@ -222,7 +222,7 @@ namespace Bank2.ViewModel
                 ButtonPrzelewyWyswietlContent = "Wyświetl";
             }
 
-            ListaLokat = new ListyZasobow().PobierzNieAktywneLokaty();
+            ListaLokat = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzNieAktywneLokaty();
             TablicaDanych = null;
             TablicaDanych = new LokatyTabela(_navigator);
             TablicaDanych.DataContext = this;
@@ -248,7 +248,7 @@ namespace Bank2.ViewModel
                 ButtonPrzelewyWyswietlContent = "Wyświetl";
             }
 
-            ListaKredytow = new ListyZasobow().PobierzNieAktywneKredyty();
+            ListaKredytow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzNieAktywneKredyty();
             TablicaDanych = null;
             TablicaDanych = new KredytyTabela(_navigator);
             TablicaDanych.DataContext = this;
@@ -274,7 +274,7 @@ namespace Bank2.ViewModel
                 ButtonPrzelewyWyswietlContent = "Wyświetl";
             }
 
-            ListaKlientow = new ListyZasobow().PobierzNieAktywniKlienci();
+            ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzNieAktywniKlienci();
             TablicaDanych = null;
             TablicaDanych = new KlienciTabela(_navigator);
             TablicaDanych.DataContext = this;
@@ -308,7 +308,7 @@ namespace Bank2.ViewModel
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    Baza db = new Baza();
+                    Baza db = new Baza(_navigator.rodzajBazy.ToString());
                     foreach (var item in db.Lokaty)
                     {
 
@@ -324,7 +324,7 @@ namespace Bank2.ViewModel
 
                     }
                     db.SaveChanges();
-                    ListaLokat = new ListyZasobow().PobierzAktywneLokaty();
+                    ListaLokat = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneLokaty();
                     TablicaDanych = null;
                     TablicaDanych = new LokatyTabela(_navigator);
                     TablicaDanych.DataContext = this;
@@ -361,7 +361,7 @@ namespace Bank2.ViewModel
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    Baza db = new Baza();
+                    Baza db = new Baza(_navigator.rodzajBazy.ToString());
                     foreach (var item in db.Kredyty)
                     {
 
@@ -377,7 +377,7 @@ namespace Bank2.ViewModel
 
                     }
                     db.SaveChanges();
-                    ListaKredytow = new ListyZasobow().PobierzAktywneKredyty();
+                    ListaKredytow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneKredyty();
                     TablicaDanych = null;
                     TablicaDanych = new KredytyTabela(_navigator);
                     TablicaDanych.DataContext = this;
@@ -417,7 +417,7 @@ namespace Bank2.ViewModel
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    Baza db = new Baza();
+                    Baza db = new Baza(_navigator.rodzajBazy.ToString());
                     foreach (var item in db.Klienci)
                     {
                         foreach (var doUsuniecia in znalezione)
@@ -445,7 +445,7 @@ namespace Bank2.ViewModel
 
                     }
                     db.SaveChanges();
-                    ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
+                    ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywniKlienci();
                     TablicaDanych = null;
                     TablicaDanych = new KlienciTabela(_navigator);
                     TablicaDanych.DataContext = this;
@@ -554,7 +554,7 @@ namespace Bank2.ViewModel
             {
                 case "EdytujKlientaWindow":
                     {
-                        ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
+                        ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywniKlienci();
                         TablicaDanych = null;
                         TablicaDanych = new KlienciTabela(_navigator);
                         TablicaDanych.DataContext = this;
@@ -562,7 +562,7 @@ namespace Bank2.ViewModel
                     }
                 case "EdytujKredytWindow":
                     {
-                        ListaKredytow = new ListyZasobow().PobierzAktywneKredyty();
+                        ListaKredytow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneKredyty();
                         TablicaDanych = null;
                         TablicaDanych = new KredytyTabela(_navigator);
                         TablicaDanych.DataContext = this;
@@ -570,7 +570,7 @@ namespace Bank2.ViewModel
                     }
                 case "EdytujLokateWindow":
                     {
-                        ListaLokat = new ListyZasobow().PobierzAktywneLokaty();
+                        ListaLokat = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneLokaty();
                         TablicaDanych = null;
                         TablicaDanych = new LokatyTabela(_navigator);
                         TablicaDanych.DataContext = this;
@@ -639,7 +639,7 @@ namespace Bank2.ViewModel
                 ButtonKlienciWyswietlContent = "Schowaj";
 
                 ListaKlientow.Clear();
-                ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
+                ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywniKlienci();
             }
 
             else
@@ -676,7 +676,7 @@ namespace Bank2.ViewModel
             {
                 ButtonPrzelewyWyswietlContent = "Schowaj";
                 ListaPrzelewow.Clear();
-                ListaPrzelewow = new ListyZasobow().PobierzPrzelewy();
+                ListaPrzelewow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzPrzelewy();
 
 
 
@@ -716,7 +716,7 @@ namespace Bank2.ViewModel
                 ButtonLokatyWyswietlContent = "Schowaj";
 
                 ListaLokat.Clear();
-                ListaLokat = new ListyZasobow().PobierzAktywneLokaty();
+                ListaLokat = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneLokaty();
 
             }
 
@@ -751,7 +751,7 @@ namespace Bank2.ViewModel
                 ButtonKredytyWyswietlContent = "Schowaj";
 
                 ListaKredytow.Clear();
-                ListaKredytow = new ListyZasobow().PobierzAktywneKredyty();
+                ListaKredytow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneKredyty();
 
             }
 

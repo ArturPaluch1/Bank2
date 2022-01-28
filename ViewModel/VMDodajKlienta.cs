@@ -1,6 +1,8 @@
 ﻿
 using Bank2.Model;
+using Bank2.Navigators;
 using System;
+using System.Data.Entity;
 using System.Windows;
 using System.Windows.Input;
 
@@ -105,9 +107,10 @@ namespace Bank2.ViewModel
 
         public string Error => throw new NotImplementedException();
 
-
-        public VMDodajKlienta(Window window)
+        private Baza _db;
+        public VMDodajKlienta(Window window, INavigator navigator)
         {
+            _db = new Baza(navigator.rodzajBazy.ToString());
             _window = window;
             Dodaj = new RelayCommand(DodajKlienta);
             Anuluj = new RelayCommand(ZamknijOkno);
@@ -132,7 +135,7 @@ namespace Bank2.ViewModel
 
         private void DodajKlienta()
         {
-            Baza db = new Baza();
+    
             Klienci temp = new Klienci();
             temp.Imię = this.Imie;
             temp.Nazwisko = this.Nazwisko;
@@ -140,8 +143,8 @@ namespace Bank2.ViewModel
             temp.Data_założenia = DateTime.Now;
             temp.Miasto = this.Miasto;
             temp.Ulica = this.Ulica;
-            db.Klienci.Add(temp);
-            db.SaveChanges();
+            _db.Klienci.Add(temp);
+            _db.SaveChanges();
             MessageBoxResult result = MessageBox.Show("Dodany", "", MessageBoxButton.OK);
             if (result == MessageBoxResult.OK)
             {

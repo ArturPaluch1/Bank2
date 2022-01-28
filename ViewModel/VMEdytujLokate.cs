@@ -59,8 +59,8 @@ namespace Bank2.ViewModel
             _window = window;
             _navigator = navigator;
             _LokataDoZmiany = LokataDoZmiany;
-            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
-            ListaRodzajowLokat = new ListyZasobow().PobierzAktywneRodzajeLokat();
+            ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywniKlienci();
+            ListaRodzajowLokat = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneRodzajeLokat();
             TablicaDanych = new KlienciTabela(_navigator);
             TablicaDanych2 = new RodzajeLokatTabela(_navigator);
 
@@ -126,7 +126,7 @@ namespace Bank2.ViewModel
                     else
                     {
                         Lokaty doZmiany = null;
-                        Baza db = new Baza();
+                        Baza db = new Baza(_navigator.rodzajBazy.ToString());
                         //  _KredytDoZmiany;
                         foreach (var item in db.Lokaty)
                         {

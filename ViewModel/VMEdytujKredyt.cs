@@ -59,8 +59,8 @@ namespace Bank2.ViewModel
             _window = window;
             _navigator = navigator;
             _KredytDoZmiany = KredytDoZmiany;
-            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
-            ListaRodzajowKredytow = new ListyZasobow().PobierzAktywneRodzajeKredytow();
+            ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywniKlienci();
+            ListaRodzajowKredytow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywneRodzajeKredytow();
             TablicaDanych = new KlienciTabela(_navigator);
             TablicaDanych2 = new RodzajeKredytowTabela(_navigator);
 
@@ -131,7 +131,7 @@ namespace Bank2.ViewModel
                     else
                     {
                         Kredyty doZmiany = null;
-                        Baza db = new Baza();
+                        Baza db = new Baza(_navigator.rodzajBazy.ToString());
 
                         foreach (var item in db.Kredyty)
                         {

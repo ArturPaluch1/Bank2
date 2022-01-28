@@ -87,7 +87,7 @@ namespace Bank2.ViewModel
         {
             _window = window;
             _navigator = navigator;
-            ListaKlientow = new ListyZasobow().PobierzAktywniKlienci();
+            ListaKlientow = new ListyZasobow(_navigator.rodzajBazy.ToString()).PobierzAktywniKlienci();
             _TablicaDanych = new KlienciTabela(_navigator);
 
             Przelej = new RelayCommand(ZrobPrzelew);
@@ -153,7 +153,7 @@ namespace Bank2.ViewModel
 
                     try
                     {
-                        Baza db = new Baza();
+                        Baza db = new Baza(_navigator.rodzajBazy.ToString());
                         Przelewy nowyPrzelew = new Przelewy();
                         nowyPrzelew.Data = DateTime.Now;
                         nowyPrzelew.Kwota = this.Kwota;

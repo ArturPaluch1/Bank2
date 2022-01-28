@@ -2,12 +2,19 @@
 using Bank2.ViewModel;
 using System;
 using System.ComponentModel;
+using static Bank2.Navigators.INavigator;
+
 
 namespace Bank2.Navigators
 {
-    public class Navigator : INavigator//, INotifyPropertyChanged
+    public class Navigator : INavigator
+
 
     {
+
+
+        public RodzajBazy rodzajBazy { get; set; }
+
         public Pracownicy zalogowanyPracownik { get; set; }
         private ViewModelBase _currentViewModel;
         public event Action CurrentViewModelChanged;
@@ -22,6 +29,8 @@ namespace Bank2.Navigators
                 OnCurrentViewModelChanged();
             }
         }
+
+      
 
         private void OnCurrentViewModelChanged()
         {
