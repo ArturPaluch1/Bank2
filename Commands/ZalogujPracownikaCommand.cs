@@ -36,7 +36,8 @@ namespace Bank2.Commands
 
         public void Execute(object parameter)
         {
-            if (_navigator.CurrentViewModel is VMLogowanie)
+            
+         if (_navigator.CurrentViewModel is VMLogowanie)
             {
                 Pracownicy pracownik = null;
                 pracownik = Zaloguj(_navigator.CurrentViewModel as VMLogowanie);
@@ -60,7 +61,12 @@ namespace Bank2.Commands
             Pracownicy zalogowany = null;
 
 
-            if (!(vm.Imie == null || vm.Nazwisko == null || vm.Password == null))
+            if (_navigator.rodzajBazy == INavigator.RodzajBazy.Null)
+            {
+                MessageBox.Show("Proszę wybrać rodzaj bazy.");
+                return null;
+            }
+           else if (!(vm.Imie == null || vm.Nazwisko == null || vm.Password == null))
             {
 
 

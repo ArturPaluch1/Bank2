@@ -85,7 +85,7 @@ namespace Bank2.ViewModel
             _navigator = navigator;
             Zarejestruj = new UpdateCurrentViewModelCommand<VMDodajPracownika>(_navigator, () => new VMDodajPracownika(_navigator));
          
-           _navigator.rodzajBazy = INavigator.RodzajBazy.SQLServer;
+           _navigator.rodzajBazy = INavigator.RodzajBazy.Null;
             Zaloguj = new ZalogujPracownikaCommand<VMPracownikNavigationBar>(_navigator, () => new VMPracownikNavigationBar(_navigator));
             BazaDanychPlik = new RelayCommand(UpdateDatabaseSourceToFile);
             BazaDanychSQLServer = new RelayCommand(UpdateDatabaseSourceToBazaDanychSQLServer);

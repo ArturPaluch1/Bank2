@@ -9,6 +9,7 @@ namespace Bank2.Navigators
     {
         public enum RodzajBazy
         {
+            Null,
             SQLServer,
             Plik
         }

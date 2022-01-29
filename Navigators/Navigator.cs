@@ -13,7 +13,7 @@ namespace Bank2.Navigators
     {
 
 
-        public RodzajBazy rodzajBazy { get; set; }
+        public RodzajBazy rodzajBazy { get; set; } 
 
         public Pracownicy zalogowanyPracownik { get; set; }
         private ViewModelBase _currentViewModel;

@@ -42,12 +42,9 @@ namespace Bank2.ViewModel
 
             if (_vm.Imie != null && _vm.Nazwisko != null && _vm.Password != null && _vm.Pesel != null && _vm.Wynagrodzenie != null && _vm.Telefon != null)
             {
-                string Imie = "", nazwisko = "", wynagr1 = "", wynagr2 = "", pesel = "", telefon = "", telefon2 = "", haslo = "";
-
-                if (Imie == "" && nazwisko == "" && pesel == "" && haslo == "" && telefon == "" && telefon2 == "" && wynagr1 == "" && wynagr2 == "")
-                {
+             
                     Baza db = new Baza(_navigator.rodzajBazy.ToString());
-                    //  db.Database.
+                  
                     db.Pracownicy.Add(new Pracownicy()
                     {
                         Data_zatrudnienia = DateTime.Now,
@@ -69,13 +66,7 @@ namespace Bank2.ViewModel
                     {
                         _navigator.CurrentViewModel = _createViewModel();
                     }
-                }
-
-
-                else
-                {
-                    MessageBox.Show("Podałeś błędne dane.  \n" + Imie + nazwisko + pesel + haslo + telefon + telefon2 + wynagr1 + wynagr2 + "");
-                }
+            
 
             }
             else

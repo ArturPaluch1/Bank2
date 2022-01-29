@@ -63,7 +63,7 @@
                     </Grid.RowDefinitions>
                     <Label Content="localhost" Grid.Row="0" Grid.Column="0"/>
                     <Label Content="Z pliku" Grid.Row="1" Grid.Column="0"/>
-                    <RadioButton Grid.Row="0" Grid.Column="1" Command="{Binding BazaDanychSQLServer, Mode=OneWay}" IsChecked="True"/>
+                    <RadioButton Grid.Row="0" Grid.Column="1" Command="{Binding BazaDanychSQLServer, Mode=OneWay}" />
                     <RadioButton Grid.Row="1" Grid.Column="1" Command="{Binding BazaDanychPlik, Mode=OneWay}"/>
                 </Grid>
             </StackPanel>
