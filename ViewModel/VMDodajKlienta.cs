@@ -143,6 +143,7 @@ namespace Bank2.ViewModel
             temp.Data_założenia = DateTime.Now;
             temp.Miasto = this.Miasto;
             temp.Ulica = this.Ulica;
+            temp.aktywny = true;
             _db.Klienci.Add(temp);
             _db.SaveChanges();
             MessageBoxResult result = MessageBox.Show("Dodany", "", MessageBoxButton.OK);

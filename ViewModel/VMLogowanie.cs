@@ -94,6 +94,8 @@ namespace Bank2.ViewModel
             Nazwisko = "";
         }
 
+     
+
         private void UpdateDatabaseSourceToBazaDanychSQLServer()
         {
             _navigator.rodzajBazy = INavigator.RodzajBazy.SQLServer;

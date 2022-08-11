@@ -1,7 +1,6 @@
 ﻿using System.Data.Entity;
 
 
-
 namespace Bank2.Model
 {
     public partial class Baza : DbContext
@@ -11,7 +10,8 @@ namespace Bank2.Model
         //{
         //}
         public Baza(string bazaName)
-            : base("name="+ bazaName)
+        // : base("name="+ bazaName)
+          : base( bazaName)
         {
         }
 

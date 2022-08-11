@@ -163,6 +163,8 @@ namespace Bank2.ViewModel
                         nowyPrzelew.Tytuł_przelewu = this.Tytylem;
                         db.Przelewy.Add(nowyPrzelew);
 
+                        db.Klienci.Find(zaznaczonyKlient.Id_klienta).Środki = zaznaczonyKlient.Środki - this.Kwota;
+
                         db.SaveChanges();
 
                         MessageBoxResult result = MessageBox.Show("Przelew wykonany", "", MessageBoxButton.OK);

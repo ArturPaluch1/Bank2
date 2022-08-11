@@ -4,11 +4,11 @@ using System.Windows.Controls;
 
 namespace Bank2.ViewModel
 {
-    class VMPracownikNavigationBar : ViewModelBase
+ public   class VMPracownikNavigationBar : ViewModelBase
     {
 
         private INavigator _navigator;
-        public VMPracownikKlienci pg { get; set; }
+      //  public VMPracownikKlienci pg { get; set; }
 
 
 

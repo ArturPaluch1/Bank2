@@ -56,7 +56,7 @@ namespace Bank2.Commands
         }
 
 
-        private Pracownicy Zaloguj(VMLogowanie vm)
+        public Pracownicy Zaloguj(VMLogowanie vm)
         {
             Pracownicy zalogowany = null;
 
