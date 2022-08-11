@@ -161,6 +161,8 @@ namespace Bank2.ViewModel
                         nowyPrzelew.Nazwa_odbiorcy = this.Odbiorca;
                         nowyPrzelew.Numer_rachunku_odbiorcy = this.RachunekOdbiorcy;
                         nowyPrzelew.Tytuł_przelewu = this.Tytylem;
+
+                        db.Klienci.Find(zaznaczonyKlient.Id_klienta).Środki = zaznaczonyKlient.Środki - this.Kwota;
                         db.Przelewy.Add(nowyPrzelew);
 
                         db.SaveChanges();

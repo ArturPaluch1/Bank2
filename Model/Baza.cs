@@ -11,7 +11,7 @@ namespace Bank2.Model
         //{
         //}
         public Baza(string bazaName)
-            : base("name="+ bazaName)
+            : base( bazaName)
         {
         }
 
