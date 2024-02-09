@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bank2.View.Windows"
         mc:Ignorable="d"
-        Title="ZrobWplateWindow" Height="auto" MinHeight="400" Width="800"  >
+        Title="ZrobWplateWindow" MinHeight="800" Width="1800"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
     <Window.Resources>
        
         <Style TargetType="ColumnDefinition" >

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bank2.View.Windows"
         xmlns:components="clr-namespace:Bank2.Components"
         mc:Ignorable="d"
-        Title="oknoDodajKredyt" Name="Nameokno_DodajKredyt"   MinHeight="400" MaxHeight="900" Width="800"  
+        Title="Dodaj Kredyt" Name="Nameokno_DodajKredyt"    MinHeight="800" Width="1800"  HorizontalAlignment="Center" VerticalAlignment="Center" 
     >
     <Window.Resources>
      

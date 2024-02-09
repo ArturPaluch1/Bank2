@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bank2.View.Windows"
         xmlns:components="clr-namespace:Bank2.Components"
         mc:Ignorable="d"
-          Title="oknoDodajPrzelew" Name="NameOknoDodajPrzelew" Height="auto" MinHeight="400" Width="800"  >
+          Title="oknoDodajPrzelew" Name="NameOknoDodajPrzelew" Height="auto" MinHeight="400" Width="800"  HorizontalAlignment="Center" VerticalAlignment="Center"  >
     <Window.Resources>
        
 

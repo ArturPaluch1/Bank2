@@ -71,56 +71,60 @@ namespace Bank2.Commands
            else if (!(vm.Imie == null || vm.Nazwisko == null || vm.Password == null))
             {
 
-
-              
-        
-                Baza db = new Baza(_navigator.rodzajBazy.ToString());
-             
-
-                if (   db.Database!=null)
-                        {
-                   
-                
-                    Pracownicy zalogowanyPracownik = db.Pracownicy.ToList().Where(
-                    a=> vm.Imie.TrimEnd().ToLower()==a.Imię_pracownika.TrimEnd().ToLower() 
-                    &&     vm.Nazwisko.TrimEnd().ToLower().Equals (a.Nazwisko_pracownika.TrimEnd().ToLower())
-                    &&  vm.Password.TrimEnd().Equals( a.Password.TrimEnd())
-                        ).FirstOrDefault();
-
-                  
+                Pracownicy zalogowanyPracownik = null;
+                Baza db = null;
+                try
+                {
+                     db = new Baza(_navigator.rodzajBazy.ToString());
 
 
 
 
 
-                    if (zalogowanyPracownik != null)
-                        {
-                            MessageBox.Show("Dobre dane logowania");
-                            return zalogowanyPracownik;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Złe dane logowania");
-                            return null;
-                        }
+                    
+                }
+                catch
+                {
+                    MessageBox.Show("Błąd logowania do bazy danych lub baza nie istnieje.");
+                    return null;
+                }
+
+
+
+                zalogowanyPracownik = db.Pracownicy.ToList().Where(
+                  a => vm.Imie.TrimEnd().ToLower() == a.Imię_pracownika.TrimEnd().ToLower()
+                  && vm.Nazwisko.TrimEnd().ToLower().Equals(a.Nazwisko_pracownika.TrimEnd().ToLower())
+                  && vm.Password.TrimEnd().Equals(a.Password.TrimEnd())
+                      ).FirstOrDefault();
+
+
+                if (zalogowanyPracownik!=null)
+                {
+
+                    if (zalogowanyPracownik.aktywny != false)
+                    {
+                        MessageBox.Show("Dobre dane logowania");
+                        return zalogowanyPracownik;
                     }
                     else
-                        {
-                        MessageBox.Show("Błąd logowania do bazy danych lub baza nie istnieje.");
+                    {
+                        MessageBox.Show("Ten pracownik jest nieaktywny");
                         return null;
                     }
-                
                    
 
+                }
+
+                else
+                {
+                    MessageBox.Show("Złe dane logowania");
+                    return null;
+                }
 
 
 
-                  
 
 
-
-                
-                
 
 
 

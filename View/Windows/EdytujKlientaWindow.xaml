@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bank2.View.Windows"
         xmlns:components ="clr-namespace:Bank2.Components"
         mc:Ignorable="d"
-       Title="oknoEdytujKlienta" Name="NameoknoEdytujKlienta" Height="450" Width="800">
+       Title="oknoEdytujKlienta" Name="NameoknoEdytujKlienta" Height="800" Width="900"  HorizontalAlignment="Center" VerticalAlignment="Center" >
     <Window.Resources>
        
 
@@ -60,13 +60,13 @@
         <Label x:Name="LabelUlica" Style="{DynamicResource LabelDefaultStyle}" Content="Ulica" Grid.Column="2" Grid.Row="3"/>
 
 
-        <TextBox x:Name="textBoxImie" Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Imie,Mode=TwoWay}" Grid.Column="1" Grid.Row="1"   TextWrapping="Wrap"   />
-        <TextBox x:Name="textBoxNazwisko" Style="{DynamicResource TextBoxDefaultStyle}"  Text="{Binding Nazwisko,Mode=TwoWay}" Grid.Column="1" Grid.Row="2"  TextWrapping="Wrap"   />
+        <TextBox x:Name="textBoxImie" Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Imie,Mode=TwoWay}" Grid.Column="1" Grid.Row="1"   TextWrapping="Wrap"  Width="200" />
+        <TextBox x:Name="textBoxNazwisko" Style="{DynamicResource TextBoxDefaultStyle}"  Text="{Binding Nazwisko,Mode=TwoWay}" Grid.Column="1" Grid.Row="2"  TextWrapping="Wrap"   Width="200"/>
 
-        <components:BindablePasswordBox Password="{Binding Password, Mode=TwoWay }"  Style="{DynamicResource BindablePasswordBoxStyle}"  Grid.Column="1" Grid.Row="3" />
-        <TextBox x:Name="textBoxTelefon"  Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Telefon,Mode=TwoWay}" Grid.Column="3" Grid.Row="1"  TextWrapping="Wrap"   />
-        <TextBox x:Name="textBoxMiasto" Style="{DynamicResource TextBoxDefaultStyle}"  Text="{Binding Miasto,Mode=TwoWay}" Grid.Column="3" Grid.Row="2"   TextWrapping="Wrap"    />
-        <TextBox x:Name="textBoxUlica" Style="{DynamicResource TextBoxDefaultStyle}"  Text="{Binding Ulica,Mode=TwoWay}" Grid.Column="3" Grid.Row="3"   TextWrapping="Wrap"      />
+        <components:BindablePasswordBox Password="{Binding Password, Mode=TwoWay }"  Style="{DynamicResource BindablePasswordBoxStyle}"  Grid.Column="1" Grid.Row="3" Width="200"/>
+        <TextBox x:Name="textBoxTelefon"  Style="{DynamicResource TextBoxDefaultStyle}" Text="{Binding Telefon,Mode=TwoWay}" Grid.Column="3" Grid.Row="1"  TextWrapping="Wrap"   Width="200"/>
+        <TextBox x:Name="textBoxMiasto" Style="{DynamicResource TextBoxDefaultStyle}"  Text="{Binding Miasto,Mode=TwoWay}" Grid.Column="3" Grid.Row="2"   TextWrapping="Wrap"  Width="200"  />
+        <TextBox x:Name="textBoxUlica" Style="{DynamicResource TextBoxDefaultStyle}"  Text="{Binding Ulica,Mode=TwoWay}" Grid.Column="3" Grid.Row="3"   TextWrapping="Wrap"   Width="200"   />
 
         <Button x:Name="edytuj" Content="edytuj" Command="{Binding Edytuj}"   Style="{DynamicResource ButtonDefaultStyle}" Grid.Column="2" Grid.Row="5" Width="75" HorizontalAlignment="Center" />
         <Button x:Name="anuluj" Content="anuluj" Command="{Binding Anuluj}"  Style="{DynamicResource ButtonDefaultStyle}"  Grid.Column="3" Grid.Row="5" Width="75" HorizontalAlignment="Center" />

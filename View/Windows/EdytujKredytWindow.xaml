@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bank2.View.Windows"
         mc:Ignorable="d"
         xmlns:components ="clr-namespace:Bank2.Components"
-         Title="oknoEdytujKredyt" Name="NameoknoEdytujKredytj"  MinHeight="400" MaxHeight="900" Width="800"  
+         Title="oknoEdytujKredyt" Name="NameoknoEdytujKredytj"  MinHeight="800" Width="1800"  HorizontalAlignment="Center" VerticalAlignment="Center"
       >
     <Window.Resources>
         <Style TargetType="TextBox">
