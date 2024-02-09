@@ -14,7 +14,7 @@
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Rodzaj_kredytu}"/>
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Kwota_kredytu }"/>
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Oprocentowanie }"/>
-        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Data_założenia}"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Data_założenia , StringFormat ='{}{0:dd/MM/yyyy}'}"/>
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding ImiePracownika }"/>
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding NazwiskoPracownika }"/>
     </StackPanel>

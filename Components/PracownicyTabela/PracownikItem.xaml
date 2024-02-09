@@ -11,7 +11,7 @@
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Id_Pracownika}"  Width="30" />
         <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Imię_pracownika}" />
         <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Nazwisko_pracownika}" />
-        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Data_zatrudnienia , StringFormat=Date: {0:dddd, MMMM dd}}" />
+        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Data_zatrudnienia  , StringFormat={} {0:dd/MM/dd}}" />
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding PESEL}" />
         <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Telefon}" />
     </Grid>

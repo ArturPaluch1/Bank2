@@ -2,8 +2,10 @@
 using Bank2.Navigators;
 using Bank2.ViewModel;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
@@ -75,26 +77,26 @@ namespace Bank2.Commands
                 Baza db = new Baza(_navigator.rodzajBazy.ToString());
              
 
-                if (   db.Database.Exists() == true)
+                if (   db.Database!=null)
                         {
-                        foreach (var item in db.Pracownicy)
-                        {
-                            if (
-                                vm.Imie == item.Imię_pracownika.TrimEnd()
-                              && vm.Nazwisko == item.Nazwisko_pracownika.TrimEnd()
-                                && vm.Password == item.Password.TrimEnd())
-                            {
-                           
-                                zalogowany = item;
-                                break;
-                            }
+                   
+                
+                    Pracownicy zalogowanyPracownik = db.Pracownicy.ToList().Where(
+                    a=> vm.Imie.TrimEnd().ToLower()==a.Imię_pracownika.TrimEnd().ToLower() 
+                    &&     vm.Nazwisko.TrimEnd().ToLower().Equals (a.Nazwisko_pracownika.TrimEnd().ToLower())
+                    &&  vm.Password.TrimEnd().Equals( a.Password.TrimEnd())
+                        ).FirstOrDefault();
+
+                  
 
 
-                        }
-                        if (zalogowany != null)
+
+
+
+                    if (zalogowanyPracownik != null)
                         {
                             MessageBox.Show("Dobre dane logowania");
-                            return zalogowany;
+                            return zalogowanyPracownik;
                         }
                         else
                         {

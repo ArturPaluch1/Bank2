@@ -16,7 +16,7 @@
         <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Kwota_lokaty}" Width="200"/>
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding ImiePracownika}" Width="200"/>
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding NazwiskoPracownika}" Width="200"/>
-        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Data_założenia}" Width="200"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Data_założenia , StringFormat ='{}{0:dd/MM/yyyy}'}" Width="200"/>
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Oprocentowanie}" Width="200"/>
     </StackPanel>
     

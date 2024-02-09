@@ -18,7 +18,7 @@
         <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Nazwa_odbiorcy}" Width="200"/>
         <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Tytuł_przelewu}" Width="200"/>
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Kwota}" Width="150"/>
-        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Data}" Width="200"/>
+        <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Data  , StringFormat ='{}{0:dd/MM/yyyy}'}" Width="200"/>
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Numer_rachunku_odbiorcy}" Width="auto"/>
     </StackPanel>
 </UserControl>

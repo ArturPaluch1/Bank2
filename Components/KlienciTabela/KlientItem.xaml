@@ -13,7 +13,7 @@
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Imię}" />
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Nazwisko}" />
         <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Numer_rachunku}" />
-        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"  Text="{Binding Data_założenia , StringFormat=Date: {0:dddd, MMMM dd}}" />
+        <TextBlock Style="{DynamicResource TextBlockItemDefaultStyle}"    Text="{Binding Data_założenia, StringFormat ='{}{0:dd/MM/yyyy}'}"/>
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Telefon}" />
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Miasto}" />
         <TextBlock  Style="{DynamicResource TextBlockItemDefaultStyle}" Text="{Binding Ulica}" />

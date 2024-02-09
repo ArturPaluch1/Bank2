@@ -94,7 +94,7 @@ namespace Bank2.ViewModel
 
         public void ValidateImie(string Imie)
         {
-            Regex regImie = new Regex(@"^([a-zA-Z]*)$");
+            Regex regImie = new Regex(@"^([a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]*)$");
 
             ClearErrors(nameof(Imie));
             if (string.IsNullOrWhiteSpace(Imie))
@@ -127,7 +127,7 @@ namespace Bank2.ViewModel
         {
             ClearErrors(nameof(Nazwisko));
 
-            Regex regNazwisko = new Regex(@"^([a-zA-Z]*)$");
+            Regex regNazwisko = new Regex(@"^([a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]*)$");
             if (!regNazwisko.IsMatch(Nazwisko))
                 AddError(nameof(Nazwisko), "Nazwisko musi składać się wyłącznie z liter.");
             if (string.IsNullOrWhiteSpace(Nazwisko))

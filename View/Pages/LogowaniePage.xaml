@@ -61,8 +61,8 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label Content="localhost" Grid.Row="0" Grid.Column="0"/>
-                    <Label Content="Z pliku" Grid.Row="1" Grid.Column="0"/>
+                    <Label Content="localhost" Grid.Row="0" Grid.Column="0" FontSize="8" HorizontalContentAlignment="Center" Padding="1" Width="40"/>
+                    <Label Content="Z pliku" Grid.Row="1" Grid.Column="0"  FontSize="8" HorizontalContentAlignment="Center" Padding="1" Width="40"/>
                     <RadioButton Grid.Row="0" Grid.Column="1" Command="{Binding BazaDanychSQLServer, Mode=OneWay}" />
                     <RadioButton Grid.Row="1" Grid.Column="1" Command="{Binding BazaDanychPlik, Mode=OneWay}"/>
                 </Grid>
